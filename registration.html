@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EduCamps Inc - Registration</title>
+        <link href=styles.css type=text/css />
+    </head>
+    <body>
+        <div id=header>
+        </div>
+        <div id=body>
+            <form action=registration.php method=post>
+                <label>Child's Full Name<input type=text name=cname size=20 required=required /></label><br/>
+                Birthday: <label>MM <input type=text name=mo size=2 maxlength=2 required=required/></label>
+                          <label>DD <input type=text name=mo size=2 maxlength=2 required=required/></label>
+                          <label>YYYY <input type=text name=mo size=4 maxlength=4 required=required/></label><br/>
+                <label>Parent's Full Name <input type=text name=pname size=20 required=required /></label><br/>
+                <label>Parent's Email <input type=text name=email size=25 required=required /></label><br/>
+                <label>Parent's Phone <input type=text name=phone size=10 maxlength=10 required=required /></label><br/>
+                <label>Grade Level <input type=text name=grade size=2 maxlength=2 required=required /></label><br/>
+                <label>School <input type=text name=school size=20 maxlength=20 required=required /></label><br/>
+                <label>Special Instructions <input type=textarea name=special rows=5 cols=20 required=required /></label><br/>
+                <label>Camp Duration <select name=duration required=required>
+                                     <option value=1>1 week</option>
+                                     <option value=2>2 week</option>
+                    </select></label><br/>
+                Fee: $<span id=fee>0</span><br/>
+                <label>Credit Card <input type=text name=cc size=16 maxlength=12/></label><br/>
+                <input type=submit name=Submit>
+            </form>
+        </div>
+    </body>
+</html>
