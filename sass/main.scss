@@ -1,40 +1,41 @@
+@import "color.scss";
 
  #menubar{
 		 width: 100%;
 		 height: 60px;
-		 background-color: #023f59 ;
-		 color: #023f59;
+		 background-color: $menu_back_color;
+		 color: $menu_font_color;
 		 font-size: 20px;
 		 border-top-left-radius: 3px;
 		 border-top-right-radius: 3px;
- }
- #menubar table{
-		 float: right;
-		 border-spacing: 5px;
-		 margin-left: 15px;
-		 margin-right: 15px;
-		 vertical-align: center;
- }
- #menubar td{
-		 border-style: solid;
-		 padding: 10px;
-		 border-radius: 3px;
-		 margin: 50px;
-		 border-width: 1.5px;
-		 border-spacing: 20px;
-		 text-decoration-line: underline;
- }
- #menubar a{
-		 color: white;
-		 text-decoration: none;
-		 font-family: arial;
-		 margin: 15px;
- }
- #menubar img{
-		 float: left;
-		 height: 50px;
-		 width: auto;
-		 margin: 5px;
+		 table{
+				 float: right;
+				 border-spacing: 5px;
+				 margin-left: 15px;
+				 margin-right: 15px;
+				 vertical-align: center;
+		 }
+		 td{
+				 border-style: solid;
+				 padding: 10px;
+				 border-radius: 3px;
+				 margin: 50px;
+				 border-width: 1.5px;
+				 border-spacing: 20px;
+				 text-decoration-line: underline;
+		 }
+		 a{
+				 color: white;
+				 text-decoration: none;
+				 font-family: arial;
+				 margin: 15px;
+		 }
+		 img{
+				 float: left;
+				 height: 50px;
+				 width: auto;
+				 margin: 5px;
+		 }
  }
  #headerpic{
 		 width: 100%;
@@ -43,7 +44,7 @@
 
  }
  #body{
-		 background-color:#faf7f5;
+		 background-color:$body_color;
 		 width: 100%;
 		 height: 600px;
 		 font-family: arial;
@@ -62,7 +63,7 @@
  #mission{
 		 width: 800px;
 		 font-size: 16px;
-		 background-color: white;
+		 background-color: $mission_back_color;
 		 margin-left: auto;
 		 margin-right: auto;
 		 padding: 20px;
@@ -75,17 +76,7 @@
 		 margin-right: auto;
 		 border-radius: 3px;
  }
- .block{
-		 float: left;
-		 width: 250px;
-		 height: 250px;
-		 background-color: white;
-		 margin: 10px;
-		 margin-top: 20px;
-		 text-align: center;
-		 padding: 10px;
-		 border-radius: 3px;
- }
+
  .headshot{
 		 margin: auto;
 		 width: 200px;
@@ -106,16 +97,17 @@
 		 padding: 0;
  }
 
- #body table{
+ #body{
+	  table{
 		 border-spacing: 20px;
 		 width: 880px;
 		 margin: auto;
- }
-
- #body td{
-		 width: 250px;
-		 height: 250px;
-		 padding: 10px;
-		 background-color: white;
-		 text-align: center;
+	 }
+		 td{
+				width: 250px;
+				height: 250px;
+				padding: 10px;
+				background-color: $box_color;
+				text-align: center;
+			}
  }
