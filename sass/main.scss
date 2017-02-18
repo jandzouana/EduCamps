@@ -1,9 +1,13 @@
 @import "color.scss";
-
+	$cut-off: 1100px;
 	.main_container{
-		min-width: 1110px;
+		min-width: $cut-off;
 		max-width: 1600px;
 		margin: auto;
+	}
+
+	#banner{
+		position: relative;
 	}
  #menubar{
 		 width: 100%;
@@ -91,7 +95,7 @@
  #title{
 		 font-family: arial;
 		 clear: center;
-		 font-size: 10em;
+		 font-size: 10vw;
 		 text-align: center;
 		 color: white;
 		 position: absolute;
@@ -116,3 +120,9 @@
 				text-align: center;
 			}
  }
+
+ @media only screen and (max-width:$cut-off){
+	 #title{
+		 font-size: 150px;
+	 }
+}
