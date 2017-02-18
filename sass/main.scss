@@ -18,17 +18,16 @@
 		 border-top-left-radius: 3px;
 		 border-top-right-radius: 3px;
 		 table{
-				 float: right;
+				 display: flex; 
+                 justify-content: flex-end;
 				 border-spacing: 5px;
 				 margin-left: 15px;
 				 margin-right: 15px;
 				 vertical-align: center;
 		 }
 		 td{
-				 border-style: solid;
 				 padding: 10px;
 				 border-radius: 3px;
-				 margin: 50px;
 				 border-width: 1.5px;
 				 border-spacing: 20px;
 				 text-decoration-line: underline;
@@ -37,7 +36,6 @@
 				 color: white;
 				 text-decoration: none;
 				 font-family: arial;
-				 margin: 15px;
 		 }
 		 img{
 				 float: left;
@@ -79,13 +77,6 @@
 		 text-align: justify;
 
  }
- #blockhouse{
-		 width: 870px;
-		 margin-left: auto;
-		 margin-right: auto;
-		 border-radius: 3px;
- }
-
  .headshot{
 		 margin: auto;
 		 width: 200px;
