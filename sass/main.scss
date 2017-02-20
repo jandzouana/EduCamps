@@ -59,7 +59,7 @@
 #body{
     background-color:$body_color;
     width: 100%;
-    height: 600px;
+    height: 1000px;
     font-family: arial;
     font-size: 30px;
 }
@@ -116,6 +116,25 @@
     font-size: 20px;
     position: relative;
 }
+
+#locationswrapper{
+    margin-left: auto;
+    margin-right: auto;
+    
+    td{
+        background-color: $body_color; 
+        text-align: left;
+        color: $location_color; 
+    }
+}
+#map{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    text-align: justify;
+}
+
 
 @media only screen and (max-width:$cut-off){
     #title{
