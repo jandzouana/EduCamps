@@ -35,7 +35,7 @@
     a{
         color: white;
         text-decoration: none;
-        font-family: arial;
+        font-family: 'Roboto', sans-serif;
     }
     img{
         float: left;
@@ -80,13 +80,13 @@
     background-color:$body_color;
     width: 100%;
     height: 1000px;
-    font-family: arial;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
 #tagline{
     width: 100%;
     text-align: center;
-    font-family: arial;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
     padding: 30px;
     color: black;
@@ -103,7 +103,7 @@
 
 }
 #title{
-    font-family: arial;
+    font-family: 'Roboto', sans-serif;
     clear: center;
     font-size: 10vw;
     text-align: center;
