@@ -5,45 +5,47 @@
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
     </head>
     <body>
-        <div id=menubar>
-						<a href="../">
-            	<img src="../smiley.png" alt="EduCamps logo" />
-						</a>
-            <table>
-                <tr>
-                    <td><a href=schedule.html>Schedule</a></td>
-                    <td><a href=registration.html>Registration</a></td>
-                    <td><a href=store.html>Store</a></td>
-                    <td><a href=gallery.html>Gallery</a></td>
-                    <td><a href=forum.html>Forum</a></td>
-                    <td><a href=data.html>Data</a></td>
-                    <td><a href=activities.html>Activities</a></td>
-                </tr>
-            </table>
-        </div>
-        <div id=body>
-            <div id=regform>
-                <form action=registration.php method=post>
-                    <label>Child's Full Name<input type=text name=cname size=20 required=required /></label><br/>
-                    Birthday: <label>MM <input type=text name=mo size=2 maxlength=2 required=required/></label>
-                              <label>DD <input type=text name=mo size=2 maxlength=2 required=required/></label>
-                              <label>YYYY <input type=text name=mo size=4 maxlength=4 required=required/></label><br/>
-                    <label>Parent's Full Name <input type=text name=pname size=20 required=required /></label><br/>
-                    <label>Parent's Email <input type=text name=email size=25 required=required /></label><br/>
-                    <label>Parent's Phone <input type=text name=phone size=10 maxlength=10 required=required /></label><br/>
-                    <label>Grade Level <input type=text name=grade size=2 maxlength=2 required=required /></label><br/>
-                    <label>School <input type=text name=school size=20 maxlength=20 required=required /></label><br/>
-                    <label>Special Instructions <input type=textarea name=special rows=5 cols=20 required=required /></label><br/>
-                    <label>Camp Duration <select name=duration required=required>
-                                         <option value=1>1 week</option>
-                                         <option value=2>2 week</option>
-                        </select></label><br/>
-                    <input type=submit name=Submit>
-                </form>
+        <div class=main_container>
+            <div id=menubar>
+                            <a href="../">
+                    <img src="../smiley.png" alt="EduCamps logo" />
+                            </a>
+                <table>
+                    <tr>
+                        <td><a href=schedule.html>Schedule</a></td>
+                        <td><a href=registration.html>Registration</a></td>
+                        <td><a href=store.html>Store</a></td>
+                        <td><a href=gallery.html>Gallery</a></td>
+                        <td><a href=forum.html>Forum</a></td>
+                        <td><a href=data.html>Data</a></td>
+                        <td><a href=activities.html>Activities</a></td>
+                    </tr>
+                </table>
             </div>
-        </div>
-        <div id=footer>
-            
+            <div id=body>
+                <div id=regform>
+                    <form action=registration.php method=post>
+                        <label>Child's Full Name<input type=text name=cname size=20 required=required /></label><br/>
+                        Birthday: <label>MM <input type=text name=mo size=2 maxlength=2 required=required/></label>
+                                  <label>DD <input type=text name=mo size=2 maxlength=2 required=required/></label>
+                                  <label>YYYY <input type=text name=mo size=4 maxlength=4 required=required/></label><br/>
+                        <label>Parent's Full Name <input type=text name=pname size=20 required=required /></label><br/>
+                        <label>Parent's Email <input type=text name=email size=25 required=required /></label><br/>
+                        <label>Parent's Phone <input type=text name=phone size=10 maxlength=10 required=required /></label><br/>
+                        <label>Grade Level <input type=text name=grade size=2 maxlength=2 required=required /></label><br/>
+                        <label>School <input type=text name=school size=20 maxlength=20 required=required /></label><br/>
+                        <label>Special Instructions <input type=textarea name=special rows=5 cols=20 required=required /></label><br/>
+                        <label>Camp Duration <select name=duration required=required>
+                                             <option value=1>1 week</option>
+                                             <option value=2>2 week</option>
+                            </select></label><br/>
+                        <input type=submit name=Submit>
+                    </form>
+                </div>
+            </div>
+            <div id=footer>
+
+            </div>
         </div>
     </body>
 </html>
