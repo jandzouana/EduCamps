@@ -46,9 +46,11 @@
 }
 #footer{
     width: 100%;
-    height: 60px;
+    height: 65px;
     background-color: $menu_back_color;
     color: $menu_font_color;
+    position: relative;
+    z-index: 2;
     font-size: 14px;
     table{
         display: flex; 
@@ -56,19 +58,28 @@
         border-spacing: 5px;
         margin-left: 15px;
         margin-right: 15px;
-        vertical-align: center;
     }
     td{
-        padding: 10px;
+        padding-top: 0px;
         border-radius: 3px;
         border-width: 1.5px;
         border-spacing: 20px;
         text-decoration-line: underline;
+        vertical-align: center;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        padding-top: 0px;
+        padding-bottom: 15px;
+
     }
     img{
         height: 50px;
         width: auto;
         margin: 5px;
+        padding-top: 0px;
     }
 }
 #headerpic{
@@ -131,21 +142,55 @@
     }
 }
 #regform{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    line-height: 20px;
+    p{
+        font-size: 1em;
+        text-align: center;
+    }
+    label{
+        line-height: 50px;
+    }
+   #title{
+        color: black;
+        font-size: 20px;
+       position: absolute;
+    }
+    
+
+    align-content: space-between;
+    padding: 20px;
     width: 600px;
     margin-left: 50px;
-    font-size: 20px;
+    font-size: 15px;
     position: relative;
+    left: 20%;
+    z-index: 1;
+    
+    
 }
-
+#regtitle{
+    font-size: 30px;
+    text-align: left;
+    
+}
 #locationswrapper{
     margin-left: auto;
     margin-right: auto;
-    
+
+    li{
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+    }
     td{
         background-color: $body_color; 
         text-align: left;
         color: $location_color; 
     }
+
 }
 #map{
     width: 800px;
@@ -153,7 +198,11 @@
     margin-right: auto;
     padding: 0px;
     text-align: justify;
+    
+    
 }
+
+
 
 
 @media only screen and (max-width:$cut-off){
