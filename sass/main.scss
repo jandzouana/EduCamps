@@ -4,6 +4,7 @@
 		min-width: $cut-off;
 		max-width: 1600px;
 		margin: auto;
+        background-color: $body_color;
 	}
 
 	#banner{
@@ -142,10 +143,18 @@
     }
 }
 #regform{
-    width: 50%;
-    height: 100%;
     background-color: white;
     line-height: 20px;
+    align-content: space-between;
+    padding: 20px;
+    padding-top: 10px;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    z-index: 1;
+    
     p{
         font-size: 1em;
         text-align: center;
@@ -153,23 +162,11 @@
     label{
         line-height: 50px;
     }
-   #title{
+    #title{
         color: black;
         font-size: 20px;
-       position: absolute;
+        position: absolute;
     }
-    
-
-    align-content: space-between;
-    padding: 20px;
-    width: 600px;
-    margin-left: 50px;
-    font-size: 15px;
-    position: relative;
-    left: 20%;
-    z-index: 1;
-    
-    
 }
 #regtitle{
     font-size: 30px;
