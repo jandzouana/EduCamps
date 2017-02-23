@@ -2,42 +2,42 @@
 <html>
     <head>
         <title>EduCamps Inc - Gallery</title>
-        <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
+        <link href="../stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
     <body>
-        <div class=main_container>
-            <div id=menubar>
+        <div class="main_container">
+            <div id="menubar">
                 <a href="../">
                     <img src="../smiley.png" alt="EduCamps logo" />
                 </a>
                 <table>
                     <tr>
-                        <td><a href=../schedule>Schedule</a></td>
-                        <td><a href=../registration>Registration</a></td>
-                        <td><a href=../store>Store</a></td>
-                        <td><a href=../gallery>Gallery</a></td>
-                        <td><a href=../forum>Forum</a></td>
-                        <td><a href=../data>Data</a></td>
-                        <td><a href=../activities>Activities</a></td>
+                        <td><a href="../schedule">Schedule</a></td>
+                        <td><a href="../registration">Registration</a></td>
+                        <td><a href="../store">Store</a></td>
+                        <td><a href="../gallery">Gallery</a></td>
+                        <td><a href="../forum">Forum</a></td>
+                        <td><a href="../data">Data</a></td>
+                        <td><a href="../activities">Activities</a></td>
                     </tr>
                 </table> 
             </div>
             <div id= "gallery_main_content" class = "main_content">
-                <div id=gallery_form>
-                    <form action=submitimage.php method="post" enctype="multipart/form-data">
-                        <label>Upload Image<br/><input type="file" required="required" name="imagesubmission" /></label><br/>
-                        <input type=submit value="Submit Image" />
+                <div id="gallery_form">
+                    <form action="submitimage.php" method="post" enctype="multipart/form-data">
+                        <label>Upload Image<br/><input type="file" required="required" name="image_submission" /></label><br/>
+                        <input type="submit" value="Submit Image" />
                     </form>
                 </div>
-                <div id=gallery_images>
+                <div id="gallery_images">
                     <?php 
                         foreach(glob("images/*") as $image){ ?>
-                            <p class=gallery_image><img src="images/{<?=image?>}" alt="gallery image"></p>
+                            <p class="gallery_image"><img src="images/{<?=$image?>}" alt="gallery image"></p>
                         <?php}
                     ?>
                 </div>
             </div>
         </div>
-    </body> 
+    </body>
 </html>
