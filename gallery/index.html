@@ -24,9 +24,20 @@
                 </table> 
             </div>
             <div id="body">
-            <p>This is some text</p>
+                <div id=gallery_form>
+                    <form action=submitimage.php method="post" enctype="multipart/form-data">
+                        <label>Upload Image<br/><input type="file" required="required" name="imagesubmission" /></label><br/>
+                        <input type=submit value="Submit Image" />
+                    </form>
+                </div>
+                <div id=gallery_images>
+                    <?php 
+                        foreach(glob("images/*") as $image){ ?>
+                            <p class=gallery_image><img src="images/{<?=image?>}" alt="gallery image"></p>
+                        <?php}
+                    ?>
+                </div>
             </div>
-            
         </div>
     </body> 
 </html>
