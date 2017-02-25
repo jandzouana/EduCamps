@@ -1,5 +1,6 @@
 @import "color.scss";
 @import "registration.scss";
+@import "schedule.scss";
 $cut-off: 1100px;
 
 .main_container{
@@ -142,6 +143,9 @@ $cut-off: 1100px;
         padding: 10px;
         background-color: $box_color;
         text-align: center;
+    }
+    h4{
+        font-size: .85em; 
     }
 }
 
