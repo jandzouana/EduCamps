@@ -1,6 +1,7 @@
 @import "color.scss";
 #schedule_main_content{
     width: 800px; 
+    height: 2300px;
     margin: auto; 
     p{
         font-size: .75em;
@@ -26,14 +27,27 @@
         color: $menu_back_color; 
     }
 }
+a{
+    text-decoration: none;
+    color: $menu_back_color;
+}
+a:visited{
+    color: $menu_back_color;
+}
+
 #anchor_bar{ 
     font-family: 'Roboto', sans-serif;
     font-size: 25.5px;
     float: right;
     margin-right: 50px;
+    margin-top: 120px;
     color: $menu_back_color;
 }
 #scheduletitle{
     font-size: 30px;
     text-align: left;
+}
+#headspace{
+    border: solid black 1px;
+    margin-top: 20px;
 }
