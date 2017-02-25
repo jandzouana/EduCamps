@@ -9,7 +9,7 @@
         <div class="main_container">
             <div id="menubar">
                 <a href="../">
-                    <img src="../smiley.png" alt="EduCamps logo" />
+									<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                 </a>
                 <table>
                     <tr>
@@ -21,7 +21,7 @@
                         <td><a href="../data">Data</a></td>
                         <td><a href="../activities">Activities</a></td>
                     </tr>
-                </table> 
+                </table>
             </div>
             <div id= "gallery_main_content" class = "main_content">
                 <div id="gallery_form">
@@ -31,7 +31,7 @@
                     </form>
                 </div>
                 <div id="gallery_images">
-                    <?php 
+                    <?php
                         foreach(glob("images/*") as $image){ ?>
                             <p class="gallery_image"><img src="images/{<?=$image?>}" alt="gallery image"></p>
                         <?php}

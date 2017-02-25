@@ -9,7 +9,7 @@
         <div class=main_container>
             <div id=menubar>
                 <a href="../">
-                    <img src="../smiley.png" alt="EduCamps logo" />
+									<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                 </a>
                 <table>
                     <tr>
@@ -21,7 +21,7 @@
                         <td><a href=../data>Data</a></td>
                         <td><a href=../activities>Activities</a></td>
                     </tr>
-                </table> 
+                </table>
             </div>
             <div id="reg_main_content" class = "main_content">
                 <div id=regform>
@@ -30,40 +30,43 @@
                     </div>
                     <p> Please fill out the following information regarding your camper: </p>
                     <form action=registration.php method=post>
-                        <label>Child's Full Name<input type=text name=cname size=20 required=required /></label><br/>
-                        Birthday: <label>MM <input type=text name=mo size=2 maxlength=2 required=required/></label>
-                                  <label>DD <input type=text name=mo size=2 maxlength=2 required=required/></label>
-                                  <label>YYYY <input type=text name=mo size=4 maxlength=4 required=required/></label><br/>
-                        <label>Parent's Full Name <input type=text name=pname size=20 required=required /></label><br/>
-                        <label>Parent's Email <input type=text name=email size=25 required=required /></label><br/>
-                        <label>Parent's Phone <input type=text name=phone size=10 maxlength=10 required=required /></label><br/>
-                        <label>Grade Level <input type=text name=grade size=2 maxlength=2 required=required /></label><br/>
-                        <label>School <input type=text name=school size=20 maxlength=20 required=required /></label><br/>
-                        <label>Special Instructions <input type=textarea name=special rows=5 cols=20 required=required /></label><br/>
-                        <label>Camp Duration <select name=duration required=required>
-                                             <option value=1>1 week</option>
-                                             <option value=2>2 week</option>
-                            </select></label><br/>
+                        <label>Child's Full Name</label><input type=text name=cname size=20 required=required /><br/>
+                        Birthday: <label>MM </label><input type=text name=mo size=2 maxlength=2 required=required/>
+                                  <label>DD </label><input type=text name=mo size=2 maxlength=2 required=required/>
+                                  <label>YYYY </label><input type=text name=mo size=4 maxlength=4 required=required/><br/>
+                        <label>Parent's Full Name </label><input type=text name=pname size=20 required=required /><br/>
+                        <label>Parent's Email </label><input type=text name=email size=25 required=required /><br/>
+                        <label>Parent's Phone </label><input type=text name=phone size=10 maxlength=10 required=required /><br/>
+                        <label>Grade Level </label><input type=text name=grade size=2 maxlength=2 required=required /><br/>
+                        <label>School </label><input type=text name=school size=20 maxlength=20 required=required /><br/>
+                        <label>Special Instructions </label><input type=textarea name=special rows=5 cols=20 required=required /><br/>
+                        <label>Camp Duration </label>
+												<select name=duration required=required>
+	                       <option value=1>1 week</option>
+	                       <option value=2>2 weeks</option>
+                        </select><br/>
                         <input type=submit name=Submit>
                     </form>
                 </div>
             </div>
             <div id=footer>
-                <table>
-                    <tr>
-                        <td><a href=webmaster.html>Webmaster</a></td>
-                        <td><a href=contact.html>Contact Us</a></td> <td><img src="../smiley.png" alt="developer logo"/></td>
-                        <td>
-                            <a href="https://www.facebook.com"><img src=../icons/facebook.jpg alt="facebook icon"/></a>
-                            <a href="https://www.twitter.com"><img src=../icons/twitter.jpg alt="twitter icon"/></a>
-                            <a href="https://www.pinterest.com"><img src=../icons/pinterest.jpg alt="pinterest icon"/></a>
-                            <a href="https://www.instagram.com"><img src=../icons/instagram.jpg alt="instagram icon"/></a>
-                            <a href="https://www.snapchat.com"><img src=../icons/snapchat.jpg alt="snapchat icon"/></a>
-                            <br/>
-                            Social Media
-                        </td>
-                    </tr>
-                </table>
+							<div id="left-footer">
+								<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+								<a href=webmaster.html>Webmaster</a>
+								<a href=contact.html>Contact Us</a>
+							</div>
+              <table id="right-footer">
+                  <tr>
+
+                      <td>
+                          <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+                          <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+                          <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+                          <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                          <br/>
+                      </td>
+                  </tr>
+              </table>
             </div>
         </div>
     </body>

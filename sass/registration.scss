@@ -10,13 +10,14 @@
     margin-bottom: 25px;
     font-size: 15px;
     z-index: 1;
-    
+
     p{
         font-size: 1em;
         text-align: center;
     }
     label{
         line-height: 50px;
+				margin-right: 4px;
     }
     #title{
         color: black;
@@ -27,4 +28,9 @@
 #regtitle{
     font-size: 30px;
     text-align: left;
+}
+
+#reg_main_content{
+	height: auto;
+	padding-bottom: 100px;
 }

@@ -10,6 +10,12 @@ $cut-off: 1100px;
     background-color: $body_color;
 }
 
+#logo{
+		float: left;
+		height: 40px;
+		width: auto;
+		margin-left: 7px;
+}
 #banner{
     position: relative;
 }
@@ -21,8 +27,12 @@ $cut-off: 1100px;
     font-size: 20px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
     table{
-        display: flex; 
+			float: right;
+        display: flex;
         justify-content: flex-end;
         border-spacing: 5px;
         margin-left: 15px;
@@ -41,12 +51,7 @@ $cut-off: 1100px;
         text-decoration: none;
         font-family: 'Roboto', sans-serif;
     }
-    img{
-        float: left;
-        height: 50px;
-        width: auto;
-        margin: 5px;
-    }
+
 }
 #footer{
     width: 100%;
@@ -56,35 +61,52 @@ $cut-off: 1100px;
     position: relative;
     z-index: 2;
     font-size: 14px;
-    table{
-        display: flex; 
+		display: flex;
+		justify-content: space-between;
+    #right-footer{
+        display: flex;
         justify-content: flex-end;
+				align-items: center;
         border-spacing: 5px;
-        margin-left: 15px;
-        margin-right: 15px;
+        //margin-left: 15px;
+        //margin-right: 15px;
+				img{
+						height: 30px;
+						width: auto;
+						margin: 5px;
+						padding-top: 0px;
+						filter: invert(100%);
+						padding-left: 15px;
+				}
+				td{
+						padding-top: 0px;
+						border-radius: 3px;
+						border-width: 1.5px;
+						border-spacing: 20px;
+						text-decoration-line: underline;
+						vertical-align: center;
+				}
     }
-    td{
-        padding-top: 0px;
-        border-radius: 3px;
-        border-width: 1.5px;
-        border-spacing: 20px;
-        text-decoration-line: underline;
-        vertical-align: center;
-    }
-    a{
-        color: white;
-        text-decoration: none;
-        font-family: 'Roboto', sans-serif;
-        padding-top: 0px;
-        padding-bottom: 15px;
 
-    }
-    img{
-        height: 50px;
-        width: auto;
-        margin: 5px;
-        padding-top: 0px;
-    }
+		#left-footer{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	    a{
+	        color: white;
+	        text-decoration: none;
+	        font-family: 'Roboto', sans-serif;
+	        padding-top: 0px;
+					margin-left: 10px;
+	    }
+	    img{
+	        height: 40px;
+	        width: auto;
+	        margin: 5px;
+	        padding-top: 0px;
+					padding-left: 10px;
+	    }
+		}
 }
 #headerpic{
     width: 100%;
@@ -131,7 +153,7 @@ $cut-off: 1100px;
     height: 1000px;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
-   
+
     table{
         border-spacing: 20px;
         width: 880px;
@@ -145,10 +167,10 @@ $cut-off: 1100px;
         text-align: center;
     }
     h1{
-        color: $menu_back_color; 
+        color: $menu_back_color;
     }
     h4{
-        font-size: .85em; 
+        font-size: .85em;
     }
 }
 
@@ -163,9 +185,9 @@ $cut-off: 1100px;
         text-align: left;
     }
     td{
-        background-color: $body_color; 
+        background-color: $body_color;
         text-align: left;
-        color: $location_color; 
+        color: $location_color;
     }
 
 }
@@ -175,8 +197,8 @@ $cut-off: 1100px;
     margin-right: auto;
     padding: 0px;
     text-align: justify;
-    
-    
+
+
 }
 
 
