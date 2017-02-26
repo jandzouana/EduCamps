@@ -31,15 +31,20 @@
                     </form>
                 </div>
                 <div id="gallery_images">
+                    Images<hr/>
+                    <p><img src="images/Camp_4.jpg" alt="test image"/></p>
                     <?php
                     $images = glob("images/*");
-                    foreach($images as $image){
-                        $filename = basename($image);
-                        print(
+                    if(count($images)){
+                        foreach($images as $image){
+                            $filename = basename($image);
                             ?>
-                            <p class="gallery_image"><img src=$image alt=$filename /></p>
+                            <p><img src=$image alt=$filename /></p>
                             <?php
-                        );
+                        }
+                    }
+                    else{
+                        echo "No images found.";
                     }
                     ?>
                 </div>

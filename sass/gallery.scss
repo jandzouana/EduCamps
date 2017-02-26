@@ -1,0 +1,17 @@
+#gallery_images{
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    background-color: white;
+    p{
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+        float: left;
+        img{
+            width: 280px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+}
