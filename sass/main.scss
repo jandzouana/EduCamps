@@ -3,11 +3,16 @@
 @import "schedule.scss";
 $cut-off: 1100px;
 
+body{
+	padding-left: 100px;
+	padding-right: 100px;
+}
 .main_container{
     min-width: $cut-off;
     max-width: 1600px;
     margin: auto;
     background-color: $body_color;
+		margin-bottom: 100px;
 }
 
 #logo{
