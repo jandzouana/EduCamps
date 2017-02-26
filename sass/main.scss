@@ -1,8 +1,12 @@
 @import "color.scss";
 @import "registration.scss";
 @import "schedule.scss";
+@import "store.scss";
 $cut-off: 1100px;
 
+h2{
+	color: $menu_back_color;
+}
 body{
 	padding-left: 100px;
 	padding-right: 100px;

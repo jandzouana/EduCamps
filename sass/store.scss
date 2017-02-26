@@ -1,0 +1,72 @@
+@import "color.scss";
+@import "fonts.scss";
+
+#store-wrap{
+	display: flex;
+	flex-direction: row;
+
+}
+
+#store_main_content{
+	//font-family: 'Josefin Sans', sans-serif;
+    min-width: 650px;
+		max-width: 800px;
+    height: 2300px;
+    margin-left: 100px;
+		display: flex;
+		flex-direction: column;
+    p{
+        font-size: .75em;
+        text-align: left;
+    }
+
+    h4{
+        color: $menu_back_color;
+    }
+	height: auto;
+	padding-bottom: 100px;
+}
+
+.store-images-container{
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.store-img{
+	background-color: orange;
+	height: 200px;
+	width: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#i1 {
+		background-image: url(../pictures/store/1.jpg);
+}
+#i2 {
+		background-image: url(../pictures/store/2.jpg);
+}
+#i3 {
+		background-image: url(../pictures/store/3.jpg);
+}
+#i4 {
+		background-image: url(../pictures/store/4.jpg);
+}
+#i5 {
+		background-image: url(../pictures/store/5.jpg);
+}
+#i6 {
+		background-image: url(../pictures/store/6.jpg);
+}
+#i7 {
+		background-image: url(../pictures/store/7.jpg);
+}
+#i8 {
+		background-image: url(../pictures/store/8.jpg);
+}
+#i9 {
+		background-image: url(../pictures/store/9.jpg);
+}
