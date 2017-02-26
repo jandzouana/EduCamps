@@ -1,8 +1,7 @@
 @import "color.scss";
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-
+@import "fonts.scss";
 #schedule_main_content{
-	font-family: 'Josefin Sans', sans-serif;
+	//font-family: 'Josefin Sans', sans-serif;
     width: 800px;
     height: 2300px;
     margin-left: 200px;
