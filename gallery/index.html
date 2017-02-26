@@ -32,9 +32,15 @@
                 </div>
                 <div id="gallery_images">
                     <?php
-                        foreach(glob("images/*") as $image){ ?>
-                            <p class="gallery_image"><img src="images/{<?=$image?>}" alt="gallery image"></p>
-                        <?php}
+                    $images = glob("images/*");
+                    foreach($images as $image){
+                        $filename = basename($image);
+                        print(
+                            ?>
+                            <p class="gallery_image"><img src=$image alt=$filename /></p>
+                            <?php
+                        );
+                    }
                     ?>
                 </div>
             </div>
