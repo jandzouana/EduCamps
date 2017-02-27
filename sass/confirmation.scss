@@ -1,0 +1,67 @@
+@import "color.scss";
+@import "fonts.scss";
+
+#conf_main_content{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	padding-top: 25px;
+	padding-left: 0px;
+	font-size: 16px;
+
+}
+#item_print_header{
+	font-weight: bold;
+}
+.item_print{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	div{
+		display: flex;
+		flex-direction: row;
+		margin-right: -40px;
+		p{
+			margin-right:40px;
+		}
+	}
+}
+.order-confirm{
+	p{
+		text-align: right;
+
+	}
+}
+.cart-items{
+	p{
+	text-align: left;
+	}
+}
+.billing, .order-confirm{
+	width: 400px;
+	background-color: white;
+	line-height: 20px;
+	align-content: space-between;
+	padding: 20px;
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	label{
+			line-height: 20px;
+			margin-right: 4px;
+			font-size: 16px;
+	}
+	input{
+		width: 100%;
+		height: 20px;
+	}
+	input[type=submit]{
+		width: 40%;
+		height: 50px;
+		margin: auto;
+		margin-top: 30px;
+	}
+}

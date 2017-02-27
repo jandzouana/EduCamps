@@ -26,7 +26,7 @@
             </div>
 						<div id="store-wrap">
 	            <div id="store_main_content" class = "main_content">
-								<form action="confirmation.php">
+								<form action="confirmation.php" method="POST">
 									<h1>Store</h1>
 		              <h4><a name="shirts">SHIRTS</a></h4>
 									<div class="store-images-container">
@@ -34,15 +34,35 @@
 											<div class="store-img" id="i1"></div>
 											<div class="price">
 												<h4>Price</h4>
-												<p>$4.50</p>
+												<p>$14.50</p>
 											</div>
 											<div class="quantity">
 												<p>Quantity</p>
-												<input type="number" name="quantity" min="1" max="5">
+												<input type="number" name="val1" min="0" max="5" value="0"/>
 											</div>
 										</div>
-										<div class="store-img" id="i2"></div>
-										<div class="store-img" id="i3"></div>
+										<div class="item">
+											<div class="store-img" id="i2"></div>
+											<div class="price">
+												<h4>Price</h4>
+												<p>$11.50</p>
+											</div>
+											<div class="quantity">
+												<p>Quantity</p>
+												<input type="number" name="val2"  min="0" max="5" value="0"/>
+											</div>
+										</div>
+										<div class="item">
+											<div class="store-img" id="i3"></div>
+											<div class="price">
+												<h4>Price</h4>
+												<p>$12.50</p>
+											</div>
+											<div class="quantity">
+												<p>Quantity</p>
+												<input type="number" name="val3"  min="0" max="5" value="0"/>
+											</div>
+										</div>
 									</div>
 
 		              <h4><a name="gifts">GIFTS</a></h4>
@@ -57,7 +77,11 @@
 										<div class="store-img" id="i8"></div>
 										<div class="store-img" id="i9"></div>
 									</div>
-									<input type="submit" value="Checkout">
+									<div class="promo-code">
+										<h4>Promo Code</h4>
+										<input type="text"/>
+									</div>
+									<input type="submit" value="Checkout"/>
 								</form>
 	            </div>
 						</div>

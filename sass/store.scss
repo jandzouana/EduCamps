@@ -1,19 +1,29 @@
 @import "color.scss";
 @import "fonts.scss";
-
-.price{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	height: 40px;
-
-}
-
 .item{
 	height: auto;
 	p{
 		margin-left: 5px;
 
+	}
+}
+.price{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 40px;
+}
+
+.promo-code{
+	margin-top: 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 40px;
+	input{
+		height: 30px;
+		width: 150px;
+		margin-left: 5px;
 	}
 }
 .quantity{
