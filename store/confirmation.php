@@ -82,11 +82,11 @@
 										if($order_bought[$i]==1){
 											echo "<div class=\"item_print\">";
 											echo "<p> $items[$i] </p>";
-											echo"<div>";
+											echo "<div>";
 											echo "<p> $prices[$i] </p>";
 											echo "<p> $val[$i] </p>";
-											echo"</div>";
-											echo"</div>";
+											echo "</div>";
+											echo  "</div>";
 
 										}
 									}
@@ -95,9 +95,9 @@
 							<div class="total">
 								<p> Subtotal: $<?php echo $subtotal;?> </p>
 								<p> Discount: -$<?php echo $discount;?> </p>
-								<p> Tax: $<?php echo $tax;?> </p>
+								<p> Tax: $<?php echo number_format($tax, 2);?> </p>
 								<p> Shipping: $<?php echo $shipping;?> </p>
-								<p> Total: $<?php echo $total;?> </p>
+								<p> Total: $<?php echo number_format($total, 2);?> </p>
 							</div>
 							<input type="submit" value="Confirm">
 						</div>
