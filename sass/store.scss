@@ -1,6 +1,33 @@
 @import "color.scss";
 @import "fonts.scss";
 
+.price{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 40px;
+
+}
+
+.item{
+	height: auto;
+	p{
+		margin-left: 5px;
+
+	}
+}
+.quantity{
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	input{
+		height: 30px;
+		width: 100%;
+		margin-left: 5px;
+	}
+
+}
 #store-wrap{
 	display: flex;
 	flex-direction: row;
@@ -9,6 +36,9 @@
 
 #store_main_content{
 	//font-family: 'Josefin Sans', sans-serif;
+
+
+
     min-width: 650px;
 		max-width: 800px;
     height: 2300px;
