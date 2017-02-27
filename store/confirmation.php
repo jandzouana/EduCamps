@@ -24,15 +24,15 @@
                 </tr>
             </table>
           </div>
-          <div id="conf_main_content" class = "main_content">
-						<form method=post class="billing">
+          <form id="conf_main_content" class = "main_content">
+						<div method=post class="billing">
 							<h1>Billing Information </h1>
 
 							<label>Full Name</label>
 							<input type="text" name="fullname" size=20 required /><br/>
 							<label>Address</label>
 							<input type="text" name="address" size=20 required /><br/>
-						</form>
+						</div>
 						<?php
 						#need to add more prices
 						$prices = array(14.50, 11.50, 12.50);
@@ -91,15 +91,15 @@
 										}
 									}
 								?>
-
 							</div>
-							<div class "total">
+							<div class="total">
 								<p> Subtotal: $<?php echo $subtotal;?> </p>
 								<p> Discount: -$<?php echo $discount;?> </p>
 								<p> Tax: $<?php echo $tax;?> </p>
 								<p> Shipping: $<?php echo $shipping;?> </p>
 								<p> Total: $<?php echo $total;?> </p>
 							</div>
+							<input type="submit" value="Confirm">
 						</div>
 					</div>
 					<div id=footer>
@@ -119,7 +119,7 @@
 										</td>
 								</tr>
 						</table>
-					</div>
+					</form>
         </div>
     </body>
 </html>
