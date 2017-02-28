@@ -34,15 +34,16 @@
 							<input type="text" name="address" size=20 required /><br/>
 						</div>
 						<?php
-						#need to add more prices
+						#need to add more prices and items
+						#put prices and items to a separate php file so that we don't
+						#need to modify both store and confirmation page if need be?
 						$prices = array(14.50, 11.50, 12.50);
 						$val = array();
 						$order_bought = array();
 						$items = array("Shirt 1", "Shirt 2", "Shirt 3");
 						$shipping = 5.00;
+						$discount = .15;
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-							#need to change i to 10
-							$discount = .15;
 							for($i = 0; $i < sizeof($prices); $i++){
 								$temp = 'val'. ($i+1);
 								$val[$i] =  $_POST[$temp];
@@ -54,13 +55,11 @@
 								}
 
 							}
-							#$subtotal = $val[1]*$prices[0]+$val[2]*$prices[1];
-							#need to change i to 10
 							$subtotal = 0;
 							for($i = 0; $i < sizeof($prices); $i++){
 								$subtotal = $subtotal + $val[$i]*$prices[$i];
 							}
-							$discount_applied = .15*$subtotal;
+							$discount_applied = $discount*$subtotal;
 							$total = $subtotal - $discount_applied;
 							$tax = 0.0975 * $total;
 							$total = $total + $tax +$shipping;
