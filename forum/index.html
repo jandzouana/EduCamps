@@ -4,6 +4,7 @@
         <title>EduCamps Inc - Forum</title>
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class=main_container>
@@ -24,9 +25,38 @@
                 </table>
             </div>
             <div id="forum_main_content" class = "main_content">
-            <p>This is some text</p>
+                
+            <h2> Reviews </h2> 
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a congue elit. Cras vehicula bibendum dolor vel consectetur. Phasellus pretium id nisl sit amet imperdiet. Praesent vehicula purus vel tempus maximus. Fusce aliquam quam enim, eget laoreet lorem semper eget. Sed malesuada tortor consectetur massa consectetur, tempus mollis est dignissim.</p>
+            
+                <form action = "forum.php" action = POST>
+                    <div class = commenter_info>
+                        <label> Name: <input type = "text" name = "name"></label> <br/>
+                        <label> Email: <input type = "text" name = "name"></label>
+                    </div>
+                     <div class = "stars"> 
+                        <p>Rating: </p>
+                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                        <label class="star star-1" for="star-1"></label>
+                         <br/>
+                     </div>
+                    <br/>
+                    <br/>
+                    <textarea cols = 75% rows = 10>
+                        Provide your review here
+                    </textarea> <br/>
+                </form>
             </div>
 
         </div>
+        
     </body>
 </html>
