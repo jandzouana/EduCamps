@@ -94,7 +94,7 @@
 							</div>
 							<div class="total">
 								<p> Subtotal: $<?php echo $subtotal;?> </p>
-								<p> Discount: -$<?php echo $discount;?> </p>
+								<p> Discount: -$<?php echo $discount_applied;?> </p>
 								<p> Tax: $<?php echo number_format($tax, 2);?> </p>
 								<p> Shipping: $<?php echo $shipping;?> </p>
 								<p> Total: $<?php echo number_format($total, 2);?> </p>
