@@ -8,4 +8,4 @@ To do:
 7. add registration additional info
 8. separate variables in php file
 9. email address instead of promo code on confirmation page or store page (as a separate form?)
-10. add discount if parent has more than one child
+10. add discount if parent has more than one child and discount message
