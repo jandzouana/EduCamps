@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>EduCamps Inc - Registration</title>
+        <link href=../stylesheets/main.css media="screen" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     </head>
     <body>
@@ -28,17 +29,21 @@
                         <h2>Registration Form </h2>
 												<p> Please fill out the following information regarding your camper: </p>
                     </div>
-                    <form "action"=registration.php method="post">
-                        <label>Child's Full Name</label><input type="text" name=cname size=20 required />
-												<label>Birthday </label><input type=date required/>
-
-
-                        <label>Parent's Full Name: </label><input type="text" name="pname" size="20" required />
-                        <label>Parent's Email: </label><input type="text" name="email" size="25" required />
-                        <label>Parent's Phone: </label><input type="text" name="phone" size="10" maxlength="10" required />
-                        <label>Grade Level: </label><input type="text" name="grade" size="2" maxlength="2" required />
-                        <label>School: </label><input type="text" name="school" size="20" maxlength="20" required />
-                        <label>Special Instructions: </label><input type="textarea" name="special" rows="5" cols="20" required />
+                    <form action="registration.php" method="post">
+                        <label>Child's Full Name</label><input type="text" name="cname" required />
+												<label>Birthday </label><input type="date" name="birthday" required/>
+                        <label>Parent's Full Name: </label>
+												<input type="text" name="pname" size="20" required />
+                        <label>Parent's Email: </label>
+												<input type="email" name="pemail" size="25" required />
+                        <label>Parent's Phone: </label>
+												<input type="text" name="phone" size="10" maxlength="10" required />
+                        <label>Grade Level: </label>
+												<input type="number" name="grade" size="2" maxlength="2" required />
+                        <label>School: </label>
+												<input type="text" name="school" size="20" maxlength="20" required />
+                        <label>Special Instructions: </label>
+												<input type="textarea" name="special" rows="2" cols="20" required />
                         <label>Camp Duration: </label>
 												<select name="duration" required>
 	                       <option value="1">1 week</option>
