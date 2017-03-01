@@ -24,23 +24,19 @@
                 </table>
             </div>
             <div id= "gallery_main_content" class = "main_content">
+                <h1>Gallery</h1>
                 <div id="gallery_form">
                     <form action="submitimage.php" method="post" enctype="multipart/form-data">
-                        <label>Upload Image<br/><input type="file" required="required" name="image_submission" /></label><br/>
+                        <label>Share your own memory!<br/><input type="file" required="required" name="image_submission" /></label><br/>
                         <input type="submit" value="Submit Image" />
                     </form>
                 </div>
                 <div id="gallery_images">
-                    Images<hr/>
-                    <p><img src="images/Camp_4.jpg" alt="test image"/></p>
                     <?php
-                    $images = glob("images/*");
-                    if(count($images)){
-                        foreach($images as $image){
+                    if(count(glob("images/*"))){
+                        foreach(glob("images/*") as $image){
                             $filename = basename($image);
-                            ?>
-                            <p><img src=$image alt=$filename /></p>
-                            <?php
+                            echo "<p><img src=$image alt=$filename></img></p>";
                         }
                     }
                     else{
@@ -48,6 +44,25 @@
                     }
                     ?>
                 </div>
+            </div>
+            <div id=footer>
+                <div id="left-footer">
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <a href=webmaster.html>Webmaster</a>
+                    <a href=contact.html>Contact Us</a>
+                </div>
+                <table id="right-footer">
+                        <tr>
+
+                                <td>
+                                        <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+                                        <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+                                        <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+                                        <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                                        <br/>
+                                </td>
+                        </tr>
+                </table>
             </div>
         </div>
     </body>
