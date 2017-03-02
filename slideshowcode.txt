@@ -1,0 +1,75 @@
+//HTML
+<main id = "main-char">
+	<div id = "left_arrow">
+		<img src="../../../pictures/brand/arrow.svg" alt="arrow">
+	</div>
+	<div id = "right_arrow">
+		<img src="../../../pictures/brand/arrow2.svg" alt="arrow">
+	</div>
+	<div class = "slideshow">
+		<div class = "slide active" id="i1"></div>
+		<div class = "slide" id="i2"></div>
+		<div class = "slide" id="i3"></div>
+		<div class = "slide" id="i4"></div>
+		<div class = "slide" id="i5"></div>
+		<div class = "slide" id="i6"></div>
+		<div class = "slide" id="i7"></div>
+		<div class = "slide" id="i8"></div>
+	</div>
+	<div class = "dots"><ul></ul></div>
+</main>
+
+//JQUERY
+//left arrow and right arrow are divs for the arrows
+$(document).ready(function(){
+
+	$("#right_arrow").click(function(){
+		var currentSlide = $(".active");
+		var nextSlide = currentSlide.next();
+		var currentDot = $(".active-dot");
+		var nextDot = currentDot.next();
+
+		if(currentSlide.is(":last-child")){
+			nextSlide = firstSlide;
+			nextDot = firstDot;
+		}
+		currentSlide.removeClass("active");
+		currentSlide.css("display", "none");
+		nextSlide.fadeIn(600).addClass("active");
+		currentDot.removeClass("active-dot");
+		nextDot.addClass("active-dot");
+
+	});
+	$("#left_arrow").click(function(){
+		var currentSlide = $(".active");
+		var previousSlide = currentSlide.prev();
+
+		var currentDot = $(".active-dot");
+		var previousDot = currentDot.prev();
+
+		if(currentSlide.is(":first-child")){
+			previousSlide = lastSlide;
+			previousDot = lastDot;
+		}
+
+		currentSlide.removeClass("active");
+		currentSlide.css("display", "none");
+		previousSlide.fadeIn(600).addClass("active");
+		currentDot.removeClass("active-dot");
+		previousDot.addClass("active-dot");
+	});
+});
+
+//SCSS for slideshow
+.slideshow{
+	.active{
+		display: block;
+	}
+	height: 100%;
+	width: 100%;
+	border-top: 1px solid $slide-color;
+	border-bottom: 1px solid $slide-color;
+	img{
+		display: none;
+	}
+}
