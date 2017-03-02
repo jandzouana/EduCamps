@@ -3,7 +3,12 @@
 	#connecting to database
 	include_once '../dbconnect.php';
 	if (isset($_POST['cname'])){
-		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special", "duration", "location");
+		$database = 'educamps';
+		$dbserver = 'localhost';
+		$dbusername = 'root';
+		$dbpass = '';
+		$connection = connectDB($database, $dbserver, $dbusername, $dbpass);
+		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
 		$dboutputs = array();
 		$temp = 'campers(';
 		$temp2 = '(';
