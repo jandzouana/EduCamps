@@ -3,6 +3,31 @@
 	include_once '../dbconnect.php'; 	#contains connectDB function
 	#query function
 
+	function CostCalc($dbtable, $pemail, $connection){
+		$cost = $_POST['duration']*50;
+		$query = "SELECT * FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
+
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		$count = mysqli_num_rows($result);
+		//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
+
+		if ($count == 1){
+			$_SESSION['pemail'] = $pemail;
+			$cost = $cost - $cost*.15;
+		}
+		else{
+			//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
+			$fmsg = "Email not found";
+			echo $fmsg;
+		}
+		if (isset($_SESSION['pemail'])){
+			$pemail = $_SESSION['pemail'];
+			echo "Hi " . $pemail . "
+			";
+		}
+		return $cost;
+	}
+
 	function CreateHash($password){
 		$hash = date('U');
 		$pass = hash('sha256', $hash . $password);
@@ -36,7 +61,7 @@
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		if ($result) {
 				$errTyp = "success";
-				$errMSG = "Successfully registered";
+				$errMSG = "Successfully registered \n";
 				echo $errMSG;#need to comment this out after testing
 				unset($cname);
 				unset($birthday);
@@ -65,15 +90,15 @@
 		$dbtable = 'registration';
 		$dbinputs = array("pemail", "cname", "location", "duration");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
+
+		#calculating Cost
+		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
 	}
  ?>
 
 <html>
     <head>
         <title>Your Camp Order</title>
-        <?php
-            $cost = $_POST['duration']*50;
-        ?>
         <script src=pay.js type="text/javascript"></script>
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
