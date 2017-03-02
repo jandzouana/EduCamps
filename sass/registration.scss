@@ -1,3 +1,4 @@
+@import "color.scss";
 #regform{
 
     background-color: white;
@@ -72,4 +73,16 @@
     height: auto;
     margin: 20px;
     cursor: pointer;
+}
+.button{
+    color: $menu_back_color;
+    background-color: $body_color; 
+    border-radius: 6px;
+    border: solid gainsboro 2px; 
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    padding-top: 10px;
+    margin-top: 10px;
+
 }

@@ -28,7 +28,7 @@
                 <div id="gallery_form">
                     <form action="submitimage.php" method="post" enctype="multipart/form-data">
                         <label>Share your own memory!<br/><input type="file" required="required" name="image_submission" /></label><br/>
-                        <input type="submit" value="Submit Image" />
+                        <input type="submit" value="Submit Image" class="button" />
                     </form>
                 </div>
                 <div id="gallery_images">
