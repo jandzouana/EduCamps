@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
+	include_once '../dbconnect.php'; 	#contains connectDB function
 	#query function
-	function CreateQuery($dbtable, $dbinputs, $connection){
+	function CreateQueryString($dbtable, $dbinputs){
 		$dboutputs = array();
 		$dbtable = $dbtable.'(';
 		$temp2 = '(';
@@ -19,6 +20,10 @@
 		$dbtable = $dbtable . ')';
 		$temp2 = $temp2 . ') ';
 		$query = "INSERT INTO ". $dbtable. " VALUES" . $temp2;
+		return $query;
+	}
+
+	function Query($query, $connection){
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		if ($result) {
 				$errTyp = "success";
@@ -33,8 +38,6 @@
 			 }
 	}
 
-	#connecting to database
-	include_once '../dbconnect.php';
 	if (isset($_POST['cname'])){
 		#database information (may change from computer to computer)
 		$database = 'educamps';
@@ -48,11 +51,11 @@
 		#database table information
 		$dbtable = 'campers';
 		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
-		CreateQuery($dbtable, $dbinputs, $connection); 		#creating query
+		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		#database table information
 		$dbtable = 'registration';
 		$dbinputs = array("pemail", "cname", "location", "duration");
-		CreateQuery($dbtable, $dbinputs, $connection); 		#creating query
+		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 	}
  ?>
 
