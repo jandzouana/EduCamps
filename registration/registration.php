@@ -2,6 +2,12 @@
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
 	#query function
+
+	function CreateHash($password){
+		$hash = date('U');
+		$pass = hash('sha256', $hash . $password);
+		return $pass;
+	}
 	function CreateQueryString($dbtable, $dbinputs){
 		$dboutputs = array();
 		$dbtable = $dbtable.'(';
@@ -10,6 +16,9 @@
 			$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
 			$dboutputs[$i] = strip_tags($dboutputs[$i]);
 			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
+			if($dbinputs[$i]=="password"){
+				  	$dboutputs[$i] = CreateHash($dbinputs[$i]);
+			}
 			$dbtable = $dbtable . $dbinputs[$i];
 			$temp2 =  $temp2 . "'" . $dboutputs[$i] . "'";
 			if ($i!=sizeof($dbinputs)-1) {
@@ -50,7 +59,7 @@
 
 		#database table information
 		$dbtable = 'campers';
-		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
+		$dbinputs = array("cname", "birthday", "pname", "password", "pemail", "phone", "grade", "school", "special");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		#database table information
 		$dbtable = 'registration';
