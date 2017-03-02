@@ -1,23 +1,8 @@
 <!DOCTYPE html>
 <?php
-	#connecting to database
-	include_once '../dbconnect.php';
-	if (isset($_POST['cname'])){
-		#database information (may change from computer to computer)
-		$database = 'educamps';
-		$dbserver = 'localhost';
-		$dbusername = 'root';
-		$dbpass = '';
-
-		#database table information
-		$dbtable = 'campers';
-		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
+	#query function
+	function CreateQuery($dbtable, $dbinputs, $connection){
 		$dboutputs = array();
-
-		#connection to database server
-		$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
-
-		#creating query
 		$dbtable = $dbtable.'(';
 		$temp2 = '(';
 		for ($i = 0; $i < sizeof($dbinputs); $i++){
@@ -36,16 +21,38 @@
 		$query = "INSERT INTO ". $dbtable. " VALUES" . $temp2;
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		if ($result) {
-		    $errTyp = "success";
-		    $errMSG = "Successfully registered";
+				$errTyp = "success";
+				$errMSG = "Successfully registered";
 				echo $errMSG;#need to comment this out after testing
-		    unset($cname);
-		    unset($birthday);
-		   } else {
-		    $errTyp = "danger";
-		    $errMSG = "Something went wrong, go back and try again...";
+				unset($cname);
+				unset($birthday);
+			 } else {
+				$errTyp = "danger";
+				$errMSG = "Something went wrong, go back and try again...";
 				echo $errMSG; #need to move this after testing
-		   }
+			 }
+	}
+
+	#connecting to database
+	include_once '../dbconnect.php';
+	if (isset($_POST['cname'])){
+		#database information (may change from computer to computer)
+		$database = 'educamps';
+		$dbserver = 'localhost';
+		$dbusername = 'root';
+		$dbpass = '';
+
+		#connection to database server
+		$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+		#database table information
+		$dbtable = 'campers';
+		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
+		CreateQuery($dbtable, $dbinputs, $connection); 		#creating query
+		#database table information
+		$dbtable = 'registration';
+		$dbinputs = array("pemail", "cname", "location", "duration");
+		CreateQuery($dbtable, $dbinputs, $connection); 		#creating query
 	}
  ?>
 
