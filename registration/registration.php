@@ -3,29 +3,37 @@
 	#connecting to database
 	include_once '../dbconnect.php';
 	if (isset($_POST['cname'])){
+		#database information (may change from computer to computer)
 		$database = 'educamps';
 		$dbserver = 'localhost';
 		$dbusername = 'root';
 		$dbpass = '';
-		$connection = connectDB($database, $dbserver, $dbusername, $dbpass);
+
+		#database table information
+		$dbtable = 'campers';
 		$dbinputs = array("cname", "birthday", "pname", "pemail", "phone", "grade", "school", "special");
 		$dboutputs = array();
-		$temp = 'campers(';
+
+		#connection to database server
+		$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+		#creating query
+		$dbtable = $dbtable.'(';
 		$temp2 = '(';
 		for ($i = 0; $i < sizeof($dbinputs); $i++){
 			$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
 			$dboutputs[$i] = strip_tags($dboutputs[$i]);
 			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
-			$temp = $temp . $dbinputs[$i];
+			$dbtable = $dbtable . $dbinputs[$i];
 			$temp2 =  $temp2 . "'" . $dboutputs[$i] . "'";
 			if ($i!=sizeof($dbinputs)-1) {
-				$temp = $temp . ',';
+				$dbtable = $dbtable . ',';
 				$temp2 = $temp2 . ',';
 			}
 		}
-		$temp = $temp . ')';
+		$dbtable = $dbtable . ')';
 		$temp2 = $temp2 . ') ';
-		$query = "INSERT INTO ". $temp. " VALUES" . $temp2;
+		$query = "INSERT INTO ". $dbtable. " VALUES" . $temp2;
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		if ($result) {
 		    $errTyp = "success";
