@@ -98,7 +98,7 @@
 								<p> Shipping: $<?php echo $shipping;?> </p>
 								<p> Total: $<?php echo number_format($total, 2);?> </p>
 							</div>
-							<input type="submit" value="Confirm">
+							<input type="submit" value="Confirm" class="button">
 						</div>
 					</div>
 					<div id=footer>
