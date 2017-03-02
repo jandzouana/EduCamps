@@ -76,12 +76,17 @@
 	flex-wrap: wrap;
 }
 .store-img{
-	background-color: orange;
+	background-color: $menu_back_color;
 	height: 200px;
 	width: 200px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+    img{
+        height: 180px;
+        width: 180px;
+        margin: 10px;
+    }
 }
 #i1 {
 		background-image: url(../pictures/store/1.jpg);
