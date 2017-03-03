@@ -5,12 +5,9 @@
 
 	function CostCalc($dbtable, $pemail, $connection){
 		$cost = $_POST['duration']*50;
-		$query = "SELECT * FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
-
-		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-		$count = mysqli_num_rows($result);
-		//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-
+		#$query = "SELECT * FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
+		#SELECT COUNT(*) FROM foo WHERE bar = 'value';
+		/*
 		if ($count == 1){
 			$_SESSION['pemail'] = $pemail;
 			$cost = $cost - $cost*.15;
@@ -18,18 +15,28 @@
 		else{
 			//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
 			$fmsg = "Email not found";
-			echo $fmsg;
+			#echo $fmsg;
 		}
 		if (isset($_SESSION['pemail'])){
 			$pemail = $_SESSION['pemail'];
-			echo "Hi " . $pemail . "
-			";
+			#echo "Hi " . $pemail . "";
+		}
+		*/
+
+		$query = "SELECT COUNT(cname) AS SUM FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
+		$result = mysqli_query($connection, $query);
+		$rows = mysqli_fetch_assoc($result);
+		$count = $rows['SUM'];
+		echo $count;
+		#print_r($rows);
+		if ($count > 1){
+			$cost = $cost - $cost*.15;
 		}
 		return $cost;
 	}
 
 	function CreateHash($password){
-		$hash = date('U');
+		$hash = date('U'); //creates different password each time
 		$pass = hash('sha256', $hash . $password);
 		return $pass;
 	}
