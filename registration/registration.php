@@ -50,7 +50,6 @@
 			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
 			if($dbinputs[$i]=="password"){
 				  	$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
-						echo $dboutputs[$i] . "\n";
 			}
 			$dbtable = $dbtable . $dbinputs[$i];
 			$temp2 =  $temp2 . "'" . $dboutputs[$i] . "'";
@@ -213,8 +212,6 @@
 												<input type="number" name="postal" minlength"4" maxlength="5" required />
 												<label>Phone number:</label>
 												<input type="number" name="phone" minlength"10" maxlength="10" required />
-												<img src="../icons/PayPal.png" alt="Pay with PayPal" id="pay" />
-
                         <input type="submit" name="Submit">
                     </form>
                 </div>

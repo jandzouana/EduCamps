@@ -1,12 +1,8 @@
 To do:
-1. Add location to registration
 2. change promo code to email
-3. add database to registration
 4. add one size
 5. add pictures to store
 6. add confirmation page
-7. add registration additional info
-8. separate variables in php file
 9. email address instead of promo code on confirmation page or store page (as a separate form?)
 10. add discount if parent has more than one child and discount message
 11. add footers

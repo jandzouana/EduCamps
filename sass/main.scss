@@ -5,6 +5,7 @@
 @import "gallery.scss";
 @import "confirmation.scss";
 @import "forum.scss";
+@import "login.scss";
 
 $cut-off: 1100px;
 
@@ -212,11 +213,11 @@ body{
 #list_container{
     background-color: white;
     padding: 25px;
-    padding-left: 70px; 
+    padding-left: 70px;
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 100%;
-    width: 150px; 
+    width: 150px;
 }
 #map{
     width: 600px;
