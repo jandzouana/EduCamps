@@ -27,17 +27,17 @@
 		$result = mysqli_query($connection, $query);
 		$rows = mysqli_fetch_assoc($result);
 		$count = $rows['SUM'];
-		echo $count;
+		echo $count; #shows number of emails in database that have registered email
 		#print_r($rows);
 		if ($count > 1){
-			$cost = $cost - $cost*.15;
+			$cost = $cost - $cost*.10;
 		}
 		return $cost;
 	}
 
 	function CreateHash($password){
-		$hash = date('U'); //creates different password each time
-		$pass = hash('sha256', $hash . $password);
+		$salt = date('U'); //creates different password each time
+		$pass = crypt($password, $salt);
 		return $pass;
 	}
 	function CreateQueryString($dbtable, $dbinputs){
@@ -49,7 +49,8 @@
 			$dboutputs[$i] = strip_tags($dboutputs[$i]);
 			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
 			if($dbinputs[$i]=="password"){
-				  	$dboutputs[$i] = CreateHash($dbinputs[$i]);
+				  	$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
+						echo $dboutputs[$i] . "\n";
 			}
 			$dbtable = $dbtable . $dbinputs[$i];
 			$temp2 =  $temp2 . "'" . $dboutputs[$i] . "'";
