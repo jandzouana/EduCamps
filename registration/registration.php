@@ -97,6 +97,7 @@
 		$dbtable = 'registration';
 		$dbinputs = array("pemail", "cname", "location", "duration");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
+		$dbtable = 'campers'; #added this
 
 		#calculating Cost
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
