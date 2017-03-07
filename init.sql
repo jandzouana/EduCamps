@@ -56,7 +56,7 @@ CREATE TABLE forum_tb(
     name varchar(255),
     email varchar(255),
     stars int,
-    post_date date DEFAULT CURDATE(),
+    post_date datetime DEFAULT NOW(),
     content varchar(255),
     PRIMARY KEY (post_id)
 );
@@ -66,6 +66,6 @@ CREATE TABLE gallery_tb(
     filename varchar(255),
     caption varchar(255),
     name varchar(255),
-    upload_date date DEFAULT CURDATE(),
+    upload_date datetime DEFAULT NOW(),
     PRIMARY KEY (image_id)
 );
