@@ -29,7 +29,7 @@
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		if ($result) {
 				$errTyp = "success";
-				$errMSG = "Successfully registered \n";
+				$errMSG = "Review successfully added \n";
 				echo $errMSG;#need to comment this out after testing
 				unset($cname);
 				unset($birthday);
@@ -39,7 +39,6 @@
 				echo $errMSG; #need to move this after testing
 			 }
 	}
- #need to query to match email to ID
   for($i = 1; $i <= 5; $i++)
   {
     if(isset($_POST['star-'.$i]))
@@ -60,6 +59,7 @@
 
   		#database table information
 */
+if(isset($_POST['reviewtext'])){
   		$db = mysql_connect("localhost", "root", "");
 			mysql_select_db("forum_table");
 			if(!mysql_connect("localhost","root", "")){
@@ -68,13 +68,14 @@
 			if(!mysql_select_db("forum_table")){
 				die("SQL error occurred selecting DB: ".mysql_error());
 			}
-			mysql_query("INSERT INTO forum_table VALUES ($_POST['name'], $_POST['email'], $stars,$_POST['reviewtext'], time())");
-
+			$query = "INSERT INTO forum_table VALUES ($_POST['name'], $_POST['email'], $stars, getdate(), $_POST['reviewtext']";
+			Query($query, $connection);
 			#$dbtable = 'Posts_Table';
   		#Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
   		#database table information
 
   	}
+
 
 
   ?>

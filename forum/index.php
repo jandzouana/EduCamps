@@ -1,4 +1,20 @@
 <!DOCTYPE HTML>
+<?php function Query($query, $connection){
+  $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+  if ($result) {
+      $errTyp = "success";
+      $errMSG = "Review successfully added \n";
+      echo $errMSG;#need to comment this out after testing
+      unset($cname);
+      unset($birthday);
+     } else {
+      $errTyp = "danger";
+      $errMSG = "Something went wrong, go back and try again...";
+      echo $errMSG; #need to move this after testing
+     }
+}
+?>
+
 <html>
     <head>
         <title>EduCamps Inc - Forum</title>
@@ -53,7 +69,42 @@
                     <textarea id = "reviewtext" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
                     <input type=submit name="Submit" class="button2"/>
                 </form>
-            </div>
+
+            <br/>
+            <br/>
+            <h2> Top Customer Reviews </h2>
+            <br>
+            <?php
+            *$query = "SELECT name, stars, content FROM forum_tb LIMIT 5";
+            $results = Query($query, $connection);
+
+            while($row = mysql_fetch_array($results))
+            {
+              /*$starNumber = $row['stars'];
+                  for($x=1;$x<=$starNumber;$x++) {
+                      echo '<img src="path/to/star.png" />';
+                    }
+                  if (strpos($starNumber,'.')) {
+                      echo '<img src="path/to/half/star.png" />';
+                      $x++;
+                    }
+                    while ($x<=5) {
+                      echo '<img src="path/to/blank/star.png" />';
+                      $x++;
+                    }
+                    ?>
+                    */
+
+            <h4> Written by <?= $row['name'] ?> on <?= $row['date'] ?> </h4>
+            <h5> Stars: <?= $row['stars']?></h5>
+            <br/>
+            <br/>
+            <p> <?=$row['content']?> </p>
+            <br/>
+
+            }
+             ?>
+             </div>
 
         </div>
 
