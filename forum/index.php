@@ -1,20 +1,4 @@
-<!DOCTYPE HTML>
-<?php function Query($query, $connection){
-  $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-  if ($result) {
-      $errTyp = "success";
-      $errMSG = "Review successfully added \n";
-      echo $errMSG;#need to comment this out after testing
-      unset($cname);
-      unset($birthday);
-     } else {
-      $errTyp = "danger";
-      $errMSG = "Something went wrong, go back and try again...";
-      echo $errMSG; #need to move this after testing
-     }
-}
-?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>EduCamps Inc - Forum</title>
@@ -75,9 +59,21 @@
             <h2> Top Customer Reviews </h2>
             <br>
             <?php
-            *$query = "SELECT name, stars, content FROM forum_tb LIMIT 5";
-            $results = Query($query, $connection);
+            $db = mysql_connect("localhost", "root", "");
+      			mysql_select_db("forum_table");
+      			if(!mysql_connect("localhost","root", "")){
+      				die("SQL error occurred on connect: ". mysql_error());
+      			}
+      			if(!mysql_select_db("forum_table")){
+      				die("SQL error occurred selecting DB: ".mysql_error());
+      			}
 
+            $query = "SELECT name, stars, content FROM forum_tb LIMIT 5";
+            $results = mysql_query($query);
+            if(!$results)
+            {
+              die("SQL query failed:\n$query\n". mysql_error());
+            }
             while($row = mysql_fetch_array($results))
             {
               /*$starNumber = $row['stars'];
@@ -91,9 +87,9 @@
                     while ($x<=5) {
                       echo '<img src="path/to/blank/star.png" />';
                       $x++;
-                    }
+                    }*/
                     ?>
-                    */
+
 
             <h4> Written by <?= $row['name'] ?> on <?= $row['date'] ?> </h4>
             <h5> Stars: <?= $row['stars']?></h5>
@@ -103,7 +99,7 @@
             <br/>
 
             }
-             ?>
+
              </div>
 
         </div>
