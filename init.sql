@@ -1,11 +1,3 @@
-DROP TABLE campers_tb IF EXISTS;
-DROP TABLE registration_tb IF EXISTS;
-DROP TABLE camp_tb IF EXISTS;
-DROP TABLE store_tb IF EXISTS;
-DROP TABLE order_tb
-DROP TABLE forum_tb IF EXISTS;
-DROP TABLE gallery_tb IF EXISTS;
-
 CREATE TABLE campers_tb(
     camper_id int AUTO_INCREMENT,
     cname varchar(255),
@@ -13,8 +5,14 @@ CREATE TABLE campers_tb(
     school varchar(255),
     grade int,
     pname varchar(255),
-    pemail varchar(255),
+    email varchar(255),
     PRIMARY KEY (camper_id)
+);
+
+CREATE TABLE account_tb(
+    email varchar(255),
+    pass varchar(255),
+    PRIMARY KEY (email)
 );
 
 CREATE TABLE registration_tb(
@@ -23,6 +21,7 @@ CREATE TABLE registration_tb(
     camp_id int,
     duration int,
     section varchar(255),
+    email varchar(255),
     PRIMARY KEY (registration_id)
 );
 
@@ -69,3 +68,8 @@ CREATE TABLE gallery_tb(
     upload_date datetime DEFAULT NOW(),
     PRIMARY KEY (image_id)
 );
+
+INSERT INTO gallery_tb (filename, caption, name) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu");
+INSERT INTO gallery_tb (filename, caption, name) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu");
+INSERT INTO gallery_tb (filename, caption, name) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu");
+INSERT INTO gallery_tb (filename, caption, name) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu");
