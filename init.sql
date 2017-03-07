@@ -39,6 +39,7 @@ CREATE TABLE store_tb(
     item_id int AUTO_INCREMENT,
     name varchar(255),
     price float(6,2),
+    image_file varchar(255),
     PRIMARY KEY (item_id)
 );
 
