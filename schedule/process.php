@@ -1,6 +1,11 @@
-<!DOCTYPE HTML>
 <?php
 include_once '../dbconnect.php'; 	#contains connectDB function
+if (empty($_POST['pemail'])) {
+	#if try to access page without access, then redirect back to login page
+	header('Location: http://localhost:7080/jess/EduCamps/schedule/');
+}
+#$output = array();
+$output = '';
 function Process(){
 	function CreateHash($password){
 		$salt = date('U'); //creates different password each time
@@ -9,7 +14,6 @@ function Process(){
 	}
 	function CreateQueryString($dbtable, $dbinputs){
 		#		$query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
-
 		$dboutputs = array();
 		$temp2 = '';
 		for ($i = 0; $i < sizeof($dbinputs); $i++){
@@ -27,7 +31,7 @@ function Process(){
 		$query = "SELECT * FROM ". $dbtable. " WHERE " . $temp2;
 		return $query;
 	}
-	function Query($query, $connection){
+	function QueryLogin($query, $connection){
 		#message for invalid login
 		$fmsg = "Invalid Login Credentials. If you are not registered, please register first before attempting to view the schedule.";
 		$smsg = "Login successfull."; 		#message for valid login
@@ -41,8 +45,19 @@ function Process(){
 		else{
 			//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
 			echo $fmsg;
+			#redirect back to login if credentials don't match
+			header('Location: http://localhost:7080/jess/EduCamps/schedule/');
 		}
 	}
+
+	function QuerySchedule($query, $connection, $in){
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		while($row = mysqli_fetch_array($result)){
+			$output = $row[$in];
+		}
+		return $output;
+	}
+
 	#database information (may change from computer to computer)
 	$database = 'educamps';
 	$dbserver = 'localhost';
@@ -52,12 +67,19 @@ function Process(){
 	#connection to database server
 	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
 
-	#database table information
+	#checking login info
 	$dbtable = 'account';
 	$dbinputs = array("pemail", "password", "cname");
-	Query(CreateQueryString($dbtable, $dbinputs), $connection);
+	QueryLogin(CreateQueryString($dbtable, $dbinputs), $connection);
+
+	#checking login info
+	$dbtable = 'registration';
+	$dbinputs = array("cname");
+	$output = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location");
+	echo $output;
 }
  ?>
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>EduCamps Inc - Schedule</title>
@@ -89,7 +111,7 @@ function Process(){
 									Process();
 								 ?>
 							<h1> <?= $_POST['cname']?>'s Schedule</h1>
-							<h2> Camp </h2>
+							<h2> Location: <?= $output?></h2>
 							<h3> Week 1 </h3>
 							<div id="schedule-image"></div>
 						</main>
