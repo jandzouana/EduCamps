@@ -91,11 +91,11 @@
 
 		#database table information
 		$dbtable = 'campers';
-		$dbinputs = array("cname", "birthday", "pname", "password", "pemail", "phone", "grade", "school", "special");
+		$dbinputs = array("cname", "birthday", "pname",  "grade", "school", "special", "phone");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		#database table information
 		$dbtable = 'registration';
-		$dbinputs = array("pemail", "cname", "location", "duration");
+		$dbinputs = array("pemail", "cname", "location", "duration", "section");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		$dbtable = 'campers'; #added this
 

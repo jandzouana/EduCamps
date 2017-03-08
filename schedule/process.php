@@ -53,7 +53,7 @@ function Process(){
 	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
 
 	#database table information
-	$dbtable = 'campers';
+	$dbtable = 'account';
 	$dbinputs = array("pemail", "password", "cname");
 	Query(CreateQueryString($dbtable, $dbinputs), $connection);
 }
