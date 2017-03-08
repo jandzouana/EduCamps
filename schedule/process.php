@@ -4,81 +4,82 @@ if (empty($_POST['pemail'])) {
 	#if try to access page without access, then redirect back to login page
 	header('Location: http://localhost:7080/jess/EduCamps/schedule/');
 }
-#$output = array();
-$output = '';
-function Process(){
-	function CreateHash($password){
-		$salt = date('U'); //creates different password each time
-		$pass = crypt($password, $salt);
-		return $pass;
-	}
-	function CreateQueryString($dbtable, $dbinputs){
-		#		$query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
-		$dboutputs = array();
-		$temp2 = '';
-		for ($i = 0; $i < sizeof($dbinputs); $i++){
-			$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
-			$dboutputs[$i] = strip_tags($dboutputs[$i]);
-			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
-			if($dbinputs[$i]=="password"){
-						$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
-			}
-			$temp2 =  $temp2 . $dbinputs[$i] . "=" ."'" . $dboutputs[$i] . "'";
-			if ($i!=sizeof($dbinputs)-1) {
-				$temp2 = $temp2 . ' and ';
-			}
+function CreateQueryString($dbtable, $dbinputs){
+	#		$query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+	$dboutputs = array();
+	$temp2 = '';
+	for ($i = 0; $i < sizeof($dbinputs); $i++){
+		$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
+		$dboutputs[$i] = strip_tags($dboutputs[$i]);
+		$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
+		if($dbinputs[$i]=="password"){
+					$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
 		}
-		$query = "SELECT * FROM ". $dbtable. " WHERE " . $temp2;
-		return $query;
-	}
-	function QueryLogin($query, $connection){
-		#message for invalid login
-		$fmsg = "Invalid Login Credentials. If you are not registered, please register first before attempting to view the schedule.";
-		$smsg = "Login successfull."; 		#message for valid login
-		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-		$count = mysqli_num_rows($result);
-		//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-		if ($count == 1){
-			#$_SESSION['cname'] = $username;
-			echo $smsg;
-		}
-		else{
-			//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-			echo $fmsg;
-			#redirect back to login if credentials don't match
-			header('Location: http://localhost:7080/jess/EduCamps/schedule/');
+		$temp2 =  $temp2 . $dbinputs[$i] . "=" ."'" . $dboutputs[$i] . "'";
+		if ($i!=sizeof($dbinputs)-1) {
+			$temp2 = $temp2 . ' and ';
 		}
 	}
-
-	function QuerySchedule($query, $connection, $in){
-		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-		while($row = mysqli_fetch_array($result)){
-			$output = $row[$in];
-		}
-		return $output;
-	}
-
-	#database information (may change from computer to computer)
-	$database = 'educamps';
-	$dbserver = 'localhost';
-	$dbusername = 'root';
-	$dbpass = '';
-
-	#connection to database server
-	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
-
-	#checking login info
-	$dbtable = 'account';
-	$dbinputs = array("pemail", "password", "cname");
-	QueryLogin(CreateQueryString($dbtable, $dbinputs), $connection);
-
-	#checking login info
-	$dbtable = 'registration';
-	$dbinputs = array("cname");
-	$output = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location");
-	echo $output;
+	$query = "SELECT * FROM ". $dbtable. " WHERE " . $temp2;
+	return $query;
 }
- ?>
+
+#Returns $in data for camper. For example output["location"] gives location
+function QuerySchedule($query, $connection, $in){
+	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+	while($row = mysqli_fetch_array($result)){
+		$output = $row[$in];
+	}
+	return $output;
+}
+#hashes password for added security
+function CreateHash($password){
+	$salt = date('U'); //creates different password each time
+	$pass = crypt($password, $salt);
+	return $pass;
+}
+
+#Used to check user credentials
+function QueryLogin($query, $connection){
+	#message for invalid login
+	$fmsg = "Invalid Login Credentials. If you are not registered, please register first before attempting to view the schedule.";
+	$smsg = "Login successfull."; 		#message for valid login
+	$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+	$count = mysqli_num_rows($result);
+	//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
+	if ($count == 1){
+		#$_SESSION['cname'] = $username;
+		echo $smsg;
+	}
+	else{
+		//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
+		echo $fmsg;
+		#redirect back to login if credentials don't match
+		header('Location: http://localhost:7080/jess/EduCamps/schedule/');
+	}
+}
+
+
+
+#database information (may change from computer to computer)
+$database = 'educamps';
+$dbserver = 'localhost';
+$dbusername = 'root';
+$dbpass = '';
+
+#connection to database server
+$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+#checking login info
+$dbtable = 'account';
+$dbinputs = array("pemail", "password", "cname");
+QueryLogin(CreateQueryString($dbtable, $dbinputs), $connection);
+
+#getting user info
+$dbtable = 'registration';
+$dbinputs = array("cname");
+#$output = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location");
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -108,11 +109,16 @@ function Process(){
             </div>
            	<main id="login-schedule">
 								<?php
-									Process();
 								 ?>
 							<h1> <?= $_POST['cname']?>'s Schedule</h1>
-							<h2> Location: <?= $output?></h2>
-							<h3> Week 1 </h3>
+							<h2> Location: <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location")?></h2>
+							<h2> Section: <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?> 1 - <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")*7 ?> </h2>
+							<h2> Week 1 </h2>
+							<?php
+								if (QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")==2){
+									echo '<h2> Week 2 <h2/>';
+								}
+							 ?>
 							<div id="schedule-image"></div>
 						</main>
             <div id=footer>
