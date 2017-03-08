@@ -95,7 +95,7 @@
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		#database table information
 		$dbtable = 'registration';
-		$dbinputs = array("pemail", "cname", "location", "duration", "section");
+		$dbinputs = array("pemail", "cname", "location", "duration", "section", "camptype");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		$dbtable = 'campers'; #added this
 

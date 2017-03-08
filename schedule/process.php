@@ -111,12 +111,16 @@ $dbinputs = array("cname");
 								<?php
 								 ?>
 							<h1> <?= $_POST['cname']?>'s Schedule</h1>
-							<h2> Location: <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location")?></h2>
-							<h2> Section: <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?> 1 - <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")*7 ?> </h2>
-							<h2> Week 1 </h2>
+							<h2> <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "camptype")?>,
+								<?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location")?>
+								<span id="campdate"> <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?> 1 - <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")*7 ?></span> </h2>
 							<?php
-								if (QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")==2){
-									echo '<h2> Week 2 <h2/>';
+								$duration = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration");
+								$temp = '';
+								for($i = 1; $i <= $duration; $i++){
+									$temp = "Week " . $i;
+									echo "<h3> $temp </h3>";
+									echo "<p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>";
 								}
 							 ?>
 							<div id="schedule-image"></div>
