@@ -23,6 +23,7 @@
 		}
 		*/
 
+		#need to make this more general
 		$query = "SELECT COUNT(cname) AS SUM FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
 		$result = mysqli_query($connection, $query);
 		$rows = mysqli_fetch_assoc($result);
@@ -97,9 +98,14 @@
 		$dbtable = 'registration';
 		$dbinputs = array("pemail", "cname", "location", "duration", "section", "camptype");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
-		$dbtable = 'campers'; #added this
 
+		#creating login info
+		$dbtable = 'account';
+		$dbinputs = array("pemail", "cname", "password");
+		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
+		
 		#calculating Cost
+		$dbtable = 'registration'; #added this
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
 	}
  ?>
