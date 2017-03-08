@@ -49,8 +49,9 @@
                     <?php
                     $connection = mysqli_connect("localhost", "root", "", "educamps");
                     if (!$connection){
-                        die("Database connection failed");
+                        die("Database connection failed: " . mysqli_connect_error());
                     }
+                    $images = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery_tb");
                     mysqli_close($connection);
                     ?>
                 </div>
