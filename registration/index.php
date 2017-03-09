@@ -1,3 +1,35 @@
+<?php
+	include_once '../dbconnect.php'; 	#contains connectDB function
+	#SELECT camp_name FROM `camp`;
+
+	function CreateQuery($dbtable, $dbcolumn){
+		$query = "SELECT $dbcolumn FROM ". $dbtable;
+		return $query;
+	}
+	function QueryCamp($query, $connection){
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		#$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
+
+		#grabs multiple rows into an array
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			$rows[] = $row;
+		}
+		return $rows;
+	}
+	#database information (may change from computer to computer)
+	$database = 'educamps';
+	$dbserver = 'localhost';
+	$dbusername = 'root';
+	$dbpass = '';
+	#connection to database server
+	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+	$dbtable = "camp";
+	$dbcolumn = "camp_name";
+	$test = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
+	#print_r ($test);
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -47,6 +79,15 @@
                             <input type="number" name="grade" size="2" maxlength="2" required />
                         <label>School:</label>
                             <input type="text" name="school" size="20" maxlength="20" required />
+												<label>Camp</label>
+												<select name="location" required>
+														<?php
+															$camp_name = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
+															foreach($camp_name as $row){
+																echo  "<option value='$row[0]'>$row[0]</option>";
+															}
+														?>
+												</select>
 												<label>Camp Section:</label>
 														<select name="section" required>
 																<option value="June">June 1</option>
@@ -57,14 +98,7 @@
                                 <option value="1">1 week</option>
                                 <option value="2">2 weeks</option>
                             </select>
-                        <label>Camp Location</label>
-                        <select name="location" required>
-                            <option value="San Jose">San Jose</option>
-                            <option value="Eugene">Eugene</option>
-                            <option value="Austin">Austin</option>
-                            <option value="Minneapolis">Minneapolis</option>
-                            <option value="Miami">Miami</option>
-                        </select>
+
 												<label>Special Instructions:</label>
                             <input type="textarea" name="special" rows="2" cols="20" />
                         <input type=submit name=Submit class="button">

@@ -8,5 +8,6 @@ For today:
 -change registration to reflect new changes
 -change about to reflect changes
 -add activities to schedule?
+-add activities to registration
 -add capacity
 -prevent adding duplicates
