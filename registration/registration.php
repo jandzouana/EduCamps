@@ -96,14 +96,14 @@
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		#database table information
 		$dbtable = 'registration';
-		$dbinputs = array("pemail", "cname", "location", "duration", "section", "camptype");
+		$dbinputs = array("pemail", "cname", "location", "duration", "section");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
 
 		#creating login info
 		$dbtable = 'account';
 		$dbinputs = array("pemail", "cname", "password");
 		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
-		
+
 		#calculating Cost
 		$dbtable = 'registration'; #added this
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
