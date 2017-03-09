@@ -1,28 +1,9 @@
-<!DOCTYPE html>
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
 	#query function
 
 	function CostCalc($dbtable, $pemail, $connection){
 		$cost = $_POST['duration']*50;
-		#$query = "SELECT * FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
-		#SELECT COUNT(*) FROM foo WHERE bar = 'value';
-		/*
-		if ($count == 1){
-			$_SESSION['pemail'] = $pemail;
-			$cost = $cost - $cost*.15;
-		}
-		else{
-			//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-			$fmsg = "Email not found";
-			#echo $fmsg;
-		}
-		if (isset($_SESSION['pemail'])){
-			$pemail = $_SESSION['pemail'];
-			#echo "Hi " . $pemail . "";
-		}
-		*/
-
 		#need to make this more general
 		$query = "SELECT COUNT(cname) AS SUM FROM " . $dbtable . " WHERE pemail='" .$pemail."'";
 		$result = mysqli_query($connection, $query);
@@ -79,7 +60,25 @@
 				echo $errMSG; #need to move this after testing
 			 }
 	}
-
+	#helper function to count how many kids are registered at a camp
+	function CreateQueryColumnCount($dbtable, $camp_column_name, $camp_name){
+		$query = "SELECT COUNT($camp_column_name) AS SUM  FROM ". $dbtable . " WHERE $camp_column_name='$camp_name'";
+		return $query;
+	}
+	#counts how many kids are registered at a particular camp using above funciton to input camp name
+	function QueryLocation($query, $connection){
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		$rows = mysqli_fetch_assoc($result);
+		$count = $rows['SUM'];
+		return $count;
+	}
+	#returns a camp's capacity
+	function CampCapacity($dbtable, $capacity_column_name, $connection, $camp_column_name, $camp_name){
+			$query = "SELECT $capacity_column_name FROM ". $dbtable . " WHERE $camp_column_name='$camp_name'";
+			$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+			$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
+			return $row[0];
+	}
 	if (isset($_POST['cname'])){
 		#database information (may change from computer to computer)
 		$database = 'educamps';
@@ -107,9 +106,18 @@
 		#calculating Cost
 		$dbtable = 'registration'; #added this
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
+
+		#caluclating camp's capacity
+		$count = CampCapacity("camp", "capacity", $connection, "camp_name", $_POST["location"]);
+		echo "Camp capacity: $count";
+
+		#calculating how many are registered at camp
+		$dbtable = 'registration';
+		$count = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
+		echo "Registered at camp: $count";
 	}
  ?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Your Camp Order</title>
