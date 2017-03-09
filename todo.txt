@@ -4,6 +4,5 @@ To do:
 11. add footers
 
 For today:
--change about to reflect changes
 -add activities to schedule?
 -add activities to registration

@@ -1,3 +1,49 @@
+<?php
+	include_once '../dbconnect.php'; 	#contains connectDB function
+
+	#database information (may change from computer to computer)
+	$database = 'educamps';
+	$dbserver = 'localhost';
+	$dbusername = 'root';
+	$dbpass = '';
+	#connection to database server
+	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+	function CreateQueryString($dbtable, $dbinputs){
+		#		$query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+		$dboutputs = array();
+		$temp2 = '';
+		for ($i = 0; $i < sizeof($dbinputs); $i++){
+			$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
+			$dboutputs[$i] = strip_tags($dboutputs[$i]);
+			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
+			if($dbinputs[$i]=="password"){
+						$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
+			}
+			$temp2 =  $temp2 . $dbinputs[$i] . "=" ."'" . $dboutputs[$i] . "'";
+			if ($i!=sizeof($dbinputs)-1) {
+				$temp2 = $temp2 . ' and ';
+			}
+		}
+		$query = "SELECT * FROM ". $dbtable. " WHERE " . $temp2;
+		return $query;
+	}
+	function QueryLogin($query, $connection){
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		$count = mysqli_num_rows($result);
+		return $count;
+	}
+	function ApplyDiscount($discount, $connection){
+		$dbtable = 'account';
+		$dbinputs = array("pemail");
+		$applied = 0;
+		if((QueryLogin(CreateQueryString($dbtable, $dbinputs), $connection))>=1){
+			echo "Email found";
+			$applied = $discount;
+		}
+		return $applied;
+	}
+ ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -42,7 +88,7 @@
                 $order_bought = array();
                 $items = array("Shirt 1", "Shirt 2", "Shirt 3");
                 $shipping = 5.00;
-                $discount = .15;
+                $discount = ApplyDiscount(0.15, $connection);
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     for($i = 0; $i < sizeof($prices); $i++){
                         $temp = 'val'. ($i+1);
