@@ -33,14 +33,15 @@
 		$count = mysqli_num_rows($result);
 		return $count;
 	}
-	function ApplyDiscount($discount, $connection){
+	function ApplyDiscount($discount, $connection, $message){
 		$dbtable = 'account';
 		$dbinputs = array("pemail");
 		$applied = 0;
 		if((QueryLogin(CreateQueryString($dbtable, $dbinputs), $connection))>=1){
-			echo "Email found";
+			$message = "Email found.";
 			$applied = $discount;
 		}
+		$message = "Email not found.";
 		return $applied;
 	}
  ?>
@@ -71,13 +72,86 @@
                     </tr>
                 </table>
             </div>
-            <form id="conf_main_content" class = "main_content">
+            <form id="conf_main_content" class = "main_content" action="thanks.php">
                 <div method=post class="billing">
                     <h1>Billing Information </h1>
-                    <label>Full Name</label>
-                    <input type="text" name="fullname" size=20 required /><br/>
-                    <label>Address</label>
-                    <input type="text" name="address" size=20 required /><br/>
+										<label>Cardholder's Name:</label>
+										<input type="text" name="cardname" size="20" required />
+										<label>Card Number:</label>
+										<input type="number" name="cnumber" minlength="5" maxlength="5" required />
+										<label>Card Type:</label>
+										<select name="cardtype" required>
+										 <option value="1">Visa</option>
+										 <option value="2">Mastercard</option>
+										 <option value="3">Amex</option>
+										 <option value="4">Discover</option>
+										</select>
+										<label>Expiration Date(MMYY):</label>
+										<input type="text" name="expiration" minlength="4" maxlength="4" required />
+										<label>CVV:</label>
+										<input type="text" name="cvv" minlength="3" maxlength="3" required />
+										<label>Billing Address:</label>
+										<input type="text" name="billing" size="20" required />
+										<label>State</label>
+										<select name="state" required>
+											<option value="AL">Alabama</option>
+											<option value="AK">Alaska</option>
+											<option value="AZ">Arizona</option>
+											<option value="AR">Arkansas</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DE">Delaware</option>
+											<option value="DC">District Of Columbia</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="IA">Iowa</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="ME">Maine</option>
+											<option value="MD">Maryland</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MS">Mississippi</option>
+											<option value="MO">Missouri</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NV">Nevada</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NY">New York</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VT">Vermont</option>
+											<option value="VA">Virginia</option>
+											<option value="WA">Washington</option>
+											<option value="WV">West Virginia</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WY">Wyoming</option>
+										</select>
+										<label>City:</label>
+										<input type="text" name="city" size="20" required />
+										<label>Postal Code:</label>
+										<input type="number" name="postal" minlength"4" maxlength="5" required />
+										<label>Phone number:</label>
+										<input type="number" name="phone" minlength"10" maxlength="10" required />
                 </div>
                 <?php
                 #need to add more prices and items
@@ -88,7 +162,8 @@
                 $order_bought = array();
                 $items = array("Shirt 1", "Shirt 2", "Shirt 3");
                 $shipping = 5.00;
-                $discount = ApplyDiscount(0.15, $connection);
+								$msg = '';
+                $discount = ApplyDiscount(0.15, $connection, $msg);
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     for($i = 0; $i < sizeof($prices); $i++){
                         $temp = 'val'. ($i+1);
