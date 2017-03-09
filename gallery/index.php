@@ -13,14 +13,14 @@
                 </a>
                 <table>
                     <tr>
-											<td><a href=../about>About</a></td>
-											<td><a href=../registration>Registration</a></td>
-											<td><a href=../store>Store</a></td>
-											<td><a href=../gallery>Gallery</a></td>
-											<td><a href=../forum>Forum</a></td>
-											<td><a href=../data>Data</a></td>
-											<td><a href=../activities>Activities</a></td>
-											<td><a href=../schedule>Schedule</a></td>
+                        <td><a href=../about>About</a></td>
+                        <td><a href=../registration>Registration</a></td>
+                        <td><a href=../store>Store</a></td>
+                        <td><a href=../gallery>Gallery</a></td>
+                        <td><a href=../forum>Forum</a></td>
+                        <td><a href=../data>Data</a></td>
+                        <td><a href=../activities>Activities</a></td>
+                        <td><a href=../schedule>Schedule</a></td>
                     </tr>
                 </table>
             </div>
@@ -28,7 +28,7 @@
                 <h1>Gallery</h1>
                 <div id="gallery_form">
                     <form action="submitimage.php" method="post" enctype="multipart/form-data">
-                        <label>Share your own memory!<br/><input type="file" required="required" name="image_submission" /></label><br/>
+                        <label>Share your own memory!<br/><input type="file" required="required" name="image_submission"/></label><br/>
                         <label>Your Name: <input type="text" required="required" name="name"/></label><br/>
                         <label>Caption: <input type="text" required="required" name="caption"/></label><br/>
                         <input type="submit" value="Submit Image" class="button" />
@@ -36,22 +36,19 @@
                 </div>
                 <div id="gallery_images">
                     <?php
-                    if(count(glob("images/*"))){
-                        foreach(glob("images/*") as $image){
-                            $filename = basename($image);
-                            echo "<p><img src=$image alt=$filename></img></p>";
-                        }
-                    }
-                    else{
-                        echo "No images found.";
-                    }
-                    ?>
-                    <?php
-                    $connection = mysqli_connect("localhost", "root", "", "educamps");
+                    $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
                     if (!$connection){
                         die("Database connection failed: " . mysqli_connect_error());
                     }
-                    $images = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery_tb");
+                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery_tb");
+                    if (mysqli_num_rows($imgquery) > 0){
+                        while($image = mysqli_fetch_assoc($imgquery)){
+                            echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/>";
+                            echo $image[caption]." - ".$image[name]." (".$image[upload_date].")</p>";
+                        }
+                    }else{
+                        echo "No images found.";
+                    }
                     mysqli_close($connection);
                     ?>
                 </div>
