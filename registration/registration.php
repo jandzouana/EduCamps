@@ -1,7 +1,10 @@
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
 	#query function
-
+	if (empty($_POST['pemail'])) {
+		#if try to access page without access, then redirect back to login page
+		header('Location: http://localhost:7080/jess/EduCamps/registration/');
+	}
 	function CostCalc($dbtable, $pemail, $connection){
 		$cost = $_POST['duration']*50;
 		#need to make this more general
@@ -9,7 +12,7 @@
 		$result = mysqli_query($connection, $query);
 		$rows = mysqli_fetch_assoc($result);
 		$count = $rows['SUM'];
-		echo $count; #shows number of emails in database that have registered email
+		#echo $count; #shows number of emails in database that have registered email
 		#print_r($rows);
 		if ($count > 1){
 			$cost = $cost - $cost*.10;
@@ -22,7 +25,26 @@
 		$pass = crypt($password, $salt);
 		return $pass;
 	}
-	function CreateQueryString($dbtable, $dbinputs){
+	function CreateSelectQueryString($dbtable, $dbinputs){
+		#		$query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+		$dboutputs = array();
+		$temp2 = '';
+		for ($i = 0; $i < sizeof($dbinputs); $i++){
+			$dboutputs[$i] = trim($_POST[$dbinputs[$i]]);
+			$dboutputs[$i] = strip_tags($dboutputs[$i]);
+			$dboutputs[$i] = htmlspecialchars($dboutputs[$i]);
+			if($dbinputs[$i]=="password"){
+						$dboutputs[$i] = CreateHash($_POST[$dbinputs[$i]]);
+			}
+			$temp2 =  $temp2 . $dbinputs[$i] . "=" ."'" . $dboutputs[$i] . "'";
+			if ($i!=sizeof($dbinputs)-1) {
+				$temp2 = $temp2 . ' and ';
+			}
+		}
+		$query = "SELECT * FROM ". $dbtable. " WHERE " . $temp2;
+		return $query;
+	}
+	function CreateInsertQueryString($dbtable, $dbinputs){
 		$dboutputs = array();
 		$dbtable = $dbtable.'(';
 		$temp2 = '(';
@@ -79,42 +101,50 @@
 			$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
 			return $row[0];
 	}
+	#when form is submitted
 	if (isset($_POST['cname'])){
 		#database information (may change from computer to computer)
 		$database = 'educamps';
 		$dbserver = 'localhost';
 		$dbusername = 'root';
 		$dbpass = '';
-
 		#connection to database server
 		$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
 
-		#database table information
+		//Checking camp capacity before registering
+		#caluclating camp's capacity
+		$dbtable = 'camp';
+		$cap = CampCapacity($dbtable, "capacity", $connection, "camp_name", $_POST["location"]);
+		#calculating how many are registered at camp
+		$dbtable = 'registration';
+		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
+		if($registered >= $cap){
+			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
+		}
+		//Checking if the data given already exists
 		$dbtable = 'campers';
 		$dbinputs = array("cname", "birthday", "pname",  "grade", "school", "special", "phone");
-		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
-		#database table information
-		$dbtable = 'registration';
-		$dbinputs = array("pemail", "cname", "location", "duration", "section");
-		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
+		$query = CreateSelectQueryString($dbtable, $dbinputs);
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
+		if($row==NULL){
+			#database table information
+			$dbtable = 'campers';
+			$dbinputs = array("cname", "birthday", "pname",  "grade", "school", "special", "phone");
+			Query(CreateInsertQueryString($dbtable, $dbinputs), $connection); 		#creating query
+			#database table information
+			$dbtable = 'registration';
+			$dbinputs = array("pemail", "cname", "location", "duration", "section");
+			Query(CreateInsertQueryString($dbtable, $dbinputs), $connection); 		#creating query
 
-		#creating login info
-		$dbtable = 'account';
-		$dbinputs = array("pemail", "cname", "password");
-		Query(CreateQueryString($dbtable, $dbinputs), $connection); 		#creating query
-
+			#creating login info
+			$dbtable = 'account';
+			$dbinputs = array("pemail", "cname", "password");
+			Query(CreateInsertQueryString($dbtable, $dbinputs), $connection); 		#creating query
+		}
 		#calculating Cost
 		$dbtable = 'registration'; #added this
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
-
-		#caluclating camp's capacity
-		$count = CampCapacity("camp", "capacity", $connection, "camp_name", $_POST["location"]);
-		echo "Camp capacity: $count";
-
-		#calculating how many are registered at camp
-		$dbtable = 'registration';
-		$count = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
-		echo "Registered at camp: $count";
 	}
  ?>
 <!DOCTYPE html>

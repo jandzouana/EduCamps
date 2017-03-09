@@ -1,3 +1,33 @@
+<?php
+	include_once '../dbconnect.php'; 	#contains connectDB function
+	#SELECT camp_name FROM `camp`;
+
+	function CreateQuery($dbtable, $dbcolumn){
+		$query = "SELECT $dbcolumn FROM ". $dbtable;
+		return $query;
+	}
+	function QueryCamp($query, $connection){
+		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+		#$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
+
+		#grabs multiple rows into an array
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			$rows[] = $row;
+		}
+		return $rows;
+	}
+	#database information (may change from computer to computer)
+	$database = 'educamps';
+	$dbserver = 'localhost';
+	$dbusername = 'root';
+	$dbpass = '';
+	#connection to database server
+	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
+
+	$dbtable = "camp";
+	$dbcolumn = "camp_name";
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -27,12 +57,12 @@
             </div>
            <div id="anchor_bar" >
                 <h4>Locations</h4>
-                <p><a href="#sanjose">SAN JOSE</a></p>
-                <p><a href="#eugene">EUGENE</a></p>
-                <p><a href="#austin">AUSTIN</a></p>
-                <p><a href="#minneapolis">MINNEAPOLIS</a></p>
-                <p><a href="#miami">MIAMI</a></p>
-                <p><a id="register_button" href=../registration>Register Now!</a></p>
+								<?php
+									$camp_name = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
+									foreach($camp_name as $row){
+										echo  "<p><a href='$row[0]'>$row[0]</a></p>";
+									}
+								?>
             </div>
             <div id="schedule_main_content" class = "main_content">
                 <h1>About</h1>
