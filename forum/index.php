@@ -65,31 +65,22 @@
             if (!$connection){
                 die("Database connection failed: " . mysqli_connect_error());
             }
-            $rvwquery = mysqli_query($connection, "SELECT name, stars, content FROM forum LIMIT 5");
+            $rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date FROM forum LIMIT 5");
 
             if(!$rvwquery)
             {
               die("SQL query failed:\n$query\n". mysql_error());
             }
-
-            if(mysqli_num_rows($rvwquery) > 0)
-            {
-                  while($review = mysqli_fetch_assoc($rvwquery))
-                  {?>
-                    <h4> Written by <?= $review['name'] ?> on <?= $review['post_date'] ?> </h4>
-                    <h5> Stars: <?= $review['stars']?></h5>
-                    <br/>
-                    <br/>
+                while($review = mysqli_fetch_assoc($rvwquery)){
+                    ?>
+                    <h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
+                    <h5> <?= $review['stars']?> stars </h5>
                     <p> <?=$review['content']?> </p>
                     <br/>
                     <?php
                       }
-
-            }
-            else{
-              echo "No reviews found."
-            }
             mysqli_close($connection);
+
               ?>
 
              </div>
