@@ -49,7 +49,7 @@ CREATE TABLE store(
     PRIMARY KEY (item_id)
 );
 
-CREATE TABLE order(
+CREATE TABLE order_tb(
     order_id int AUTO_INCREMENT,
     account varchar(255),
     address varchar(255),
@@ -77,7 +77,12 @@ CREATE TABLE gallery(
     PRIMARY KEY (image_id)
 );
 
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",2);
+INSERT INTO forum (name, email, stars, content) VALUES("Sam", "stopp@gmail.com", 4, "The camp was great, the environment was great, but it was too short!");
+INSERT INTO forum (name, email, stars, content) VALUES("Juan", "juan@gmail.com", 5, "Best Camp Ever!");
+INSERT INTO forum (name, email, stars, content) VALUES("Jimmy", "jm@aol.com", 3, "I guess it was ok");
+INSERT INTO forum (name, email, stars, content) VALUES("Chad", "ilikemeat@chad.com", 1, "Sucked man");
+INSERT INTO forum (name, email, stars, content) VALUES("Brad", "idontlikechad@icloud.com", 4, "At least it was better than hanging out with my brother all summer");

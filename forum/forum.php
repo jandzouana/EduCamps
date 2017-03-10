@@ -1,41 +1,46 @@
 <!DOCTYPE html>
-<?php
 
-for($i = 1; $i <= 5; $i++)
-	  {
-	    if(//isset($_POST['star'] == $i))
-	    {
-	      $stars = $i;
-	    }
-	  }
-
-
-/*
-  	if (isset($_POST['reviewtext'])){
-  		#database information (may change from computer to computer)
-  		$database = 'Educamps';
-  		$dbserver = 'localhost';
-  		$dbusername = 'root';
-  		$dbpass = '';
-
-  		#connection to database server
-  		$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
-
-  		#database table information
-*/
-
-if(isset($_POST['content'])){
-  		$con = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
-			if(!$con){
-				die("SQL error occurred on connect: ". mysql_error());
-			}
-			//$name = $_POST['name'];
-			//$email = $_POST['email'];
-			//$content = $_POST['content'];
-			mysqli_query($con,"INSERT INTO forum_tb (name, email, stars, content) VALUES ($name, $email, $stars, $content)");
-			mysqli_close($con);
-//($_POST['name'], $_POST['email'], $stars, $_POST['content']
-  	}
-
-
-  ?>
+	<html>
+	    <head>
+	        <title>EduCamps Inc - Forum</title>
+	        <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
+	        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	    </head>
+	    <body>
+	        <div class=main_container>
+	            <div id=menubar>
+	                <a href="../">
+										<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+	                </a>
+	                <table>
+	                    <tr>
+												<td><a href=../about>About</a></td>
+												<td><a href=../registration>Registration</a></td>
+												<td><a href=../store>Store</a></td>
+												<td><a href=../gallery>Gallery</a></td>
+												<td><a href=../forum>Forum</a></td>
+												<td><a href=../data>Data</a></td>
+												<td><a href=../activities>Activities</a></td>
+												<td><a href=../schedule>Schedule</a></td>
+	                    </tr>
+	                </table>
+	            </div>
+							<?php
+							$num_stars = _REQUEST["stars"];
+							if(isset($_POST["content"])){
+										$con = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+										if(!$con){
+											die("SQL error occurred on connect: ". mysql_error());
+										}
+										$name = $_POST["name"];
+										$email = $_POST["email"];
+										$content = $_POST["content"];
+										mysqli_query($con,"INSERT INTO forum(name, email, stars, content) VALUES($name, $email, $stars, $content)");
+										mysqli_close($con);
+									}
+									echo "Review Submitted";
+								?>
+						</div>
+					</body>
+				</html>
