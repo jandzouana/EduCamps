@@ -26,25 +26,30 @@ CREATE TABLE registration(
     PRIMARY KEY (registration_id)
 );
 
-CREATE TABLE camp_tb(
+CREATE TABLE camp(
     camp_id int AUTO_INCREMENT,
-    name varchar(255),
+    camp_name varchar(255),
     location varchar(255),
+    address varchar(255),
     activities varchar(255),
-    camp_status int,
+    active varchar(255),
+    season_winter int,
+    season_summer int,
     capacity int,
+    comments varchar(255),
     PRIMARY KEY (camp_id)
 );
 
-CREATE TABLE store_tb(
+CREATE TABLE store(
     item_id int AUTO_INCREMENT,
     name varchar(255),
     price float(6,2),
     image_file varchar(255),
+    category varchar(255),
     PRIMARY KEY (item_id)
 );
 
-CREATE TABLE order_tb(
+CREATE TABLE order(
     order_id int AUTO_INCREMENT,
     account varchar(255),
     address varchar(255),
@@ -52,7 +57,7 @@ CREATE TABLE order_tb(
     PRIMARY KEY (order_id)
 );
 
-CREATE TABLE forum_tb(
+CREATE TABLE forum(
     post_id int AUTO_INCREMENT,
     name varchar(255),
     email varchar(255),
@@ -62,7 +67,7 @@ CREATE TABLE forum_tb(
     PRIMARY KEY (post_id)
 );
 
-CREATE TABLE gallery_tb(
+CREATE TABLE gallery(
     image_id int AUTO_INCREMENT,
     filename varchar(255),
     caption varchar(255),
