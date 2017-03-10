@@ -32,26 +32,26 @@
 
                 <form action = "forum.php" action = POST>
                     <div class = commenter_info>
-                        <label> Name: <input type = "text" name = "name"></label> <br/>
-                        <label> Email: <input type = "text" name = "name"></label>
+                        <label> Name: <input type = "text" name = "name" ></label> <br/>
+                        <label> Email: <input type = "text" name = "email" ></label>
                     </div>
                      <div class = "stars">
                         <p>Rating: </p>
-                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                        <input class="star star-5" id="star-5" type="radio" name="star" value = '1'/>
                         <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                        <input class="star star-4" id="star-4" type="radio" name="star" value = '2'/>
                         <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                        <input class="star star-3" id="star-3" type="radio" name="star" value ='3'/>
                         <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <input class="star star-2" id="star-2" type="radio" name="star" value = '4'/>
                         <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                        <input class="star star-1" id="star-1" type="radio" name="star" value = '5'/>
                         <label class="star star-1" for="star-1"></label>
                          <br/>
                      </div>
                     <br/>
                     <br/>
-                    <textarea id = "reviewtext" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
+                    <textarea name = "content" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
                     <input type=submit name="Submit" class="button2"/>
                 </form>
 
@@ -60,46 +60,38 @@
             <h2> Top Customer Reviews </h2>
             <br>
             <?php
-            $db = mysql_connect("localhost", "root", "");
-      			mysql_select_db("forum_table");
-      			if(!mysql_connect("localhost","root", "")){
-      				die("SQL error occurred on connect: ". mysql_error());
-      			}
-      			if(!mysql_select_db("forum_table")){
-      				die("SQL error occurred selecting DB: ".mysql_error());
-      			}
+/*
+            $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+            if (!$connection){
+                die("Database connection failed: " . mysqli_connect_error());
+            }
+            $rvwquery = mysqli_query($connection, "SELECT name, stars, content FROM forum_tb LIMIT 5");
 
-            $query = "SELECT name, stars, content FROM forum_tb LIMIT 5";
-            $results = mysql_query($query);
-            if(!$results)
+            if(!$rvwquery)
             {
               die("SQL query failed:\n$query\n". mysql_error());
             }
-            while($row = mysql_fetch_array($results))
+
+            if(mysqli_num_rows($rvwquery) > 0)
             {
-              /*$starNumber = $row['stars'];
-                  for($x=1;$x<=$starNumber;$x++) {
-                      echo '<img src="path/to/star.png" />';
-                    }
-                  if (strpos($starNumber,'.')) {
-                      echo '<img src="path/to/half/star.png" />';
-                      $x++;
-                    }
-                    while ($x<=5) {
-                      echo '<img src="path/to/blank/star.png" />';
-                      $x++;
-                    }*/
-                    ?>
-
-
-            <h4> Written by <?= $row['name'] ?> on <?= $row['date'] ?> </h4>
-            <h5> Stars: <?= $row['stars']?></h5>
-            <br/>
-            <br/>
-            <p> <?=$row['content']?> </p>
-            <br/>
+                  while($review = mysqli_fetch_assoc($rvwquery))
+                  {?>
+                    <h4> Written by <?= $review['name'] ?> on <?= $review['post_date'] ?> </h4>
+                    <h5> Stars: <?= $review['stars']?></h5>
+                    <br/>
+                    <br/>
+                    <p> <?=$review['content']?> </p>
+                    <br/>
+                    <?php
+                      }
 
             }
+            else{
+              echo "No reviews found."
+            }
+            mysqli_close($connection);
+*/
+              ?>
 
              </div>
 
