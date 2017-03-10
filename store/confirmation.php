@@ -73,7 +73,7 @@
                 </table>
             </div>
             <form id="conf_main_content" class = "main_content" action="thanks.php">
-                <div method=post class="billing">
+                <div class="billing">
                     <h1>Billing Information </h1>
 										<label>Cardholder's Name:</label>
 										<input type="text" name="cardname" size="20" required />
