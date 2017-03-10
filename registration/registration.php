@@ -117,7 +117,7 @@
 		$cap = CampCapacity($dbtable, "capacity", $connection, "camp_name", $_POST["location"]);
 		#calculating how many are registered at camp
 		$dbtable = 'registration';
-		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
+		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "camp_name", $_POST["location"]), $connection);
 		if($registered >= $cap){
 			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
 		}
@@ -181,83 +181,83 @@
                             <h2> Payment Information </h2>
                             <p>Your Camp Order: $<?= $cost ?></p>
                         </div>
-                        <label>Cardholder's Name:</label>
-                            <input type="text" name="cardname" size="20" required />
-                            <label>Card Number:</label>
-                            <input type="number" name="cnumber" minlength="5" maxlength="5" required />
-                            <label>Card Type:</label>
+                        <label>Cardholder's Name:
+                            <input type="text" name="cardname" size="20" required /></label>
+                        <label>Card Number:
+                            <input type="number" name="cnumber" minlength="5" maxlength="5" required /></label>
+                        <label>Card Type:
                             <select name="cardtype" required>
                                 <option value="1">Visa</option>
                                 <option value="2">Mastercard</option>
                                 <option value="3">Amex</option>
                                 <option value="4">Discover</option>
-                            </select>
-                        <label>Expiration Date(MMYY):</label>
-                        <input type="text" name="expiration" minlength="4" maxlength="4" required />
-                        <label>CVV:</label>
-                        <input type="text" name="cvv" minlength="3" maxlength="3" required />
-                        <label>Billing Address:</label>
-                        <input type="text" name="billing" size="20" required />
-                        <label>State</label>
-                        <select>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                        </select>
-                        <label>City:</label>
-                        <input type="text" name="city" size="20" required />
-                        <label>Postal Code:</label>
-                        <input type="number" name="postal" minlength="4" maxlength="5" required />
-                        <label>Phone number:</label>
-                        <input type="number" name="phone" minlength="10" maxlength="10" required />
+                            </select></label>
+                        <label>Expiration Date(MMYY):
+                            <input type="text" name="expiration" minlength="4" maxlength="4" required /></label>
+                        <label>CVV:
+                            <input type="text" name="cvv" minlength="3" maxlength="3" required /></label>
+                        <label>Billing Address:
+                            <input type="text" name="billing" size="20" required /></label>
+                        <label>State
+                            <select>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select></label>
+                        <label>City:
+                            <input type="text" name="city" size="20" required /></label>
+                        <label>Postal Code:
+                            <input type="number" name="postal" minlength="4" maxlength="5" required /></label>
+                        <label>Phone number:
+                            <input type="number" name="phone" minlength="10" maxlength="10" required /></label>
                         <input type="submit" name="Submit">
                     </form>
                 </div>

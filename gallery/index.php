@@ -64,7 +64,7 @@
                         die("Database connection failed: " . mysqli_connect_error());
                     }
                     $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery");
-                    if (mysqli_num_rows($imgquery) > 0){
+                    if ($imgquery){
                         while($image = mysqli_fetch_assoc($imgquery)){
                             echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
                             echo $image[caption]." - ".$image[name]." (".$image[upload_date].")</p>";
