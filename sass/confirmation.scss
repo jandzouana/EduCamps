@@ -1,6 +1,10 @@
 @import "color.scss";
 @import "fonts.scss";
 
+#store_container{
+	//height: auto !important;
+	margin-bottom: 0px;
+}
 #conf_main_content{
 	display: flex;
 	flex-direction: row;
@@ -9,6 +13,10 @@
 	padding-top: 25px;
 	padding-left: 0px;
 	font-size: 16px;
+	max-width: 1100px;
+	margin: auto;
+	height: auto;
+	padding-bottom: 100px;
 
 }
 #item_print_header{
@@ -46,6 +54,7 @@
 	}
 }
 .billing, .order-confirm{
+	min-height: 600px;
 	width: 400px;
 	background-color: white;
 	line-height: 20px;
@@ -70,4 +79,8 @@
 		margin: auto;
 		margin-top: 30px;
 	}
+}
+
+.billing{
+	justify-content: flex-start;
 }
