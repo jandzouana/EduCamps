@@ -65,8 +65,7 @@
             if (!$connection){
                 die("Database connection failed: " . mysqli_connect_error());
             }
-            $rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date FROM forum LIMIT 5");
-
+            $rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date, stars FROM forum LIMIT 5");
             if(!$rvwquery)
             {
               die("SQL query failed:\n$query\n". mysql_error());
@@ -74,7 +73,19 @@
                 while($review = mysqli_fetch_assoc($rvwquery)){
                     ?>
                     <h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
-                    <h5> <?= $review['stars']?> stars </h5>
+                    <?php for($i = 1; $i <= 5; $i++)
+                    {?>
+                      <div class = "stars">
+                        <?php if($i <= $review["stars"]){?>
+                          <input class="star" id="stars" type="radio" checked = "checked"/>
+                          <label class="star" for="star-<?=$i ?>"></label>
+                      <?php  }
+                      else if(i > $review["stars"]){?>
+                        <input class="star" id="stars" type="radio"/>
+                        <label class="star" for="star-<?=$i ?>"></label>
+                    <?php  }?>
+                    </div>
+                    <?php }?>
                     <p> <?=$review['content']?> </p>
                     <br/>
                     <?php
