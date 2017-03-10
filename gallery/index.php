@@ -46,7 +46,7 @@
                             if(!$connection){
                                 die("Database connection failed: ".mysqli_connect_error());
                             }
-                            $camp_query = mysqli_query($connection, "SELECT camp_id, name FROM camp_tb");
+                            $camp_query = mysqli_query($connection, "SELECT camp_id, name FROM camp");
                             while($row = mysqli_fetch_assoc($camp_query)){
                                 echo "<option value=".$row["camp_id"].">".$row["name"]."</option>";
                             }
@@ -63,7 +63,7 @@
                     if (!$connection){
                         die("Database connection failed: " . mysqli_connect_error());
                     }
-                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery_tb");
+                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery");
                     if (mysqli_num_rows($imgquery) > 0){
                         while($image = mysqli_fetch_assoc($imgquery)){
                             echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";

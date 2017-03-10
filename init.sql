@@ -49,7 +49,7 @@ CREATE TABLE store(
     PRIMARY KEY (item_id)
 );
 
-CREATE TABLE order(
+CREATE TABLE orders(
     order_id int AUTO_INCREMENT,
     account varchar(255),
     address varchar(255),
@@ -77,7 +77,7 @@ CREATE TABLE gallery(
     PRIMARY KEY (image_id)
 );
 
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",2);
-INSERT INTO gallery_tb (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",2);

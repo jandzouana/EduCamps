@@ -42,7 +42,7 @@
             if(!$connection){
                 die("Database connection failed: ".mysqli_connect_error());
             }
-            $upload_query = "INSERT INTO gallery_tb (filename, caption, name) VALUES ('$target_file', '$caption', '$name')";
+            $upload_query = "INSERT INTO gallery (filename, caption, name) VALUES ('$target_file', '$caption', '$name')";
             $upload = mysqli_query($connection, $upload_query);
             if($upload){
                 echo "Database upload successful!";
