@@ -46,9 +46,9 @@
                             if(!$connection){
                                 die("Database connection failed: ".mysqli_connect_error());
                             }
-                            $camp_query = mysqli_query($connection, "SELECT camp_id, name FROM camp");
+                            $camp_query = mysqli_query($connection, "SELECT camp_id, camp_name FROM camp");
                             while($row = mysqli_fetch_assoc($camp_query)){
-                                echo "<option value=".$row["camp_id"].">".$row["name"]."</option>";
+                                echo "<option value=".$row["camp_id"].">".$row["camp_name"]."</option>";
                             }
                             mysqli_close($connection);
                             ?>
@@ -67,7 +67,7 @@
                     if ($imgquery){
                         while($image = mysqli_fetch_assoc($imgquery)){
                             echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
-                            echo $image[caption]." - ".$image[name]." (".$image[upload_date].")</p>";
+                            echo $image["caption"]." - ".$image["name"].", ".$image["camp_id"]." (".$image["upload_date"].")</p>";
                         }
                     }else{
                         echo "No images found.";
@@ -76,7 +76,7 @@
                     ?>
                 </div>
             </div>
-            <div id=footer>
+            <div id="footer">
                 <div id="left-footer">
                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                     <a href=webmaster.html>Webmaster</a>
