@@ -255,9 +255,9 @@
                         <label>City:</label>
                         <input type="text" name="city" size="20" required />
                         <label>Postal Code:</label>
-                        <input type="number" name="postal" minlength"4" maxlength="5" required />
+                        <input type="number" name="postal" minlength="4" maxlength="5" required />
                         <label>Phone number:</label>
-                        <input type="number" name="phone" minlength"10" maxlength="10" required />
+                        <input type="number" name="phone" minlength="10" maxlength="10" required />
                         <input type="submit" name="Submit">
                     </form>
                 </div>

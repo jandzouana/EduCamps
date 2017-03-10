@@ -1,11 +1,6 @@
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
-	#SELECT camp_name FROM `camp`;
-
-	function CreateQuery($dbtable, $dbcolumn){
-		$query = "SELECT $dbcolumn FROM ". $dbtable;
-		return $query;
-	}
+    
 	function QueryCamp($query, $connection){
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		#$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
@@ -17,17 +12,12 @@
 		return $rows;
 	}
 	#database information (may change from computer to computer)
-	$database = 'educamps';
 	$dbserver = 'localhost';
-	$dbusername = 'root';
-	$dbpass = '';
+	$dbusername = 'fourthreefour';
+	$dbpass = 'americo';
+	$database = 'educamps';
 	#connection to database server
-	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
-
-	$dbtable = "camp";
-	$dbcolumn = "camp_name";
-	$test = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
-	#print_r ($test);
+	$connection = connectDB($dbserver, $dbusername, $dbpass, $database); #from dbconnect.php
 ?>
 
 <!DOCTYPE HTML>
@@ -82,10 +72,10 @@
                         <label>Camp
                             <select name="location" required>
                                 <?php
-                                    $camp_name = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
-                                    foreach($camp_name as $row){
-                                        echo "<option value='$row[0]'>$row[0]</option>";
-                                    }
+                                $camps_query = mysqli_query($connection, "SELECT camp FROM camp_name");
+                                while($camp = mysqli_fetch_assoc($camps_query)){
+                                    echo "<option value=".$camp['camp_id'].">".$camp['name']."</option>";
+                                }
                                 ?>
                             </select></label>
                         <label>Camp Section:</label>
