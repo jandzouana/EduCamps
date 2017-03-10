@@ -1,4 +1,4 @@
-CREATE TABLE campers_tb(
+CREATE TABLE campers(
     camper_id int AUTO_INCREMENT,
     cname varchar(255),
     birthday date,
@@ -9,19 +9,20 @@ CREATE TABLE campers_tb(
     PRIMARY KEY (camper_id)
 );
 
-CREATE TABLE account_tb(
-    email varchar(255),
-    pass varchar(255),
-    PRIMARY KEY (email)
+CREATE TABLE account(
+    account_id int AUTO_INCREMENT,
+    pemail varchar(255),
+    password varchar(255),
+    PRIMARY KEY (account_id)
 );
 
-CREATE TABLE registration_tb(
+CREATE TABLE registration(
     registration_id int AUTO_INCREMENT,
-    camper_id int,
-    camp_id int,
+    pemail varchar(255),
+    cname int,
     duration int,
     section varchar(255),
-    email varchar(255),
+    location varchar(255),
     PRIMARY KEY (registration_id)
 );
 
