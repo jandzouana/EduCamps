@@ -1,11 +1,6 @@
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
-	#SELECT camp_name FROM `camp`;
-
-	function CreateQuery($dbtable, $dbcolumn){
-		$query = "SELECT $dbcolumn FROM ". $dbtable;
-		return $query;
-	}
+    
 	function QueryCamp($query, $connection){
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		#$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
@@ -17,17 +12,12 @@
 		return $rows;
 	}
 	#database information (may change from computer to computer)
-	$database = 'educamps';
 	$dbserver = 'localhost';
-	$dbusername = 'root';
-	$dbpass = '';
+	$dbusername = 'fourthreefour';
+	$dbpass = 'americo';
+	$database = 'educamps';
 	#connection to database server
-	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
-
-	$dbtable = "camp";
-	$dbcolumn = "camp_name";
-	$test = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
-	#print_r ($test);
+	$connection = connectDB($dbserver, $dbusername, $dbpass, $database); #from dbconnect.php
 ?>
 
 <!DOCTYPE HTML>
@@ -41,18 +31,18 @@
         <div class=main_container>
             <div id=menubar>
                 <a href="../">
-									<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                 </a>
                 <table>
                     <tr>
-											<td><a href=../about>About</a></td>
-											<td><a href=../registration>Registration</a></td>
-											<td><a href=../store>Store</a></td>
-											<td><a href=../gallery>Gallery</a></td>
-											<td><a href=../forum>Forum</a></td>
-											<td><a href=../data>Data</a></td>
-											<td><a href=../activities>Activities</a></td>
-											<td><a href=../schedule>Schedule</a></td>
+                        <td><a href=../about>About</a></td>
+                        <td><a href=../registration>Registration</a></td>
+                        <td><a href=../store>Store</a></td>
+                        <td><a href=../gallery>Gallery</a></td>
+                        <td><a href=../forum>Forum</a></td>
+                        <td><a href=../data>Data</a></td>
+                        <td><a href=../activities>Activities</a></td>
+                        <td><a href=../schedule>Schedule</a></td>
                     </tr>
                 </table>
             </div>
@@ -60,47 +50,46 @@
                 <div id="regform">
                     <div id = "regtitle">
                         <h2>Registration Form </h2>
-												<p> Please fill out the following information regarding your camper: </p>
+                        <p> Please fill out the following information regarding your camper: </p>
                     </div>
                     <form action="registration.php" method="post">
-                        <label>Child's Full Name</label>
-                            <input type="text" name="cname" required />
-                        <label>Birthday</label>
-                            <input type="date" name="birthday" required/>
-                        <label>Parent's Full Name:</label>
-                            <input type="text" name="pname" size="20" required />
-                        <label>Parent's Email:</label>
-                        		<input type="email" name="pemail" size="25" required />
-												<label>Password:</label>
-                            <input type="password" name="password" size="25" required />
-                        <label>Parent's Phone:</label>
-                            <input type="text" name="phone" size="10" maxlength="10" required />
-                        <label>Grade Level:</label>
-                            <input type="number" name="grade" size="2" maxlength="2" required />
-                        <label>School:</label>
-                            <input type="text" name="school" size="20" maxlength="20" required />
-												<label>Camp</label>
-												<select name="location" required>
-														<?php
-															$camp_name = QueryCamp(CreateQuery($dbtable, $dbcolumn), $connection);
-															foreach($camp_name as $row){
-																echo  "<option value='$row[0]'>$row[0]</option>";
-															}
-														?>
-												</select>
-												<label>Camp Section:</label>
-														<select name="section" required>
-																<option value="June">June 1</option>
-																<option value="December">December 1</option>
-														</select>
+                        <label>Child's Full Name
+                            <input type="text" name="cname" required /></label>
+                        <label>Birthday
+                            <input type="date" name="birthday" required/></label>
+                        <label>Parent's Full Name:
+                            <input type="text" name="pname" size="20" required /></label>
+                        <label>Parent's Email:
+                            <input type="email" name="pemail" size="25" required /></label>
+                        <label>Password:
+                            <input type="password" name="password" size="25" required /></label>
+                        <label>Parent's Phone:
+                            <input type="text" name="phone" size="10" maxlength="10" required /></label>
+                        <label>Grade Level:
+                            <input type="number" name="grade" size="2" maxlength="2" required /></label>
+                        <label>School:
+                            <input type="text" name="school" size="20" maxlength="20" required /></label>
+                        <label>Camp
+                            <select name="location" required>
+                                <?php
+                                $camps_query = mysqli_query($connection, "SELECT camp FROM camp_name");
+                                while($camp = mysqli_fetch_assoc($camps_query)){
+                                    echo "<option value=".$camp['camp_id'].">".$camp['name']."</option>";
+                                }
+                                ?>
+                            </select></label>
+                        <label>Camp Section:</label>
+                            <select name="section" required>
+                                <option value="June">June 1</option>
+                                <option value="December">December 1</option>
+                            </select>
                         <label>Camp Duration:</label>
                             <select name="duration" required>
                                 <option value="1">1 week</option>
                                 <option value="2">2 weeks</option>
                             </select>
-
-												<label>Special Instructions:</label>
-                            <input type="textarea" name="special" rows="2" cols="20" />
+                        <label>Special Instructions:
+                            <input type="textarea" name="special" rows="2" cols="20" /></label>
                         <input type=submit name=Submit class="button">
                     </form>
                 </div>
