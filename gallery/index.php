@@ -40,7 +40,7 @@
                         <label>Share your own memory!<br/><input type="file" required="required" name="image_submission"/></label><br/>
                         <label>Your Name: <input type="text" required="required" name="name"/></label><br/>
                         <label>Caption: <input type="text" required="required" name="caption"/></label><br/>
-                        <label>Camp: <select required="required" name="location">
+                        <label>Camp: <select name="location">
                             <?php
                             $connection = mysqli_connect("localhost","fourthreefour","americo","educamps");
                             if(!$connection){
@@ -50,6 +50,7 @@
                             while($row = mysqli_fetch_assoc($camp_query)){
                                 echo "<option value=".$row["camp_id"].">".$row["name"]."</option>";
                             }
+                            mysqli_close($connection);
                             ?>
                             </select>
                         </label><br/>
@@ -65,7 +66,7 @@
                     $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name FROM gallery_tb");
                     if (mysqli_num_rows($imgquery) > 0){
                         while($image = mysqli_fetch_assoc($imgquery)){
-                            echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/>";
+                            echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
                             echo $image[caption]." - ".$image[name]." (".$image[upload_date].")</p>";
                         }
                     }else{
