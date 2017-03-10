@@ -27,18 +27,16 @@
 	                </table>
 	            </div>
 							<?php
-							$num_stars = _REQUEST["stars"];
-							if(isset($_POST["content"])){
+							$stars = $_REQUEST['star'];
 										$con = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
 										if(!$con){
 											die("SQL error occurred on connect: ". mysql_error());
 										}
-										$name = $_POST["name"];
-										$email = $_POST["email"];
-										$content = $_POST["content"];
-										mysqli_query($con,"INSERT INTO forum(name, email, stars, content) VALUES($name, $email, $stars, $content)");
+										$name = $_REQUEST["name"];
+										$email = $_REQUEST["email"];
+										$content = $_REQUEST["content"];
+										mysqli_query($con, "INSERT INTO forum(name, email, stars, content)VALUES('$name', '$email', '$stars', '$content')");
 										mysqli_close($con);
-									}
 									echo "Review Submitted";
 								?>
 						</div>
