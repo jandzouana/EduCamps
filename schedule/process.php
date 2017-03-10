@@ -64,8 +64,8 @@ function QueryLogin($query, $connection){
 #database information (may change from computer to computer)
 $database = 'educamps';
 $dbserver = 'localhost';
-$dbusername = 'root';
-$dbpass = '';
+$dbusername = 'fourthreefour';
+$dbpass = 'americo';
 
 #connection to database server
 $connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php

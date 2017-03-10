@@ -1,10 +1,9 @@
 <?php
 	include_once '../dbconnect.php'; 	#contains connectDB function
-    
+
 	function QueryCamp($query, $connection){
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-		#$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
-
+		
 		#grabs multiple rows into an array
 		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
 			$rows[] = $row;
@@ -17,7 +16,7 @@
 	$dbpass = 'americo';
 	$database = 'educamps';
 	#connection to database server
-	$connection = connectDB($dbserver, $dbusername, $dbpass, $database); #from dbconnect.php
+	$connection = connectDB($database, $dbserver, $dbusername, $dbpass); #from dbconnect.php
 ?>
 
 <!DOCTYPE HTML>
@@ -72,7 +71,7 @@
                         <label>Camp
                             <select name="location" required>
                                 <?php
-                                $camps_query = mysqli_query($connection, "SELECT camp FROM camp_name");
+                                $camps_query = mysqli_query($connection, "SELECT camp_id, name FROM camp");
                                 while($camp = mysqli_fetch_assoc($camps_query)){
                                     echo "<option value=".$camp['camp_id'].">".$camp['name']."</option>";
                                 }
