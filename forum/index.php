@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>EduCamps Inc - Forum</title>
+        <title>EduCamps Inc - Forum Submit</title>
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -31,7 +31,7 @@
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a congue elit. Cras vehicula bibendum dolor vel consectetur. Phasellus pretium id nisl sit amet imperdiet. Praesent vehicula purus vel tempus maximus. Fusce aliquam quam enim, eget laoreet lorem semper eget. Sed malesuada tortor consectetur massa consectetur, tempus mollis est dignissim.</p>
 
                 <form action = "forum.php" action = "post">
-                    <div class = commenter_info>
+                    <div class = "commenter_info">
                         <label> Name: <input type = "text" name = "name" ></label> <br/>
                         <label> Email: <input type = "text" name = "email" ></label>
                     </div>
@@ -58,7 +58,7 @@
             <br/>
             <br/>
             <h2> Top Customer Reviews </h2>
-            <br>
+            <br/>
             <?php
 
             $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
@@ -73,19 +73,20 @@
                 while($review = mysqli_fetch_assoc($rvwquery)){
                     ?>
                     <h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
-                    <?php for($i = 1; $i <= 5; $i++)
-                    {?>
-                      <div class = "stars">
-                        <?php if($i <= $review["stars"]){?>
-                          <input class="star" id="stars" type="radio" checked = "checked"/>
-                          <label class="star" for="star-<?=$i ?>"></label>
+                    <div class = "stars">
+                    <?php for($i = 5; $i >=1; $i--)
+                    {
+                        if($i > $review["stars"]){?>
+                          <input class="star" type="radio"/>
+                          <label class="star" ></label>
                       <?php  }
-                      else if(i > $review["stars"]){?>
-                        <input class="star" id="stars" type="radio"/>
+                      else if($i <= $review["stars"]){ ?>
+                        <input class="star" type="radio" checked = "checked"/>
                         <label class="star" for="star-<?=$i ?>"></label>
-                    <?php  }?>
-                    </div>
-                    <?php }?>
+                    <?php  }
+
+                    }?>
+                      </div>
                     <p> <?=$review['content']?> </p>
                     <br/>
                     <?php

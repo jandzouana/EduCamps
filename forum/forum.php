@@ -26,19 +26,52 @@
 	                    </tr>
 	                </table>
 	            </div>
+							<div id = "forum_submit_content" class = 'main_content'>
+								<h1> Reviews </h1>
+								<p> Your Review was submitted. Thank you for your feedback. </p>
+							<br/>
+							<br/>
+								<h2> Top Customer Reviews </h2>
 							<?php
 							$stars = $_REQUEST['star'];
-										$con = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
-										if(!$con){
+										$connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+										if(!$connection){
 											die("SQL error occurred on connect: ". mysql_error());
 										}
 										$name = $_REQUEST["name"];
 										$email = $_REQUEST["email"];
 										$content = $_REQUEST["content"];
-										mysqli_query($con, "INSERT INTO forum(name, email, stars, content)VALUES('$name', '$email', '$stars', '$content')");
-										mysqli_close($con);
-									echo "Review Submitted";
-								?>
+										mysqli_query($connection, "INSERT INTO forum(name, email, stars, content)VALUES('$name', '$email', '$stars', '$content')");
+
+									$rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date, stars FROM forum ORDER BY post_date DESC LIMIT 5");
+									if(!$rvwquery)
+									{
+										die("SQL query failed:\n$query\n". mysql_error());
+									}
+											while($review = mysqli_fetch_assoc($rvwquery)){
+													?>
+													<h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
+													<div class = "stars">
+														<?php for($i = 5; $i >=1; $i--)
+				                    {
+				                        if($i > $review["stars"]){?>
+				                          <input class="star" type="radio"/>
+				                          <label class="star" ></label>
+				                      <?php  }
+				                      else if($i <= $review["stars"]){ ?>
+				                        <input class="star" type="radio" checked = "checked"/>
+				                        <label class="star" for="star-<?=$i ?>"></label>
+				                    <?php  }
+
+				                    }?>
+														</div>
+													<p> <?=$review['content']?> </p>
+													<br/>
+													<?php
+														}
+									mysqli_close($connection);
+										?>
+							</div>
 						</div>
 					</body>
 				</html>
