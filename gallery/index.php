@@ -4,6 +4,14 @@
         <title>EduCamps Inc - Gallery</title>
         <link href="../stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#show_submit').click(function() {
+                    $('#gallery_form').show();
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="main_container">
@@ -26,11 +34,25 @@
             </div>
             <div id= "gallery_main_content" class = "main_content">
                 <h1>Gallery</h1>
+                <button id="show_submit">Submit Your Own Image</button>
                 <div id="gallery_form">
                     <form action="submitimage.php" method="post" enctype="multipart/form-data">
                         <label>Share your own memory!<br/><input type="file" required="required" name="image_submission"/></label><br/>
                         <label>Your Name: <input type="text" required="required" name="name"/></label><br/>
                         <label>Caption: <input type="text" required="required" name="caption"/></label><br/>
+                        <label>Camp: <select required="required" name="location">
+                            <?php
+                            $connection = mysqli_connect("localhost","fourthreefour","americo","educamps");
+                            if(!$connection){
+                                die("Database connection failed: ".mysqli_connect_error());
+                            }
+                            $camp_query = mysqli_query($connection, "SELECT camp_id, name FROM camp_tb");
+                            while($row = mysqli_fetch_assoc($camp_query)){
+                                echo "<option value=".$row["camp_id"].">".$row["name"]."</option>";
+                            }
+                            ?>
+                            </select>
+                        </label><br/>
                         <input type="submit" value="Submit Image" class="button" />
                     </form>
                 </div>
