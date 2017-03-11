@@ -10,18 +10,18 @@
         <div class=main_container>
             <div id=menubar>
                 <a href="../">
-									<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                 </a>
                 <table>
                     <tr>
-											<td><a href=../about>About</a></td>
-											<td><a href=../registration>Registration</a></td>
-											<td><a href=../store>Store</a></td>
-											<td><a href=../gallery>Gallery</a></td>
-											<td><a href=../forum>Forum</a></td>
-											<td><a href=../data>Data</a></td>
-											<td><a href=../activities>Activities</a></td>
-											<td><a href=../schedule>Schedule</a></td>
+                        <td><a href=../about>About</a></td>
+                        <td><a href=../registration>Registration</a></td>
+                        <td><a href=../store>Store</a></td>
+                        <td><a href=../gallery>Gallery</a></td>
+                        <td><a href=../forum>Forum</a></td>
+                        <td><a href=../data>Data</a></td>
+                        <td><a href=../activities>Activities</a></td>
+                        <td><a href=../schedule>Schedule</a></td>
                     </tr>
                 </table>
             </div>

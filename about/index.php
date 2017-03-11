@@ -68,13 +68,41 @@
                 <h1>About</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
                 <h4>Schedule</h4>
                     <table>
-                        <tr><td>Summer</td><td>June 1 - 7 <br/>June 1 - 14</td></tr>
-                        <tr><td>Winter</td><td>December 1 - 7 <br/>December 1 - 14</td></tr>
-                        <tr><td>Age Range</td><td>9 - 14<br/></tr>
-                    </table>
+                        <tr><td><strong>Camp</strong></td><td><strong>Location</strong></td><td><strong>Address</strong></td><td><strong>Active</strong></td><td><strong>Winter</strong></td><td><strong>Summer</strong></td><td><strong>Capacity</strong></td></tr>
+                        <?php
+                        $conn = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+                        if (!$conn){
+                            die("Database connection failed: " . mysqli_connect_error());
+                        }
+                        $campsquery = mysqli_query($conn, "SELECT camp_name, location, address, active, season_winter, season_summer, capacity FROM camp");
+                        if(!campsquery)
+                        {
+                            die("SQL query failed:\n$campquery\n". mysql_error());
+                        }
+                        while($camp = mysqli_fetch_assoc($campsquery)){
+                        ?>
+                        <tr><td><?= $camp['camp_name'] ?></td><td><?= $camp['location'] ?></td><td><?= $camp['address'] ?></td>
+                        <?php if ($camp['active']){     ?> 
+                            <td>YES</td> <?php } 
+                                else{ ?> 
+                            <td>NO</td> 
+                        <?php } ?>
+                        <?php if ($camp['season_winter']){     ?> 
+                            <td>X</td> <?php } 
+                                else{ ?> 
+                            <td></td> 
+                        <?php } ?> 
+                        <?php if ($camp['season_summer']){     ?> 
+                            <td>X</td> <?php } 
+                                else{ ?> 
+                            <td></td> 
+                        <?php } ?>  
+                        <td><?= $camp['capacity'] ?></td></tr>
+                        <?php } ?>
+                </table>
+
 
                 <div id="headspace">
                 <?php

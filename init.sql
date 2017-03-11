@@ -63,7 +63,7 @@ CREATE TABLE forum(
     email varchar(255),
     stars int,
     post_date datetime DEFAULT NOW(),
-    content varchar(255),
+    content text(65535),
     PRIMARY KEY (post_id)
 );
 
