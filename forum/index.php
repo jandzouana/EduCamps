@@ -5,6 +5,9 @@
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <div class=main_container>
@@ -30,10 +33,10 @@
             <h2> Reviews </h2>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a congue elit. Cras vehicula bibendum dolor vel consectetur. Phasellus pretium id nisl sit amet imperdiet. Praesent vehicula purus vel tempus maximus. Fusce aliquam quam enim, eget laoreet lorem semper eget. Sed malesuada tortor consectetur massa consectetur, tempus mollis est dignissim.</p>
 
-                <form action = "forum.php" action = "post">
+                <form action = "" method = "post" id = "forum_form">
                     <div class = "commenter_info">
-                        <label> Name: <input type = "text" name = "name" ></label> <br/>
-                        <label> Email: <input type = "text" name = "email" ></label>
+                        <label> Name: <input type = "text" name = "name" id = "name"></label> <br/>
+                        <label> Email: <input type = "text" name = "email" id = "email"></label>
                     </div>
                      <div class = "stars">
                         <p>Rating: </p>
@@ -51,8 +54,8 @@
                      </div>
                     <br/>
                     <br/>
-                    <textarea name = "content" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
-                    <input type=submit name="Submit" class="button2"/>
+                    <textarea id = "content" name = "content" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
+                    <input type=button id="submit" value = "Submit" class="button2"/>
                 </form>
 
             <br/>
