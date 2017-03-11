@@ -56,6 +56,7 @@
                 </table>
             </div>
            <div id="anchor_bar" >
+               <p><a id="register_button" href=../registration>Register Now!</a></p>
                 <h4>Locations</h4>
                 <?php
                     $camp_name = QueryCamp("SELECT camp_name FROM camp", $connection);

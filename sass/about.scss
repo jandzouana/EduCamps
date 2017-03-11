@@ -17,11 +17,10 @@ strong{
         border-spacing: 0px;
         width: 100%;
         border: solid black 1px;
-        float: left;
         
     }
     td{
-        width: auto;
+        width: 700px;
         height: auto;
         padding-left: 15px;
         padding-right: 25px;
@@ -58,7 +57,7 @@ a:visited{
     text-align: left;
 }
 #headspace{
-    margin-top: 950px;
+    margin-top: 0px;
     border: solid $body_color 1px;
 
 }
@@ -79,6 +78,7 @@ a:visited{
     padding: 10px;
     padding-bottom: 5px;
     background-color: $menu_back_color;
+    border: none; 
 }
 h4{
 	text-transform: uppercase;
