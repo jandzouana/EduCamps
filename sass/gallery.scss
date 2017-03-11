@@ -25,17 +25,21 @@
     height: 600px; 
     padding: 0px;
     background-color: $body_color;
-    p{
-        width: 400px;
-        height: 350px;
-        margin: 0px;
-        float: left;
-        font-size: .7em;
-        margin-bottom: 10px;
-        img{
-            width: 380px;
-            height: auto;
+    .camp_images{
+        width: 100%;
+        height: auto;
+        p{
+            width: 400px;
+            height: 350px;
             margin: 0px;
+            float: left;
+            font-size: .7em;
+            margin-bottom: 10px;
+            img{
+                width: 380px;
+                height: auto;
+                margin: 0px;
+            }
         }
     }
 }

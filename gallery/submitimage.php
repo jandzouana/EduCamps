@@ -31,9 +31,7 @@
         $target_file = basename($_FILES["image_submission"]["name"]);
         $caption = $_POST["caption"];
         $name = $_POST["name"];
-        if(isset($_POST["camp_id"])){
-            $camp_id = $_POST["camp_id"];
-        }
+        $camp_id = $_POST["camp_id"];
         
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.<br/>";
@@ -42,7 +40,7 @@
             if(!$connection){
                 die("Database connection failed: ".mysqli_connect_error());
             }
-            $upload_query = "INSERT INTO gallery (filename, caption, name) VALUES ('$target_file', '$caption', '$name')";
+            $upload_query = "INSERT INTO gallery (filename, caption, name, camp_id) VALUES ('$target_file', '$caption', '$name', '$camp_id')";
             $upload = mysqli_query($connection, $upload_query);
             if($upload){
                 echo "Database upload successful!";
