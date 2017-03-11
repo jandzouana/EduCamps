@@ -60,8 +60,9 @@
 
             <br/>
             <br/>
-            <h2> Top Customer Reviews </h2>
+            <h2> Recent Customer Reviews </h2>
             <br/>
+            <div id = "forum_submit_content">
             <?php
 
             $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
@@ -76,7 +77,8 @@
 
                 while($review = mysqli_fetch_assoc($rvwquery)){
                     ?>
-                    <h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
+                      <p class = "reviewer_info"> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </p>
+
                     <div class = "stars">
                     <?php for($i = 5; $i >=1; $i--)
                     {
@@ -91,16 +93,33 @@
 
                     }?>
                       </div>
-                    <p> <?=$review['content']?> </p>
+                      <p> <?=$review['content']?> </p>
+
                     <br/>
                     <?php
                       }
             mysqli_close($connection);
 
               ?>
-
+            </div>
              </div>
-
+             <div id="footer">
+             <div id="left-footer">
+                 <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                 <a href="webmaster.html">Webmaster</a>
+                 <a href="contact.html">Contact Us</a>
+             </div>
+                 <table id="right-footer">
+                     <tr>
+                         <td>
+                             <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+                             <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+                             <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+                             <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                         </td>
+                     </tr>
+                 </table>
+             </div>
         </div>
 
     </body>
