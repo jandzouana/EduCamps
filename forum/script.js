@@ -5,7 +5,8 @@ $(document).ready(function(){
         'name'              : $('input[name=name]').val(),
         'email'             : $('input[name=email]').val(),
         'content'             : $('textarea[name=content]').val(),
-        'star'    : $('input[name=star]').val()
+        'star'                : $('input[name=star]:checked').val()
+
     };
 
 		$.ajax({

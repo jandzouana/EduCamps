@@ -6,6 +6,7 @@
 			if(!$connection){
 				die("SQL error occurred on connect: ". mysql_error());
 			}
+
 			$stars = $_POST['star'];
 			$name = $_POST['name'];
 			$email = $_POST['email'];

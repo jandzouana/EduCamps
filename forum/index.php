@@ -73,6 +73,7 @@
             {
               die("SQL query failed:\n$query\n". mysql_error());
             }
+
                 while($review = mysqli_fetch_assoc($rvwquery)){
                     ?>
                     <h4> On <?= $review['post_date'] ?> <?= $review['name'] ?> wrote: </h4>
