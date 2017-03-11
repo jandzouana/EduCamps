@@ -61,7 +61,7 @@
                 <?php
                     $camp_name = QueryCamp("SELECT camp_name FROM camp", $connection);
                     foreach($camp_name as $row){
-                        echo "<p><a href='$row[0]'>$row[0]</a></p>";
+                        echo "<p><a href='#$row[0]'>$row[0]</a></p>";
                     }
                 ?>
             </div>
