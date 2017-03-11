@@ -69,7 +69,7 @@
             if (!$connection){
                 die("Database connection failed: " . mysqli_connect_error());
             }
-            $rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date, stars FROM forum ORDER BY post_date DESC LIMIT 5");
+            $rvwquery = mysqli_query($connection, "SELECT name, stars, content, post_date, stars FROM forum ORDER BY post_date DESC LIMIT 10");
             if(!$rvwquery)
             {
               die("SQL query failed:\n$query\n". mysql_error());
