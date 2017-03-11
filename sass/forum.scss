@@ -138,7 +138,7 @@ display: inline-block;
     text-shadow: 0 0 20px #952;
   }
   input.star-1:checked ~ label.star:before { color: #F62; }
-  label.star:hover { transform: rotate(-15deg) scale(1.3); }
+  label.star:hover { }
   label.star:before {
     content: '\f006';
     font-family: FontAwesome;
