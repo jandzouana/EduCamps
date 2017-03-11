@@ -78,7 +78,7 @@
                             die("Database connection failed: " . mysqli_connect_error());
                         }
                         $campsquery = mysqli_query($conn, "SELECT camp_name, location, address, active, season_winter, season_summer, capacity FROM camp");
-                        if(!campsquery)
+                        if(!$campsquery)
                         {
                             die("SQL query failed:\n$campquery\n". mysql_error());
                         }
