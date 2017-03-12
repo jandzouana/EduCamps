@@ -7,6 +7,7 @@ CREATE TABLE campers(
     pname varchar(255),
     email varchar(255),
     special varchar(255),
+    phone varchar (225),
     PRIMARY KEY (camper_id)
 );
 
@@ -14,6 +15,7 @@ CREATE TABLE account(
     account_id int AUTO_INCREMENT,
     pemail varchar(255),
     password varchar(255),
+    cname varchar(225),
     PRIMARY KEY (account_id)
 );
 
