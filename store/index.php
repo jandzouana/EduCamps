@@ -29,11 +29,46 @@
 	            <div id="store_main_content" class = "main_content">
                     <form action="confirmation.php" method="POST">
                         <h1>Store</h1>
-                            
+                        <div class="store-images-container">
                         <?php
+                        $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+                        if(!$connection){
+                            die("Database connection failed: ".mysqli_connect_error());
+                        }
+                        $items_query = mysqli_query("SELECT item_id, name, price, image_file, category FROM store ORDER BY category");
                         
+                        $current_category = "";
+                        while($row = mysqli_fetch_assoc($items_query)){
+                            if($row["category"] != $current_category){
+                                $current_category = $row[category];
+                                echo "<h3>".$current_category."</h3>";
+                            }
+                            ?>
+                            <div class="item">
+                                <div class="store-img" id="<?=$row["item_id"]?>">
+                                    <img src="storeimages/".<?=$row["image_file"]?>/>
+                                </div>
+                                <div class="price">
+                                    <h4>Price</h4>
+                                    <p><?=$row["price"]?></p>
+                                </div>
+                                <div class="quantity">
+                                    <p>Quantity</p>
+                                    <input type="number" name="<?="item".$row["item_id"]?>" min="0" max="5" value="0"/>
+                                </div>
+                            </div>
+                            <?php
+                        }
                         ?>
-                        
+                        </div>
+                        <p id="discount-message">Enter your email address below if you are registered to recieve a 15% discount!</p>
+                        <div class="email">
+                            <h4>Email</h4>
+                            <input type="text" name="pemail"/>
+                        </div>
+                        <input type="submit" value="Checkout" class="button2"/>
+                    </form>
+                        <!--
                         <h4><a name="shirts">SHIRTS</a></h4>
                         <div class="store-images-container">
                             <div class="item">
@@ -107,6 +142,7 @@
                         </div>
                         <input type="submit" value="Checkout" class="button2"/>
                     </form>
+                    -->
 	            </div>
             </div>
             <div id=footer>
