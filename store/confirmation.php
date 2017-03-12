@@ -162,7 +162,10 @@
                 $msg = '';
                 $discount = ApplyDiscount(0.15, $connection, $msg);
                 
-                $items_query = mysqli_query($connection, "SELECT ");
+                $items_query = mysqli_query($connection, "SELECT item_id, name, price FROM store");
+                while($row = mysqli_fetch_assoc($items_query)){
+                    
+                }
                 
                 for($i = 0; $i < sizeof($prices); $i++){
                     $temp = 'val'. ($i+1);
