@@ -50,15 +50,11 @@
                         <label class="star star-2" for="star-2"></label>
                         <input class="star star-1" id="star-1" type="radio" name="star" value = "1"/>
                         <label class="star star-1" for="star-1"></label>
-                         <br/>
                      </div>
-                    <br/>
-                    <br/>
+									 </br>
                     <textarea id = "content" name = "content" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
-                    <input type=button id="submit" value = "Submit" class="button2"/>
+                    <input type=button id="forum_submit" value = "Submit" class="button2"/>
                 </form>
-
-            <br/>
             <br/>
             <h2> Recent Customer Reviews </h2>
             <br/>
