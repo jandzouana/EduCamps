@@ -75,13 +75,20 @@
                                 while($camp = mysqli_fetch_assoc($camps_query)){
                                     echo "<option value=".$camp['camp_name'].">".$camp['camp_name']."</option>";
                                 }
-                                mysqli_close($connection);
                                 ?>
                             </select></label>
                         <label>Camp Section:</label>
                             <select name="section" required>
-                                <option value="June">June 1</option>
-                                <option value="December">December 1</option>
+															<?php
+															$camps_query = mysqli_query($connection, "SELECT section FROM sections");
+															while($camp = mysqli_fetch_assoc($camps_query)){
+																	#echo "<option value=".$camp['section'].">".$camp['section']."</option>";
+																	$date = $camp['section'];
+																	echo "<option value='$date'>".	$date."</option>";
+
+															}
+															#echo date_format($date,"Y/m/d H:i:s");
+															?>
                             </select>
                         <label>Camp Duration:</label>
                             <select name="duration" required>
@@ -114,3 +121,7 @@
         </div>
     </body>
 </html>
+
+<?php
+mysqli_close($connection);
+ ?>
