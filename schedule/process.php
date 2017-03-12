@@ -108,14 +108,21 @@ $dbinputs = array("cname");
                 </table>
             </div>
            	<main id="login-schedule">
-								<?php
-								 ?>
+							<?php
+								$location = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location");
+								$duration = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration");
+								$duration_days = '+';
+								$duration_days = $duration_days.($duration*7)." days";
+								$temp = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section");
+								$date = date_create($temp);
+								$date_end =  date_create($temp);
+								$date_end->modify($duration_days);
+							 ?>
 							<h1> <?= $_POST['cname']?>'s Schedule</h1>
 							<h2>
-								<?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location")?>
-								<span id="campdate"> <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?> 1 - <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")*7 ?></span> </h2>
+								<?=$location?>
+								<span id="campdate"> <?=date_format($date,"m/d/Y")?> - <?=date_format($date_end,"m/d/Y")?></span> </h2>
 							<?php
-								$duration = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration");
 								$temp = '';
 								for($i = 1; $i <= $duration; $i++){
 									$temp = "Week " . $i;
@@ -125,11 +132,10 @@ $dbinputs = array("cname");
 							 ?>
 							<div id="schedule-image"></div>
 						</main>
-            <div id=footer>
+						<div id=footer>
                 <div id="left-footer">
                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
+                    <a href="../contact">Contact Us</a>
                 </div>
                 <table id="right-footer">
                     <tr>

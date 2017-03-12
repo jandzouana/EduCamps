@@ -50,15 +50,11 @@
                         <label class="star star-2" for="star-2"></label>
                         <input class="star star-1" id="star-1" type="radio" name="star" value = "1"/>
                         <label class="star star-1" for="star-1"></label>
-                         <br/>
                      </div>
-                    <br/>
-                    <br/>
+									 </br>
                     <textarea id = "content" name = "content" cols = 75% rows = 10 placeholder="Provide your review here"></textarea> <br/>
-                    <input type=button id="submit" value = "Submit" class="button2"/>
+                    <input type=button id="forum_submit" value = "Submit" class="button2"/>
                 </form>
-
-            <br/>
             <br/>
             <h2> Recent Customer Reviews </h2>
             <br/>
@@ -103,12 +99,11 @@
               ?>
             </div>
              </div>
-             <div id="footer">
-             <div id="left-footer">
-                 <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                 <a href="webmaster.html">Webmaster</a>
-                 <a href="contact.html">Contact Us</a>
-             </div>
+						 <div id=footer>
+                 <div id="left-footer">
+                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                     <a href="../contact">Contact Us</a>
+                 </div>
                  <table id="right-footer">
                      <tr>
                          <td>
@@ -116,6 +111,7 @@
                              <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
                              <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
                              <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                             <br/>
                          </td>
                      </tr>
                  </table>

@@ -35,18 +35,22 @@
                         if(!$connection){
                             die("Database connection failed: ".mysqli_connect_error());
                         }
-                        $items_query = mysqli_query("SELECT item_id, name, price, image_file, category FROM store ORDER BY category");
-                        
+                        $items_query = mysqli_query($connection, "SELECT item_id, name, price, image_file, category FROM store ORDER BY category");
+
                         $current_category = "";
                         while($row = mysqli_fetch_assoc($items_query)){
                             if($row["category"] != $current_category){
                                 $current_category = $row[category];
                                 echo "<h3>".$current_category."</h3>";
                             }
+                            $source = "storeimages/".$row["image_file"];
                             ?>
                             <div class="item">
                                 <div class="store-img" id="<?=$row["item_id"]?>">
-                                    <img src="storeimages/".<?=$row["image_file"]?>/>
+                                    <img src="<?=$source?>"/>
+                                </div>
+                                <div class="item-name">
+                                    <?=$row["name"]?>
                                 </div>
                                 <div class="price">
                                     <h4>Price</h4>
@@ -145,11 +149,10 @@
                     -->
 	            </div>
             </div>
-            <div id=footer>
+						<div id=footer>
                 <div id="left-footer">
                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
+                    <a href="../contact">Contact Us</a>
                 </div>
                 <table id="right-footer">
                     <tr>

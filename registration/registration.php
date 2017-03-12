@@ -114,16 +114,20 @@
 		//Checking camp capacity before registering
 		#caluclating camp's capacity
 		$dbtable = 'camp';
+		#	function CampCapacity($dbtable, $capacity_column_name, $connection, $camp_column_name, $camp_name){
 		$cap = CampCapacity($dbtable, "capacity", $connection, "camp_name", $_POST["location"]);
+
+
 		#calculating how many are registered at camp
 		$dbtable = 'registration';
 		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
 		if($registered >= $cap){
+			echo "Camp is full";
 			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
 		}
 		//Checking if the data given already exists
-		$dbtable = 'campers';
-		$dbinputs = array("cname", "birthday", "pname",  "grade", "school", "special", "phone");
+		$dbtable = 'account';
+		$dbinputs = array("cname", "pemail");
 		$query = CreateSelectQueryString($dbtable, $dbinputs);
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
@@ -141,6 +145,9 @@
 			$dbtable = 'account';
 			$dbinputs = array("pemail", "cname", "password");
 			Query(CreateInsertQueryString($dbtable, $dbinputs), $connection); 		#creating query
+		}
+		else{
+			header('Location: http://localhost:7080/jess/EduCamps/registration/error2.php'); #redirect to another page if already registered
 		}
 		#calculating Cost
 		$dbtable = 'registration'; #added this
@@ -258,16 +265,15 @@
                             <input type="number" name="postal" minlength="4" maxlength="5" required /></label>
                         <label>Phone number:
                             <input type="number" name="phone" minlength="10" maxlength="10" required /></label>
-                        <input type="submit" name="Submit">
+                        <input type="submit" name="Submit" class="button2">
                     </form>
                 </div>
             </div>
-            <div id="footer">
-            <div id="left-footer">
-                <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                <a href="webmaster.html">Webmaster</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
+						<div id=footer>
+                <div id="left-footer">
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <a href="../contact">Contact Us</a>
+                </div>
                 <table id="right-footer">
                     <tr>
                         <td>
@@ -275,6 +281,7 @@
                             <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
                             <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
                             <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                            <br/>
                         </td>
                     </tr>
                 </table>

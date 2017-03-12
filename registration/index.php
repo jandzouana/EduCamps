@@ -73,15 +73,27 @@
                                 <?php
                                 $camps_query = mysqli_query($connection, "SELECT camp_name FROM camp where active='1'");
                                 while($camp = mysqli_fetch_assoc($camps_query)){
-                                    echo "<option value=".$camp['camp_name'].">".$camp['camp_name']."</option>";
+																		$camp_name = $camp['camp_name'];
+																		$camp_name2 = str_replace('"', '&quot;', $camp_name2);
+																		echo "<option value=".'"'.$camp['camp_name'].'"'.">".$camp['camp_name']."</option>";
                                 }
-                                mysqli_close($connection);
+																#$date = date_create($temp);
+																#date_format($date,"m/d/Y"
                                 ?>
                             </select></label>
                         <label>Camp Section:</label>
                             <select name="section" required>
-                                <option value="June">June 1</option>
-                                <option value="December">December 1</option>
+															<?php
+															$camps_query = mysqli_query($connection, "SELECT section FROM sections");
+															while($camp = mysqli_fetch_assoc($camps_query)){
+																	#echo "<option value=".$camp['section'].">".$camp['section']."</option>";
+																	$date = $camp['section'];
+																	$temp = date_create($date);
+																	echo "<option value='$date'>".	date_format($temp,"m/d/Y") ."</option>";
+
+															}
+															#echo date_format($date,"Y/m/d H:i:s");
+															?>
                             </select>
                         <label>Camp Duration:</label>
                             <select name="duration" required>
@@ -94,11 +106,10 @@
                     </form>
                 </div>
             </div>
-            <div id=footer>
+						<div id=footer>
                 <div id="left-footer">
                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
+                    <a href="../contact">Contact Us</a>
                 </div>
                 <table id="right-footer">
                     <tr>
@@ -107,6 +118,7 @@
                             <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
                             <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
                             <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                            <br/>
                         </td>
                     </tr>
                 </table>
@@ -114,3 +126,7 @@
         </div>
     </body>
 </html>
+
+<?php
+mysqli_close($connection);
+ ?>
