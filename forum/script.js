@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#submit").click(function(){
+	$("#forum_submit").click(function(){
 
     var formData = {
         'name'              : $('input[name=name]').val(),
