@@ -4,9 +4,13 @@
         <title>EduCamps Inc - Data</title>
         <link href=../stylesheets/main.css media=screen rel=stylesheet type=text/css />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src = "data.js"></script>
+        <script src='Chart.min.js'></script>
     </head>
     <body>
-        <div class=main_container>
+        <div class=main_container id = "data_main_container">
             <div id=menubar>
                 <a href="../">
 									<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
@@ -25,9 +29,26 @@
                 </table>
             </div>
             <div id="data_main_content" class = "main_content">
-            <p>This is some text</p>
+              <div id = chartContainer>
+              </div>
+                </div>
+                <div id="footer">
+                <div id="left-footer">
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <a href="webmaster.html">Webmaster</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                    <table id="right-footer">
+                        <tr>
+                            <td>
+                                <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+                                <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+                                <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+                                <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-
-        </div>
     </body>
 </html>
