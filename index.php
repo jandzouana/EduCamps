@@ -38,24 +38,25 @@
 	                    <tr>
 	                        <td> Requirements
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>Ages 6-14</li>
+                                    <li>Must have transportation</li>
+                                    <li>Everyone is welcome! </li>
                                 </ul>
+                                <a href="registration/" class="button">Register here</a>
                             </td>
 	                        <td> Activity Options
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>Robotics</li>
+                                    <li>Sports</li>
+                                    <li>Arts and Hobbies</li>
                                 </ul>
+                                <a href="about/" class="button">Learn More</a>
                             </td>
 	                        <td> Instructions
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>If you have an accomodation request, <a href="contact">contact us.</a></li>
                                 </ul>
+                                <a href="contact/" class="button">Contact Us</a>
                             </td>
                         </tr>
 	                </table>
@@ -66,7 +67,7 @@
                         </td>
                         <td>
                             <ul id="list_container">Locations
-                            <?php 
+                            <?php
                                 $conn = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
                                 if (!$conn){
                                     die("Database connection failed: " . mysqli_connect_error());
@@ -89,8 +90,7 @@
             <div id="footer">
                 <div id="left-footer">
                     <img id="logo" src="icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
+                    <a href="contact">Contact Us</a>
                 </div>
                 <table id="right-footer">
                     <tr>

@@ -1,3 +1,39 @@
+
+<?php
+$camp_names = array(); #Jessica added this
+$connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+if (!$connection){
+die("Database connection failed: " . mysqli_connect_error());
+}
+
+$camp_names_query = mysqli_query($connection, "SELECT camp_id, camp_name FROM camp");
+while($row = mysqli_fetch_assoc($camp_names_query)){
+$camp_names[$row['camp_id']] = $row['camp_name'];
+}
+$count = 0;
+foreach($camp_names as $name)
+{
+  $count++;
+}
+$num_camps = $count;
+/*$connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+if(!$connection)
+{
+  echo "connection failed";
+}
+
+$namequery = mysqli_query($connection, "SELECT camp_name FROM camp");
+if(!$namequery)
+{
+  echo "query failed";
+}
+while($camp_name = mysqli_fetch_array($namequery))
+{
+  $camp_names[] = $camp_name;
+  echo "$camp_name";
+}*/
+$num_camps = count($camp_names);
+ ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -7,7 +43,6 @@
         <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src = "data.js"></script>
-        <script src='Chart.min.js'></script>
     </head>
     <body>
         <div class=main_container id = "data_main_container">
@@ -29,8 +64,14 @@
                 </table>
             </div>
             <div id="data_main_content" class = "main_content">
-              <div id = chartContainer>
+              <h1> Data </h1>
+              <div id = "graphContainer">
               </div>
+              <br/>
+              <div id = "barContainer">
+              </div>
+                <br/>
+
                 </div>
 								<div id=footer>
 		                <div id="left-footer">

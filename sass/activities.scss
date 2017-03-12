@@ -52,7 +52,12 @@ a:visited{
 			padding: 5px;
 		}
 	}
+    #copy{
+        color: gray;
+        font-size: 15px;
+    }
 }
+
 .button2{
     color: $menu_back-color;
     background-color: white;

@@ -1,17 +1,21 @@
 window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
+
+	//graph of total enrollment in our camp over time
+	var chart = new CanvasJS.Chart("barContainer", {
 		title:{
-			text: "Camp Enrollment"
+			text: "Camp Enrollment Per Camp",
+			labelFontFamily: "Arial"
 		},
 		axisX:{
         labelFontSize: 15,
+				labelFontFamily: "Arial"
       },
 		dataPointMaxWidth: 20,
 
 		data: [
 		{
 			// Change type to "doughnut", "line", "splineArea", etc.
-			type: "bar",
+			type: "doughnut",
 			dataPoints: [
 				{ label: "Apache",  y: 10  },
 				{ label: "Eureka",  y: 10  },
@@ -28,6 +32,42 @@ window.onload = function () {
 				{ label: "Robotics Village", y: 15  },
 				{ label: "Salt Camp", y: 25  },
 				{ label: "Federal Camp",  y: 30  },
+			]
+		}
+		]
+	});
+	chart.render();
+
+
+
+	//graph of total enrollment in our camp over time
+	var chart = new CanvasJS.Chart("graphContainer", {
+		title:{
+			text: "Camp Enrollment Over Time",
+			labelFontFamily: "Arial"
+		},
+		axisX:{
+        labelFontSize: 15,
+				labelFontFamily: "Arial"
+      },
+
+		data: [
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "line",
+			dataPoints: [
+				{ x: new Date(2012, 00, 1), y: 450 },
+        { x: new Date(2012, 01, 1), y: 414 },
+        { x: new Date(2012, 02, 1), y: 520 },
+        { x: new Date(2012, 03, 1), y: 460 },
+        { x: new Date(2012, 04, 1), y: 450 },
+        { x: new Date(2012, 05, 1), y: 500 },
+        { x: new Date(2012, 06, 1), y: 480 },
+        { x: new Date(2012, 07, 1), y: 480 },
+        { x: new Date(2012, 08, 1), y: 410 },
+        { x: new Date(2012, 09, 1), y: 500 },
+        { x: new Date(2012, 10, 1), y: 480 },
+        { x: new Date(2012, 11, 1), y: 510 }
 			]
 		}
 		]

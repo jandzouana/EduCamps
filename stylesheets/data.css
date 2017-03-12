@@ -1,1 +1,1 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");body{font-family:'Josefin Sans', sans-serif}#data_main_container #chartContainer{height:600px;width:75%;margin:100px;margin-left:auto;margin-right:auto}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");body{font-family:'Josefin Sans', sans-serif}#data_main_container #graphContainer{height:300px;width:500px;margin-left:200px;float:left;margin-bottom:100px}#data_main_container #barContainer{height:300px;width:500px;margin-right:300px;margin-bottom:200px;float:right}

@@ -69,14 +69,22 @@ body{
         //font-family: 'Roboto', sans-serif;
         line-height: 10px;
         margin-top: 5px;
-        
+
     }
 
 }
+#menubar > a{
+	margin-top: 0px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
 #topname{
-    padding-left: 10px;
-    font-size: 1.5em; 
-    line-height: 50px;
+    padding-left: 15px;
+    font-size: 1.25em;
+		cursor: pointer;
 
 }
 #footer{
@@ -194,6 +202,11 @@ body{
         background-color: $box_color;
         text-align: center;
         font-size: 30px;
+        li{
+            font-size: 20px; 
+            text-align: left; 
+            line-height: 30px;
+        }
     }
     h1{
         color: $menu_back_color;
@@ -201,6 +214,7 @@ body{
     h4{
         font-size: .85em;
     }
+    
 }
 
 
@@ -237,7 +251,18 @@ body{
     padding: 0px;
     text-align: justify;
 }
+.button{
+    color: $menu_back_color;
+    background-color: $body_color; 
+    border-radius: 6px;
+    border: solid gainsboro 2px; 
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    padding-top: 10px;
+    margin-top: 10px;
 
+}
 @media only screen and (max-width:$cut-off){
     #title{
         font-size: 150px;

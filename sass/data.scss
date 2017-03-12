@@ -3,13 +3,23 @@
 
 #data_main_container{
 
-  #chartContainer{
-    height: 600px;
-    width: 75%;
-    margin: 100px;
-    margin-left: auto;
-    margin-right: auto;
+  #graphContainer{
+    height: 300px;
+    width: 500px;
+    margin-left: 200px;
+    float: left;
+    margin-bottom: 100px;
+
+  }
+  #barContainer{
+    height: 300px;;
+    width: 500px;
+    margin-right: 300px;
+    margin-bottom: 200px;
+    float: right;
 
 
   }
+
+
 }
