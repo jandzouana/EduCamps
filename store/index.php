@@ -65,7 +65,7 @@
                         }
                         ?>
                         </div>
-                        <p id="discount-message">Enter your email address below if you are registered to recieve a 15% discount!</p>
+                        <p id="discount-message">If you're registered for a camp, enter your email address below to recieve a 15% discount!</p>
                         <div class="email">
                             <h4>Email</h4>
                             <input type="text" name="pemail"/>
