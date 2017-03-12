@@ -127,7 +127,7 @@
 		}
 		//Checking if the data given already exists
 		$dbtable = 'campers';
-		$dbinputs = array("cname", "birthday", "pname",  "grade", "school", "special", "phone");
+		$dbinputs = array("cname", "pemail");
 		$query = CreateSelectQueryString($dbtable, $dbinputs);
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 		$row = mysqli_fetch_array($result, MYSQLI_NUM); #only grabs first row
