@@ -34,7 +34,7 @@
             </div>
             <div id= "gallery_main_content" class = "main_content">
                 <h1>Gallery</h1>
-                <button id="show_submit">Submit Your Own Image</button>
+                <button id="show_submit" class="button2">Submit Your Own Image!</button>
                 <div id="gallery_form">
                     <form action="submitimage.php" method="post" enctype="multipart/form-data">
                         <label>Share your own memory!<br/><input type="file" required="required" name="image_submission"/></label><br/>
