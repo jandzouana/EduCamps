@@ -66,11 +66,21 @@
                         </td>
                         <td>
                             <ul id="list_container">Locations
-                                <li>San Jose, CA</li>
-                                <li>Eugene, OR</li>
-                                <li>Austin, TX</li>
-                                <li>Minneapolis, MN</li>
-                                <li>Miami, Fl</li>
+                            <?php 
+                                $conn = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
+                                if (!$conn){
+                                    die("Database connection failed: " . mysqli_connect_error());
+                                }
+                                $campsquery = mysqli_query($conn, "SELECT camp_name, location FROM camp");
+                                if(!campsquery)
+                                {
+                                    die("SQL query failed:\n$campquery\n". mysql_error());
+                                }
+                                while($camp = mysqli_fetch_assoc($campsquery)){
+                            ?>
+                                <li><?= $camp['camp_name'] ?>
+                                <?php } ?>
+                                </li>
                             </ul>
                         </td>
                     </tr>
