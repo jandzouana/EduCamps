@@ -83,36 +83,36 @@
                         if($has_images){
                             echo "<h3>".$camp."</h3><div class='camp_images'>";
                             foreach($images as $image){
+                                $nice_date = date('n/j/Y', strtotime($image["upload_date"]));
                                 if($camp_id == $image['camp_id']){
                                     echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
-                                    echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (".$image["upload_date"].")</p>";
+                                    echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (uploaded ".$nice_date.")</p>";
                                 }
                             }
                             echo "</div>";
                         }
-
                     }
                     mysqli_close($connection);
                     ?>
                 </div>
             </div>
-						<div id=footer>
-								<div id="left-footer">
-										<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-										<a href="../contact">Contact Us</a>
-								</div>
-								<table id="right-footer">
-										<tr>
-												<td>
-														<a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
-														<a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
-														<a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
-														<a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
-														<br/>
-												</td>
-										</tr>
-								</table>
-						</div>
+            <div id=footer>
+                <div id="left-footer">
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <a href="../contact">Contact Us</a>
+                </div>
+                <table id="right-footer">
+                    <tr>
+                        <td>
+                            <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+                            <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+                            <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+                            <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                            <br/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
 </html>

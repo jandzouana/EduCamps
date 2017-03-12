@@ -90,10 +90,20 @@ INSERT INTO `sections` (`section_id`, `section`) VALUES (NULL, '2017-06-12');
 INSERT INTO `sections` (`section_id`, `section`) VALUES (NULL, '2017-12-03');
 INSERT INTO `sections` (`section_id`, `section`) VALUES (NULL, '2017-12-10');
 
-INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",2);
+INSERT INTO store (name, price, image_file, category) VALUES ("red shirt", 14.5, "red_shirt.jpg", "shirts");
+INSERT INTO store (name, price, image_file, category) VALUES ("orange shirt", 11.5, "orange_shirt.png", "shirts");
+INSERT INTO store (name, price, image_file, category) VALUES ("blue shirt", 12.5, "blue_shirt.jpg", "shirts");
+INSERT INTO store (name, price, image_file, category) VALUES ("elephant", 19.9, "plush-toy-elephant.jpg", "gifts");
+INSERT INTO store (name, price, image_file, category) VALUES ("mouse", 12.5, "mouse.jpg", "gifts");
+INSERT INTO store (name, price, image_file, category) VALUES ("headphones", 18.9, "headphones.jpg", "gifts");
+INSERT INTO store (name, price, image_file, category) VALUES ("herschel", 13.9, "herschel.jpg", "backpacks");
+INSERT INTO store (name, price, image_file, category) VALUES ("rucksack", 17.9, "rucksack.jpg", "backpacks");
+INSERT INTO store (name, price, image_file, category) VALUES ("Voltaic", 11.9, "Voltaic.jpg", "backpacks");
+
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery1.jpg", "First Sample Image", "Walter Liu",1);
 INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "Second Sample Image", "Walter Liu",2);
-INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",2);
-INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",2);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",5);
+INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",8);
 
 INSERT INTO forum (name, email, stars, content) VALUES("Sam", "stopp@gmail.com", 4, "The camp was great, the environment was great, but it was too short!");
 INSERT INTO forum (name, email, stars, content) VALUES("Juan", "juan@gmail.com", 5, "Best Camp Ever!");
