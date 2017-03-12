@@ -80,7 +80,7 @@ CREATE TABLE gallery(
 
 CREATE TABLE sections(
     section_id int AUTO_INCREMENT,
-    section date date,
+    section date,
     PRIMARY KEY (section_id)
 );
 INSERT INTO `sections` (`id`, `section`) VALUES (NULL, '06-05-2017');
