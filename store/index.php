@@ -55,7 +55,7 @@
                                 
                                 <div class="quantity">
                                     <p>Quantity</p>
-                                    <input type="number" name="<?="item".$row["item_id"]?>" min="0" max="5" value="0"/>
+                                    <input type="number" name="<?=$row["item_id"]?>" min="0" max="5" value="0"/>
                                 </div>
                             </div>
                             <?php
