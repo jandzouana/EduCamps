@@ -73,7 +73,12 @@ a:visited{
 		}
 	}
 }
-
+#register_button{
+    color: white;
+    padding: 10px;
+    padding-bottom: 5px;
+    background-color: $menu_back_color;
+} 
 h4{
 	text-transform: uppercase;
 }

@@ -10,7 +10,7 @@
         <div class="main_container" id="store_container">
             <div id=menubar>
                 <a href="../">
-                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" /><label id="topname">Educamps</label>
                 </a>
                 <table>
                     <tr>

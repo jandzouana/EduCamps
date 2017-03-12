@@ -17,7 +17,7 @@
         <div class="main_container">
             <div id="menubar">
                 <a href="../">
-                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" /><label id="topname">Educamps</label>
                 </a>
                 <table>
                     <tr>
@@ -59,7 +59,7 @@
                 </div>
                 <div id="gallery_images">
                     <?php
-										$camp_names = array(); #Jessica added this
+                        $camp_names = array(); #Jessica added this
                     $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
                     if (!$connection){
                         die("Database connection failed: " . mysqli_connect_error());
