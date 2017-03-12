@@ -22,7 +22,7 @@ CREATE TABLE registration(
     pemail varchar(255),
     cname int,
     duration int,
-    section varchar(255),
+    section date,
     location varchar(255),
     PRIMARY KEY (registration_id)
 );
@@ -80,7 +80,7 @@ CREATE TABLE gallery(
 
 CREATE TABLE campers(
     section_id int AUTO_INCREMENT,
-    section date datetime,
+    section date date,
     PRIMARY KEY (section_id)
 );
 INSERT INTO sections (section) VALUES ('06-05-2017');

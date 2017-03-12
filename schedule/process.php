@@ -108,12 +108,10 @@ $dbinputs = array("cname");
                 </table>
             </div>
            	<main id="login-schedule">
-								<?php
-								 ?>
 							<h1> <?= $_POST['cname']?>'s Schedule</h1>
 							<h2>
 								<?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "location")?>
-								<span id="campdate"> <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?> 1 - <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration")*7 ?></span> </h2>
+								<span id="campdate"> <?=QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "section")?></span> </h2>
 							<?php
 								$duration = QuerySchedule(CreateQueryString($dbtable, $dbinputs), $connection, "duration");
 								$temp = '';
