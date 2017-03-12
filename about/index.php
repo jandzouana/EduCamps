@@ -68,7 +68,13 @@
             <div id="schedule_main_content" class = "main_content">
                 <h1>About</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <h4>Robotics Activities:</h4>
+                <p>Structure building, programming, sensors, robot races, and robot challenges </p>
+                <h4>Sports Activities:</h4>
+                <p>Basketball, kayaking, snowboarding, skiing, hiking, BB guns, dodgeball, sailing, soccer, and tennis</p>
+                <h4>Arts and Hobbies Activities:</h4>
+                <p>Painting, digital transformation, comedy and drama, digital transfusion, and cooking</p>
                 <h4>Schedule</h4>
                     <table>
                         <tr><td><strong>Camp</strong></td><td><strong>Location</strong></td><td><strong>Address</strong></td><td><strong>Active</strong></td><td><strong>Winter</strong></td><td><strong>Summer</strong></td><td><strong>Capacity</strong></td></tr>
