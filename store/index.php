@@ -43,10 +43,14 @@
                                 $current_category = $row[category];
                                 echo "<h3>".$current_category."</h3>";
                             }
+                            $source = "storeimages/".$row["image_file"];
                             ?>
                             <div class="item">
                                 <div class="store-img" id="<?=$row["item_id"]?>">
-                                    <img src="storeimages/".<?=$row["image_file"]?>/>
+                                    <img src="<?=$source?>"/>
+                                </div>
+                                <div class="item-name">
+                                    <?=$row["name"]?>
                                 </div>
                                 <div class="price">
                                     <h4>Price</h4>
