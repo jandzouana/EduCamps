@@ -35,8 +35,8 @@
                         if(!$connection){
                             die("Database connection failed: ".mysqli_connect_error());
                         }
-                        $items_query = mysqli_query("SELECT item_id, name, price, image_file, category FROM store ORDER BY category");
-                        
+                        $items_query = mysqli_query($connection, "SELECT item_id, name, price, image_file, category FROM store ORDER BY category");
+
                         $current_category = "";
                         while($row = mysqli_fetch_assoc($items_query)){
                             if($row["category"] != $current_category){
