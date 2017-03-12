@@ -117,7 +117,7 @@
 		$cap = CampCapacity($dbtable, "capacity", $connection, "camp_name", $_POST["location"]);
 		#calculating how many are registered at camp
 		$dbtable = 'registration';
-		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "camp_name", $_POST["location"]), $connection);
+		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
 		if($registered >= $cap){
 			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
 		}
