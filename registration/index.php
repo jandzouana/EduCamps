@@ -3,7 +3,7 @@
 
 	function QueryCamp($query, $connection){
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-		
+
 		#grabs multiple rows into an array
 		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
 			$rows[] = $row;
@@ -71,9 +71,9 @@
                         <label>Camp
                             <select name="location" required>
                                 <?php
-                                $camps_query = mysqli_query($connection, "SELECT camp_id, camp_name FROM camp");
+                                $camps_query = mysqli_query($connection, "SELECT camp_name FROM camp");
                                 while($camp = mysqli_fetch_assoc($camps_query)){
-                                    echo "<option value=".$camp['camp_id'].">".$camp['camp_name']."</option>";
+                                    echo "<option value=".$camp['camp_name'].">".$camp['camp_name']."</option>";
                                 }
                                 mysqli_close($connection);
                                 ?>

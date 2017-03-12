@@ -87,7 +87,7 @@
   min-width: 650px;
   max-width: 800px;
   height: auto;
-  margin-left: 100px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   p{
@@ -112,6 +112,7 @@
 height: auto;
 padding-bottom: 100px;
   div.stars {
+    margin-left: -50px;
 width: 270px;
 display: inline-block;
 }
@@ -124,7 +125,7 @@ display: inline-block;
   label.star {
     float: right;
     padding: 10px;
-    font-size: 36px;
+    font-size: 30px;
     color: #444;
     transition: all .2s;
   }
@@ -138,9 +139,12 @@ display: inline-block;
     text-shadow: 0 0 20px #952;
   }
   input.star-1:checked ~ label.star:before { color: #F62; }
-  label.star:hover { }
+  label.star:hover { transform: rotate(0deg) scale(1); }
   label.star:before {
     content: '\f006';
     font-family: FontAwesome;
+  }
+  .reviewer_info{
+    font-size: 15px;
   }
 }
