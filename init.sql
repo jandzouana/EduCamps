@@ -6,6 +6,7 @@ CREATE TABLE campers(
     grade int,
     pname varchar(255),
     email varchar(255),
+    special varchar(255),
     PRIMARY KEY (camper_id)
 );
 
