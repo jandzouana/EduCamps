@@ -75,6 +75,7 @@
                                 while($camp = mysqli_fetch_assoc($camps_query)){
 																		$camp_name = $camp['camp_name'];
 																		$camp_name2 = str_replace('"', '&quot;', $camp_name2);
+																		echo "<option value=".'"'.$camp['camp_name'].'"'.">".$camp['camp_name']."</option>";
                                 }
 																#$date = date_create($temp);
 																#date_format($date,"m/d/Y"
