@@ -59,11 +59,12 @@
                 </div>
                 <div id="gallery_images">
                     <?php
+										$camp_names = array(); #Jessica added this
                     $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
                     if (!$connection){
                         die("Database connection failed: " . mysqli_connect_error());
                     }
-                    
+
                     $camp_names_query = mysqli_query($connection, "SELECT camp_id, camp_name FROM camp");
                     while($row = mysqli_fetch_assoc($camp_names_query)){
                         $camp_names[$row['camp_id']] = $row['camp_name'];
@@ -72,7 +73,7 @@
                     while($row = mysqli_fetch_assoc($imgquery)){
                         $images[] = $row;
                     }
-                    
+
                     foreach($camp_names as $camp_id=>$camp){
                         $has_images = false;
                         foreach($images as $check_image){
@@ -89,7 +90,7 @@
                             }
                             echo "</div>";
                         }
-                        
+
                     }
                     mysqli_close($connection);
                     ?>
