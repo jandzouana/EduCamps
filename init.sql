@@ -4,6 +4,7 @@ CREATE TABLE campers(
     birthday date,
     school varchar(255),
     grade int,
+    phone varchar(255),
     pname varchar(255),
     email varchar(255),
     special varchar(255),
@@ -14,13 +15,14 @@ CREATE TABLE account(
     account_id int AUTO_INCREMENT,
     pemail varchar(255),
     password varchar(255),
+    cname varchar (255),
     PRIMARY KEY (account_id)
 );
 
 CREATE TABLE registration(
     registration_id int AUTO_INCREMENT,
     pemail varchar(255),
-    cname int,
+    cname varchar(255),
     duration int,
     section date,
     location varchar(255),
