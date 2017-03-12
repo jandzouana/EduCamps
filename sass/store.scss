@@ -12,12 +12,14 @@
 	flex-direction: row;
 	align-items: center;
 	height: 40px;
+    font-size: 30px; 
 }
 .item-name{
     display: flex;
 	flex-direction: row;
 	align-items: center;
 	height: 40px;
+    font-size: 30px; 
 }
 
 .email{
@@ -41,6 +43,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    font-size: 30px; 
 	input{
 		height: 30px;
 		width: 100%;
@@ -73,7 +76,7 @@
 	//font-family: 'Josefin Sans', sans-serif;
 
     min-width: 650px;
-		max-width: 800px;
+    max-width: 800px;
     height: auto;
     display: flex;
     flex-direction: column;

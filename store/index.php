@@ -50,12 +50,9 @@
                                     <img src="<?=$source?>"/>
                                 </div>
                                 <div class="item-name">
-                                    <?=$row["name"]?>
+                                    <p><?=$row["name"]?> $<?=$row["price"]?></p>
                                 </div>
-                                <div class="price">
-                                    <h4>Price</h4>
-                                    <p><?=$row["price"]?></p>
-                                </div>
+                                
                                 <div class="quantity">
                                     <p>Quantity</p>
                                     <input type="number" name="<?="item".$row["item_id"]?>" min="0" max="5" value="0"/>
