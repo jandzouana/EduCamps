@@ -73,8 +73,11 @@
                                 <?php
                                 $camps_query = mysqli_query($connection, "SELECT camp_name FROM camp where active='1'");
                                 while($camp = mysqli_fetch_assoc($camps_query)){
-                                    echo "<option value=".$camp['camp_name'].">".$camp['camp_name']."</option>";
+																		$camp_name = $camp['camp_name'];
+																		$camp_name2 = str_replace('"', '&quot;', $camp_name2);
                                 }
+																#$date = date_create($temp);
+																#date_format($date,"m/d/Y"
                                 ?>
                             </select></label>
                         <label>Camp Section:</label>
@@ -84,7 +87,8 @@
 															while($camp = mysqli_fetch_assoc($camps_query)){
 																	#echo "<option value=".$camp['section'].">".$camp['section']."</option>";
 																	$date = $camp['section'];
-																	echo "<option value='$date'>".	$date."</option>";
+																	$temp = date_create($date);
+																	echo "<option value='$date'>".	date_format($temp,"m/d/Y") ."</option>";
 
 															}
 															#echo date_format($date,"Y/m/d H:i:s");

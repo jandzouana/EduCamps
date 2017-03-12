@@ -114,11 +114,15 @@
 		//Checking camp capacity before registering
 		#caluclating camp's capacity
 		$dbtable = 'camp';
+		#	function CampCapacity($dbtable, $capacity_column_name, $connection, $camp_column_name, $camp_name){
 		$cap = CampCapacity($dbtable, "capacity", $connection, "camp_name", $_POST["location"]);
+
+
 		#calculating how many are registered at camp
 		$dbtable = 'registration';
 		$registered = QueryLocation(CreateQueryColumnCount($dbtable, "location", $_POST["location"]), $connection);
 		if($registered >= $cap){
+			echo "Camp is full";
 			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
 		}
 		//Checking if the data given already exists
