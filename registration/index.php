@@ -71,7 +71,7 @@
                         <label>Camp
                             <select name="location" required>
                                 <?php
-                                $camps_query = mysqli_query($connection, "SELECT camp_name FROM camp");
+                                $camps_query = mysqli_query($connection, "SELECT camp_name FROM camp where active='1'");
                                 while($camp = mysqli_fetch_assoc($camps_query)){
                                     echo "<option value=".$camp['camp_name'].">".$camp['camp_name']."</option>";
                                 }
