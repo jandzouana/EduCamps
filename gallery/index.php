@@ -59,7 +59,7 @@
                 </div>
                 <div id="gallery_images">
                     <?php
-                        $camp_names = array(); #Jessica added this
+                    $camp_names = array();
                     $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
                     if (!$connection){
                         die("Database connection failed: " . mysqli_connect_error());

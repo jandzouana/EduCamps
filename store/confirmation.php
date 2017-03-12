@@ -41,7 +41,9 @@
 			$message = "Email found.";
 			$applied = $discount;
 		}
-		$message = "Email not found.";
+		else{
+            $message = "Email not found.";
+        }
 		return $applied;
 	}
 ?>
@@ -154,35 +156,33 @@
                         <input type="number" name="phone" minlength="10" maxlength="10" required /></label>
                 </div>
                 <?php
-                #need to add more prices and items
-                #put prices and items to a separate php file so that we don't
-                #need to modify both store and confirmation page if need be?
-                
                 $val = array();
                 $order_bought = array();
                 $shipping = 5.00;
                 $msg = '';
                 $discount = ApplyDiscount(0.15, $connection, $msg);
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    for($i = 0; $i < sizeof($prices); $i++){
-                        $temp = 'val'. ($i+1);
-                        $val[$i] =  $_POST[$temp];
-                        if($val[$i]!=0) {
-                            $order_bought[$i] = 1;
-                        }
-                        else {
-                            $order_bought[$i] = 0;
-                        }
+                
+                $items_query = mysqli_query($connection, "SELECT ");
+                
+                for($i = 0; $i < sizeof($prices); $i++){
+                    $temp = 'val'. ($i+1);
+                    $val[$i] =  $_POST[$temp];
+                    if($val[$i]!=0) {
+                        $order_bought[$i] = 1;
                     }
-                    $subtotal = 0;
-                    for($i = 0; $i < sizeof($prices); $i++){
-                        $subtotal = $subtotal + $val[$i]*$prices[$i];
+                    else {
+                        $order_bought[$i] = 0;
                     }
-                    $discount_applied = $discount*$subtotal;
-                    $total = $subtotal - $discount_applied;
-                    $tax = 0.0975 * $total;
-                    $total = $total + $tax +$shipping;
                 }
+                $subtotal = 0;
+                for($i = 0; $i < sizeof($prices); $i++){
+                    $subtotal = $subtotal + $val[$i]*$prices[$i];
+                }
+                $discount_applied = $discount*$subtotal;
+                $total = $subtotal - $discount_applied;
+                $tax = 0.0975 * $total;
+                $total = $total + $tax +$shipping;
+                
                 ?>
                 <div class="order-confirm">
                     <h1>Order Confirmation </h1>
@@ -203,8 +203,7 @@
                                 echo "<p> $prices[$i] </p>";
                                 echo "<p> $val[$i] </p>";
                                 echo "</div>";
-                                echo  "</div>";
-
+                                echo "</div>";
                             }
                         }
                         ?>
