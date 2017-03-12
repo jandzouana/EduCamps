@@ -146,6 +146,9 @@
 			$dbinputs = array("pemail", "cname", "password");
 			Query(CreateInsertQueryString($dbtable, $dbinputs), $connection); 		#creating query
 		}
+		else{
+			header('Location: http://localhost:7080/jess/EduCamps/registration/error2.php'); #redirect to another page if already registered
+		}
 		#calculating Cost
 		$dbtable = 'registration'; #added this
 		$cost = CostCalc($dbtable, $_POST['pemail'], $connection);
