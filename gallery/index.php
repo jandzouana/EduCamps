@@ -68,7 +68,7 @@
                     while($row = mysqli_fetch_assoc($camp_names_query)){
                         $camp_names[$row['camp_id']] = $row['camp_name'];
                     }
-                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name, camp_id FROM gallery");
+                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name, camp_id FROM gallery ORDER BY upload_date DESC");
                     while($row = mysqli_fetch_assoc($imgquery)){
                         $images[] = $row;
                     }
