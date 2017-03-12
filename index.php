@@ -38,24 +38,25 @@
 	                    <tr>
 	                        <td> Requirements
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>Ages 6-14</li>
+                                    <li>Must have transportation</li>
+                                    <li>Everyone is welcome! </li>
                                 </ul>
+                                <a href="registration/" class="button">Register here</a>
                             </td>
 	                        <td> Activity Options
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>Robotics</li>
+                                    <li>Sports</li>
+                                    <li>Arts and Hobbies</li>
                                 </ul>
+                                <a href="about/" class="button">Learn More</a>
                             </td>
 	                        <td> Instructions
                                 <ul>
-                                    <li> </li>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>If you have an accomodation request, <a href="contact">contact us.</a></li>
                                 </ul>
+                                <a href="contact/" class="button">Contact Us</a>
                             </td>
                         </tr>
 	                </table>
