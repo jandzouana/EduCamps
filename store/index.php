@@ -145,11 +145,10 @@
                     -->
 	            </div>
             </div>
-            <div id=footer>
+						<div id=footer>
                 <div id="left-footer">
                     <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
+                    <a href="../contact">Contact Us</a>
                 </div>
                 <table id="right-footer">
                     <tr>

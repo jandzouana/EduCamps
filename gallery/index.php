@@ -96,24 +96,23 @@
                     ?>
                 </div>
             </div>
-            <div id="footer">
-                <div id="left-footer">
-                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                    <a href=webmaster.html>Webmaster</a>
-                    <a href=contact.html>Contact Us</a>
-                </div>
-                <table id="right-footer">
-                    <tr>
-                        <td>
-                            <a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
-                            <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
-                            <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
-                            <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
-                            <br/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+						<div id=footer>
+								<div id="left-footer">
+										<img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+										<a href="../contact">Contact Us</a>
+								</div>
+								<table id="right-footer">
+										<tr>
+												<td>
+														<a href="https://www.facebook.com"><img src=../icons/facebook.svg alt="facebook icon"/></a>
+														<a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
+														<a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
+														<a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+														<br/>
+												</td>
+										</tr>
+								</table>
+						</div>
         </div>
     </body>
 </html>

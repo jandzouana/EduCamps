@@ -126,7 +126,7 @@
 			header('Location: http://localhost:7080/jess/EduCamps/registration/error.php'); #redirect to another page
 		}
 		//Checking if the data given already exists
-		$dbtable = 'campers';
+		$dbtable = 'account';
 		$dbinputs = array("cname", "pemail");
 		$query = CreateSelectQueryString($dbtable, $dbinputs);
 		$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
@@ -265,16 +265,15 @@
                             <input type="number" name="postal" minlength="4" maxlength="5" required /></label>
                         <label>Phone number:
                             <input type="number" name="phone" minlength="10" maxlength="10" required /></label>
-                        <input type="submit" name="Submit">
+                        <input type="submit" name="Submit" class="button2">
                     </form>
                 </div>
             </div>
-            <div id="footer">
-            <div id="left-footer">
-                <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
-                <a href="webmaster.html">Webmaster</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
+						<div id=footer>
+                <div id="left-footer">
+                    <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
+                    <a href="../contact">Contact Us</a>
+                </div>
                 <table id="right-footer">
                     <tr>
                         <td>
@@ -282,6 +281,7 @@
                             <a href="https://www.twitter.com"><img src=../icons/twitter.svg alt="twitter icon"/></a>
                             <a href="https://www.instagram.com"><img src=../icons/instagram.svg alt="instagram icon"/></a>
                             <a href="https://www.snapchat.com"><img src=../icons/snapchat.svg alt="snapchat icon"/></a>
+                            <br/>
                         </td>
                     </tr>
                 </table>
