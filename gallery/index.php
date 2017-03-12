@@ -74,27 +74,23 @@
                     }
                     
                     foreach($camp_names as $camp_id=>$camp){
-                        echo "<h3>".$camp."</h3><div class='camp_images'>";
-                        foreach($images as $image){
-                            if($camp_id == $image['camp_id']){
-                                echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
-                                echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (".$image["upload_date"].")</p>";
+                        $has_images = false;
+                        foreach($images as $check_image){
+                            if($check_image['camp_id'] == $camp_id)
+                                $has_images = true;
+                        }
+                        if($has_images){
+                            echo "<h3>".$camp."</h3><div class='camp_images'>";
+                            foreach($images as $image){
+                                if($camp_id == $image['camp_id']){
+                                    echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
+                                    echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (".$image["upload_date"].")</p>";
+                                }
                             }
+                            echo "</div>";
                         }
-                        echo "</div>";
+                        
                     }
-                    
-                    /*
-                    $imgquery = mysqli_query($connection, "SELECT filename, caption, upload_date, name, camp_id FROM gallery");
-                    if ($imgquery){
-                        while($image = mysqli_fetch_assoc($imgquery)){
-                            echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
-                            echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (".$image["upload_date"].")</p>";
-                        }
-                    }else{
-                        echo "No images found.";
-                    }
-                    */
                     mysqli_close($connection);
                     ?>
                 </div>
