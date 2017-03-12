@@ -83,9 +83,10 @@
                         if($has_images){
                             echo "<h3>".$camp."</h3><div class='camp_images'>";
                             foreach($images as $image){
+                                $nice_date = date('n/j/Y', strtotime($image["upload_date"]));
                                 if($camp_id == $image['camp_id']){
                                     echo "<p><img src=\"images/".$image["filename"]."\" alt=".$image["caption"]."/><br/>";
-                                    echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (".$image["upload_date"].")</p>";
+                                    echo $image["caption"]." - ".$image['name']." at ".$camp_names[$image['camp_id']]." (uploaded ".$nice_date.")</p>";
                                 }
                             }
                             echo "</div>";
