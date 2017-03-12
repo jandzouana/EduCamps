@@ -78,7 +78,7 @@ CREATE TABLE gallery(
     PRIMARY KEY (image_id)
 );
 
-CREATE TABLE campers(
+CREATE TABLE sections(
     section_id int AUTO_INCREMENT,
     section date date,
     PRIMARY KEY (section_id)
