@@ -40,7 +40,7 @@
                         $current_category = "";
                         while($row = mysqli_fetch_assoc($items_query)){
                             if($row["category"] != $current_category){
-                                $current_category = $row[category];
+                                $current_category = $row["category"];
                                 echo "<h3>".$current_category."</h3>";
                             }
                             $source = "storeimages/".$row["image_file"];
