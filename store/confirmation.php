@@ -154,6 +154,8 @@
                         <input type="text" name="postal" maxlength="5" required /></label>
                     <label>Phone number:
                         <input type="text" name="phone" maxlength="10" required /></label>
+                    <label>Email:
+                        <input type="text" name="email" required /></label>
                 </div>
                 <?php
                 $prices = array();
