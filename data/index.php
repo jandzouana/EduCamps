@@ -70,14 +70,14 @@ $num_camps = count($camp_names);
                   <div id = "graphContainer">
                   </div>
                   <p id = "graphCaption">
-                    Nulla tincidunt nisl at laoreet consequat.Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
+                    Nulla tincidunt nisl at laoreet consequat. Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
               </div>
               <br/>
               <div class = "box">
                   <div id = "barContainer">
                   </div>
                   <p id = "barCaption">
-                    Nulla tincidunt nisl at laoreet consequat.Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
+                    Nulla tincidunt nisl at laoreet consequat. Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
               </div>
                 <br/>
 
