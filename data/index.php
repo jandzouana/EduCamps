@@ -5,6 +5,7 @@ $connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps"
 if (!$connection){
 die("Database connection failed: " . mysqli_connect_error());
 }
+//to get camp names for x axis
 $camps = array();
 $camp_names_query = mysqli_query($connection, "SELECT camp_id, camp_name FROM camp");
 while($row = mysqli_fetch_assoc($camp_names_query)){
@@ -17,28 +18,35 @@ foreach($camp_names as $name)
   $camps[] = $name;
 }
 $num_camps = $count;
+//end of getting camp names
+
+//to get camp registration numbers
+
+ $reg_nums = array();//parallel array whose indexes correspond to the camp names
+for($i = 0; $i < $num_camps; $i++) //initialize registration numbers to zero for each camp
+{
+  $reg_nums[$i] = 0;
+}
+
+$camp_numbers_query = mysqli_query($connection, "SELECT location FROM registration");
+
+while($row = mysqli_fetch_assoc($camp_numbers_query)){
+  for($i = 0; $i < $num_camps; $i++)
+  {
+
+    if($row['location'] == $camps[$i])
+    {
+      $reg_nums[$i] += 1;
+    }
+  }
+
+}
 
 mysqli_close($connection);
-/*$connection = mysqli_connect("localhost", "fourthreefour", "americo", "educamps");
-if(!$connection)
-{
-  echo "connection failed";
-}
-
-$namequery = mysqli_query($connection, "SELECT camp_name FROM camp");
-if(!$namequery)
-{
-  echo "query failed";
-}
-while($camp_name = mysqli_fetch_array($namequery))
-{
-  $camp_names[] = $camp_name;
-  echo "$camp_name";
-}*/
  ?>
  <script>
  window.onload = function () {
-
+   //graph of total enrollment in our camp over time
    var chart = new CanvasJS.Chart("graphContainer", {
     backgroundColor: "#faf7f5",
     title:{
@@ -70,7 +78,7 @@ while($camp_name = mysqli_fetch_array($namequery))
   ]
   });
   chart.render();
- 	//graph of total enrollment in our camp over time
+ 	//graph of distribution of total enrollment for each camp
  	var chart = new CanvasJS.Chart("barContainer", {
  		backgroundColor: "#faf7f5",
  		title:{
@@ -82,25 +90,18 @@ while($camp_name = mysqli_fetch_array($namequery))
  			// Change type to "doughnut", "line", "splineArea", etc.
  		});
  	chart.render();
-
-
- 	//graph of total enrollment in our camp over time
-
-
  }
  var num = "<?php echo $num_camps; ?>";
  var camps = <?php echo '["' . implode('", "', $camps) . '"]' ?>;
-
+ var reg_nums = <?php echo '["' . implode('", "', $reg_nums) . '"]' ?>;
  var limit = num;
 
-    var y = 0;
     var data = []; var dataSeries = { type: "doughnut" };
     var dataPoints = [];
     for (var i = 0; i < limit; i += 1) {
-      y += 10;
          dataPoints.push({
           label: camps[i],
-          y: y
+          y: reg_nums[i]
            });
         }
      dataSeries.dataPoints = dataPoints;

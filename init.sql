@@ -105,6 +105,26 @@ INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery2.jpg", "
 INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery3.jpg", "Third Sample Image", "Walter Liu",5);
 INSERT INTO gallery (filename, caption, name, camp_id) VALUES ("gallery4.jpg", "Fourth Sample Image", "Walter Liu",8);
 
+INSERT INTO registration (location) VALUES ("Apaches");
+INSERT INTO registration (location) VALUES ("Apaches");
+INSERT INTO registration (location) VALUES ("Eureka");
+INSERT INTO registration (location) VALUES ("Chesapeake");
+INSERT INTO registration (location) VALUES ("Santa Clara");
+INSERT INTO registration (location) VALUES ("Tahoe South");
+INSERT INTO registration (location) VALUES ("Boulder");
+INSERT INTO registration (location) VALUES ("Chesapeake");
+INSERT INTO registration (location) VALUES ("Grapefruit Resort");
+INSERT INTO registration (location) VALUES ("Grapefruit Resort");
+INSERT INTO registration (location) VALUES ("Grapefruit Resort 2");
+INSERT INTO registration (location) VALUES ("Sweet Bayou");
+INSERT INTO registration (location) VALUES ("Nestor Camp");
+INSERT INTO registration (location) VALUES ("Lewis and Clark");
+INSERT INTO registration (location) VALUES ("Lewis and Clark");
+INSERT INTO registration (location) VALUES ("Lewis and Clark");
+INSERT INTO registration (location) VALUES ("Robotics Village");
+INSERT INTO registration (location) VALUES ("Salt Camp");
+INSERT INTO registration (location) VALUES ("Federal Cmap");
+
 INSERT INTO forum (name, email, stars, content) VALUES("Sam", "stopp@gmail.com", 4, "The camp was great, the environment was great, but it was too short!");
 INSERT INTO forum (name, email, stars, content) VALUES("Juan", "juan@gmail.com", 5, "Best Camp Ever!");
 INSERT INTO forum (name, email, stars, content) VALUES("Jimmy", "jm@aol.com", 3, "I guess it was ok");
