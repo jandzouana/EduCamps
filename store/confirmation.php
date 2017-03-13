@@ -74,7 +74,7 @@
                     </tr>
                 </table>
             </div>
-            <form id="conf_main_content" class = "main_content" action="thanks.php">
+            <form id="conf_main_content" class = "main_content" action="thanks.php" method="post">
                 <div class="billing">
                     <h1>Billing Information </h1>
                     <label>Cardholder's Name:
@@ -182,7 +182,15 @@
                 $tax = 0.0975 * $total;
                 $total = $total + $tax +$shipping;
                 
+                $items_string = "";
+                foreach($items as $item){
+                    $items_string = $items_string.$item;
+                }
+                
                 ?>
+                
+                <input type="text" name="items" value="<?=$items_string?>" hidden="hidden"/>
+                
                 <div class="order-confirm">
                     <h1>Order Confirmation </h1>
                     <div class="cart-items">
@@ -201,19 +209,6 @@
                             echo "</div>";
                             echo "</div>";
                         }
-                        /*
-                        for($i = 0; $i < sizeof($prices); $i++){
-                            if($order_bought[$i]==1){
-                                echo "<div class=\"item_print\">";
-                                echo "<p> $items[$i] </p>";
-                                echo "<div>";
-                                echo "<p> $prices[$i] </p>";
-                                echo "<p> $val[$i] </p>";
-                                echo "</div>";
-                                echo "</div>";
-                            }
-                        }
-                        */
                         ?>
                     </div>
                     <div class="total">

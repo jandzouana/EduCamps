@@ -54,9 +54,9 @@ CREATE TABLE store(
 
 CREATE TABLE orders(
     order_id int AUTO_INCREMENT,
-    account varchar(255),
     address varchar(255),
     email varchar(255),
+    items varchar(255),
     PRIMARY KEY (order_id)
 );
 
