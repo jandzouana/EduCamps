@@ -80,7 +80,7 @@
                     <label>Cardholder's Name:
                         <input type="text" name="cardname" size="20" required /></label>
                     <label>Card Number:
-                        <input type="number" name="cnumber" minlength="5" maxlength="5" required /></label>
+                        <input type="text" name="cnumber" maxlength="16" required /></label>
                     <label>Card Type:
                     <select name="cardtype" required>
                         <option value="1">Visa</option>
@@ -89,9 +89,9 @@
                         <option value="4">Discover</option>
                     </select></label>
                     <label>Expiration Date(MMYY):
-                        <input type="text" name="expiration" minlength="4" maxlength="4" required /></label>
+                        <input type="text" name="expiration" maxlength="4" required /></label>
                     <label>CVV:
-                        <input type="text" name="cvv" minlength="3" maxlength="3" required /></label>
+                        <input type="text" name="cvv" maxlength="3" required /></label>
                     <label>Billing Address:
                         <input type="text" name="billing" size="20" required /></label>
                     <label>State
@@ -151,36 +151,30 @@
                     <label>City:
                         <input type="text" name="city" size="20" required /></label>
                     <label>Postal Code:
-                        <input type="number" name="postal" minlength="4" maxlength="5" required /></label>
+                        <input type="text" name="postal" maxlength="5" required /></label>
                     <label>Phone number:
-                        <input type="number" name="phone" minlength="10" maxlength="10" required /></label>
+                        <input type="text" name="phone" maxlength="10" required /></label>
                 </div>
                 <?php
-                $val = array();
-                $order_bought = array();
+                $prices = array();
+                $items = array();
                 $shipping = 5.00;
                 $msg = '';
                 $discount = ApplyDiscount(0.15, $connection, $msg);
+                $subtotal = 0;
                 
                 $items_query = mysqli_query($connection, "SELECT item_id, name, price FROM store");
                 while($row = mysqli_fetch_assoc($items_query)){
-                    
+                    $num_item = $_POST[$row["item_id"]];
+                    if($num_item){
+                        for($i = 0; $i < $num_item; $i++){
+                            $items[] = $row["name"];
+                            $prices[] = $row["price"];
+                            $subtotal += $row["price"];
+                        }
+                    }
                 }
                 
-                for($i = 0; $i < sizeof($prices); $i++){
-                    $temp = 'val'. ($i+1);
-                    $val[$i] =  $_POST[$temp];
-                    if($val[$i]!=0) {
-                        $order_bought[$i] = 1;
-                    }
-                    else {
-                        $order_bought[$i] = 0;
-                    }
-                }
-                $subtotal = 0;
-                for($i = 0; $i < sizeof($prices); $i++){
-                    $subtotal = $subtotal + $val[$i]*$prices[$i];
-                }
                 $discount_applied = $discount*$subtotal;
                 $total = $subtotal - $discount_applied;
                 $tax = 0.0975 * $total;
@@ -194,10 +188,18 @@
                             <p>Items</p>
                             <div>
                                 <p>Price</p>
-                                <p>Quantity</p>
                             </div>
                         </div>
                         <?php
+                        for($i = 0; $i < count($items); $i++){
+                            echo "<div class=\"item_print\">";
+                            echo "<p> $items[$i] </p>";
+                            echo "<div>";
+                            echo "<p> $prices[$i] </p>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                        /*
                         for($i = 0; $i < sizeof($prices); $i++){
                             if($order_bought[$i]==1){
                                 echo "<div class=\"item_print\">";
@@ -209,6 +211,7 @@
                                 echo "</div>";
                             }
                         }
+                        */
                         ?>
                     </div>
                     <div class="total">
