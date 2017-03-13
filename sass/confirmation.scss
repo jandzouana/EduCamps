@@ -53,6 +53,7 @@
 	text-align: left;
 	}
 }
+
 .billing, .order-confirm{
 	min-height: 600px;
 	width: 400px;
@@ -68,6 +69,10 @@
 			line-height: 20px;
 			margin-right: 4px;
 			font-size: 16px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 8px;
 	}
 	input{
 		width: 100%;
@@ -79,8 +84,4 @@
 		margin: auto;
 		margin-top: 30px;
 	}
-}
-
-.billing{
-	justify-content: flex-start;
 }
