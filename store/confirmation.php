@@ -226,8 +226,7 @@
                     <input type="submit" value="Confirm" class="button">
                 </div>
             </form>
-        </div>
-        <div id=footer>
+            <div id=footer>
             <div id="left-footer">
                 <img id="logo" src="../icons/logo.svg" alt="EduCamps logo" />
                 <a href="../contact">Contact Us</a>
@@ -244,5 +243,7 @@
                 </tr>
             </table>
         </div>
+        </div>
+        
     </body>
 </html>
