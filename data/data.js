@@ -2,8 +2,9 @@ window.onload = function () {
 
 	//graph of total enrollment in our camp over time
 	var chart = new CanvasJS.Chart("barContainer", {
+		backgroundColor: "#faf7f5",
 		title:{
-			text: "Camp Enrollment Per Camp",
+			text: "Enrollment Per Camp",
 			labelFontFamily: "Arial"
 		},
 		axisX:{
@@ -42,14 +43,16 @@ window.onload = function () {
 
 	//graph of total enrollment in our camp over time
 	var chart = new CanvasJS.Chart("graphContainer", {
+		backgroundColor: "#faf7f5",
 		title:{
-			text: "Camp Enrollment Over Time",
+			text: "Enrollment Over Time",
 			labelFontFamily: "Arial"
 		},
 		axisX:{
         labelFontSize: 15,
 				labelFontFamily: "Arial"
       },
+
 
 		data: [
 		{

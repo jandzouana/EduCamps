@@ -63,17 +63,21 @@ $num_camps = count($camp_names);
                     </tr>
                 </table>
             </div>
-
+            <
             <div id="data_main_content" class = "main_content">
-              <h1> Enrollment Data </h1>
-              <p id = "graphCaption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Etiam vestibulum feugiat arcu, eu finibus libero tristique pharetra. Mauris tincidunt facilisis fermentum.
-                In dapibus enim tortor. Nunc nec euismod metus, in ultrices urna. Nulla tincidunt nisl at laoreet consequat.
-                Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. Pellentesque habitant morbi. <p>
-              <div id = "graphContainer">
+              <h1> Data </h1>
+              <div class = "box">
+                  <div id = "graphContainer">
+                  </div>
+                  <p id = "graphCaption">
+                    Nulla tincidunt nisl at laoreet consequat.Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
               </div>
               <br/>
-              <div id = "barContainer">
+              <div class = "box">
+                  <div id = "barContainer">
+                  </div>
+                  <p id = "barCaption">
+                    Nulla tincidunt nisl at laoreet consequat.Aenean luctus felis nisl, dictum aliquam arcu volutpat sed. </p>
               </div>
                 <br/>
 
