@@ -73,7 +73,7 @@
 		if ($result) {
 				$errTyp = "success";
 				$errMSG = "Successfully registered \n";
-				echo $errMSG;#need to comment this out after testing
+				#echo $errMSG;#need to comment this out after testing
 				unset($cname);
 				unset($birthday);
 			 } else {

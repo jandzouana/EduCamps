@@ -53,7 +53,7 @@ function QueryLogin($query, $connection){
 	}
 	else{
 		//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-		echo $fmsg;
+		#echo $fmsg;
 		#redirect back to login if credentials don't match
 		header('Location: http://localhost:7080/jess/EduCamps/schedule/');
 	}
