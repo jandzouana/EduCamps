@@ -38,7 +38,7 @@
 	                    <tr>
 	                        <td> Requirements
                                 <ul>
-                                    <li>Ages 6-14</li>
+                                    <li>Ages 10-14</li>
                                     <li>Must have transportation</li>
                                     <li>Everyone is welcome! </li>
                                 </ul>
