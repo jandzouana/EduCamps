@@ -49,7 +49,7 @@ function QueryLogin($query, $connection){
 	//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
 	if ($count == 1){
 		#$_SESSION['cname'] = $username;
-		echo $smsg;
+		#echo $smsg;
 	}
 	else{
 		//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
