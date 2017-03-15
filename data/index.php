@@ -43,7 +43,7 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
 }
 
 //to get camp total registrations over time
-   $total_nums = array();//array is has 12 slots, each one corresponds to the month-1 so $total_nums[0] corresponds to the Jan numbers
+   $total_nums = array();//array is has 12 slots, each one corresponds to the month so $total_nums[0] is the total for january of that year
    $total_nums[0] = 0;
    for($i = 0; $i <=12; $i++)
    {
@@ -91,7 +91,6 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
  		},
 
  		data: data2,
- 			// Change type to "doughnut", "line", "splineArea", etc.
  		});
  	chart2.render();
  }
@@ -119,7 +118,7 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
      var tot_num = stot_num.map(Number);
      var data1 = []; var dataSeries = { type: "line" };
      var dataPoints = [];
-     for (var j = 0; j <=12; j+=1) {
+     for (var j = 1; j <=12; j+=1) {
           dataPoints.push(
         {x: new Date(2016, j, 1), y: tot_num[j]});
       }
