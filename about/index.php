@@ -75,6 +75,7 @@
                 <p>Basketball, kayaking, snowboarding, skiing, hiking, BB guns, dodgeball, sailing, soccer, and tennis</p>
                 <h4>Arts and Hobbies Activities:</h4>
                 <p>Painting, digital transformation, comedy and drama, digital transfusion, and cooking</p>
+                <p><a id="register_button" href=../activities/>Activity Samples</a></p>
                 <h4>Schedule</h4>
                     <table>
                         <tr><td><strong>Camp</strong></td><td><strong>Location</strong></td><td><strong>Address</strong></td><td><strong>Active</strong></td><td><strong>Winter</strong></td><td><strong>Summer</strong></td><td><strong>Capacity</strong></td></tr>
