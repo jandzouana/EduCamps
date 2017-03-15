@@ -72,6 +72,7 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
       $count++;
     }
      $total_nums[$i] = $count;
+     echo " "+$total_nums[$i]+" ";
    }
 
    /*
@@ -150,7 +151,6 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
   chart1.render();
  	//graph of distribution of total enrollment for each camp
  	var chart2 = new CanvasJS.Chart("barContainer", {
-    theme: "theme4",
  		backgroundColor: "#faf7f5",
  		title:{
  			text: "Enrollment Per Camp",
@@ -183,13 +183,7 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
       //to create data points for registration per month (line)
      var months = <?php echo '["' . implode('", "', $months) . '"]' ?>;
      var total_nums = <?php echo '["' . implode('", "', $total_nums) . '"]' ?>;
-     var tot_num =[];
-     tot_num[0] = 0;
-     for(var i = 1; i <=12; i+=1)
-     {
-       tot_num[i]= Math.floor(Math.random()*200+1);
-
-     }
+     var tot_num =[9, 6, 3, 3, 6, 6, 3, 3, 3, 3, 0, 12];
 
      var data1 = []; var dataSeries = { type: "line" };
      var dataPoints = [];
