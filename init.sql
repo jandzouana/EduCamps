@@ -123,7 +123,7 @@ INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-2-
 INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-3-1");
 INSERT INTO registration (location, section) VALUES ("Robotics Village", "2016-4-1");
 INSERT INTO registration (location, section) VALUES ("Salt Camp", "2016-5-1");
-INSERT INTO registration (location, section) VALUES ("Federal Cmap", "2016-6-1");
+INSERT INTO registration (location, section) VALUES ("Federal Camp", "2016-6-1");
 INSERT INTO registration (location, section) VALUES ("Apaches", "2016-12-1");
 INSERT INTO registration (location, section) VALUES ("Apaches", "2016-12-2");
 INSERT INTO registration (location, section) VALUES ("Eureka", "2016-12-1");
@@ -142,7 +142,7 @@ INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-2-
 INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-3-1");
 INSERT INTO registration (location, section) VALUES ("Robotics Village", "2016-4-1");
 INSERT INTO registration (location, section) VALUES ("Salt Camp", "2016-5-1");
-INSERT INTO registration (location, section) VALUES ("Federal Cmap", "2016-6-1");
+INSERT INTO registration (location, section) VALUES ("Federal Camp", "2016-6-1");
 INSERT INTO registration (location, section) VALUES ("Apaches", "2016-12-1");
 INSERT INTO registration (location, section) VALUES ("Apaches", "2016-12-2");
 INSERT INTO registration (location, section) VALUES ("Eureka", "2016-12-1");
