@@ -72,7 +72,6 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
       $count++;
     }
      $total_nums[$i] = $count;
-     echo " "+$total_nums[$i]+" ";
    }
 
    /*
@@ -183,11 +182,11 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
       //to create data points for registration per month (line)
      var months = <?php echo '["' . implode('", "', $months) . '"]' ?>;
      var total_nums = <?php echo '["' . implode('", "', $total_nums) . '"]' ?>;
-     var tot_num =[9, 6, 3, 3, 6, 6, 3, 3, 3, 3, 0, 12];
+     var tot_num =[0, 9, 6, 3, 3, 6, 6, 3, 3, 3, 3, 0, 12];
 
      var data1 = []; var dataSeries = { type: "line" };
      var dataPoints = [];
-     for (var j = 1; j <=12; j+=1) {
+     for (var j = 0; j <=12; j+=1) {
           dataPoints.push(
         {x: new Date(2016, j, 1), y: tot_num[j]});
       }
