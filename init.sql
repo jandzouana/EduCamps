@@ -161,7 +161,8 @@ INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-2-
 INSERT INTO registration (location, section) VALUES ("Little Derby", "2016-3-1");
 INSERT INTO registration (location, section) VALUES ("Robotics Village", "2016-4-1");
 INSERT INTO registration (location, section) VALUES ("Salt Camp", "2016-5-1");
-INSERT INTO registration (location, section) VALUES ("Federal Cmap", "2016-6-1");
+INSERT INTO registration (location, section) VALUES ("Federal Camp", "2016-6-1");
+INSERT INTO registration (location, section) VALUES ("Federal Camp", "2016-12-1");
 
 INSERT INTO forum (name, email, stars, content) VALUES("Sam", "stopp@gmail.com", 4, "The camp was great, the environment was great, but it was too short!");
 INSERT INTO forum (name, email, stars, content) VALUES("Juan", "juan@gmail.com", 5, "Best Camp Ever!");
