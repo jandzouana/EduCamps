@@ -84,6 +84,7 @@ while($row = mysqli_fetch_assoc($camp_numbers_query)){
   chart1.render();
  	//graph of distribution of total enrollment for each camp
  	var chart2 = new CanvasJS.Chart("barContainer", {
+    theme: "theme4",
  		backgroundColor: "#faf7f5",
  		title:{
  			text: "Enrollment Per Camp",
