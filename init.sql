@@ -158,7 +158,7 @@ INSERT INTO registration (location, section) VALUES ("Sweet Bayou", "2016-9-1");
 INSERT INTO registration (location, section) VALUES ("Nestor Camp", "2016-10-1");
 INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-1-1");
 INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-2-1");
-INSERT INTO registration (location, section) VALUES ("Lewis and Clark", "2016-3-1");
+INSERT INTO registration (location, section) VALUES ("Little Derby", "2016-3-1");
 INSERT INTO registration (location, section) VALUES ("Robotics Village", "2016-4-1");
 INSERT INTO registration (location, section) VALUES ("Salt Camp", "2016-5-1");
 INSERT INTO registration (location, section) VALUES ("Federal Cmap", "2016-6-1");
